@@ -11,9 +11,14 @@
 #include "Basic.h"
 
 
-
 int main(int argc, const char * argv[]) {
-    basicSelector(5);
+    //basicSelector(1);
+    //basicSelector(2);
+    //basicSelector(3);
+    //basicSelector(4);
+    //basicSelector(5);
+    //basicSelector(6);
+    basicSelector(7);
     return 0;
 }
 

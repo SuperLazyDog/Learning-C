@@ -9,6 +9,12 @@
 #include "Basic.h"
 
 //---------------------------------------------------------------------------
+//                               本地函数声明
+//---------------------------------------------------------------------------
+void recursive(int a);
+void pointArguments(int *a, int *b);
+
+//---------------------------------------------------------------------------
 //                               选择器
 //---------------------------------------------------------------------------
 void basicSelector(int a) {
@@ -30,14 +36,25 @@ void basicSelector(int a) {
             printf("input your char: ");
             charTemp = getchar();
             printf("your char is %c\n", charTemp);
+            break;
         case 2:
             scientificNotation();
+            break;
         case 3:
             arrayTest();
+            break;
         case 4:
             stringTest();
+            break;
         case 5:
             pointTest();
+            break;
+        case 6:
+            funcTest();
+            break;
+        case 7:
+            IOTest();
+            break;
         default:
             break;
     }
@@ -174,6 +191,7 @@ void stringTest() {
 //---------------------------------------------------------------------------
 //                                   指针
 void pointTest() {
+    int i;
     //---------------------------------------------
     //               测试声明与使用
     //---------------------------------------------
@@ -184,13 +202,81 @@ void pointTest() {
     b = 1;
     a = &b;
     printf("*a = %d\n", *a);
-    printf("adress of a: %d\n", a);
+    printf("adress of a: %p\n", a);
     
     //---------------------------------------------
-    //               测试声明与使用
+    //                   测试
     //---------------------------------------------
     puts("//---------------------------------------------");
-    puts("//               测试声明与使用");
+    puts("//                   测试");
     puts("//---------------------------------------------");
+    int testA[128], testB[128];
+    for(i = 0; i < sizeof(testB)/sizeof(int); i++) {
+        testB[i] = i;
+    }
+    *testA = *testB;
+    for(i = 0; i < sizeof(testA)/sizeof(int); i++) { //给testB赋值
+        printf("testA[%d] = %d   ", i, testA[i]);
+        printf("testB[%d] = %d\n", i, testB[i]);
+    }//说明不可以直接把数组复制
+    int *p;
+    p = testB; //p指向testB的开头
+    i = 0;
+    while (i < sizeof(testB)/sizeof(int)) {//指针遍历数组
+        printf("testB[%d] = %d\n", i, *(p++));
+        //p++;
+        i++;
+    }
+}
+
+//---------------------------------------------------------------------------
+//                                 第七章  6
+//---------------------------------------------------------------------------
+//                                   函数
+void funcTest() {
+    //递归
+    recursive(0);
+    int a = 10, b = 5;
+    pointArguments(&a, &b);
+}
+
+void recursive(int a) {
+    if(a < 20) {
+        printf("a = %d\n", a);
+        recursive(a+1);
+    }else {
+        printf("a == 20 : %s\n", a==20 ? "true":"false");
+    }
+}
+
+void pointArguments(int *a, int *b) {
+    int temp = *b;
+    printf("a = %2d\tb = %2d\n", *a, *b);
+    *b = *a;
+    *a = temp;
+    printf("a = %2d\tb = %2d\n", *a, *b);
+}
+
+//---------------------------------------------------------------------------
+//                                 第八章  7
+//---------------------------------------------------------------------------
+//                                输入输出 I/O
+void IOTest() {
+    puts("//---------------------------------------------");
+    puts("//                 gets测试");
+    puts("//---------------------------------------------");
+    /*printf("EOF = %d\n", EOF);
+    puts("input your str");
+    char *temp, temp1[128];
+    temp = gets(temp1);
+    printf("your str \"%s\"\n",temp);
+    printf("your str \"%s\"\n",temp1);*/
+    puts("//---------------------------------------------");
+    puts("//                 scanf测试");
+    puts("//---------------------------------------------");
+    printf("input you num as 123.123: ");
+    int a,b;//[a-ZA-Z0-9]
+    scanf("%d %*f %d", &a, &b);
+    printf("a: %d   b: %d\n", a, b);
     
 }
