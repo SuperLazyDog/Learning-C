@@ -14,6 +14,8 @@
 void recursive(int a);
 void pointArguments(int *a, int *b);
 
+//第十二章 动态分配内存
+//bool mallocPro(void *p, long unsigned size);
 //---------------------------------------------------------------------------
 //                               选择器
 //---------------------------------------------------------------------------
@@ -54,6 +56,13 @@ void basicSelector(int a) {
             break;
         case 7:
             IOTest();
+            break;
+        case 8:
+            structTest();
+            unionTest();
+            break;
+        case 10:
+            highTopic();
             break;
         default:
             break;
@@ -280,3 +289,58 @@ void IOTest() {
     printf("a: %d   b: %d\n", a, b);
     
 }
+
+//# TODO: 第九章 文件的输入输出暂时省略 440DF976-D4A2-4BFB-9AC8-82EC722C6959
+
+//---------------------------------------------------------------------------
+//                                 第十章  8
+//---------------------------------------------------------------------------
+//                               结构体和共用体
+struct test {
+    int a;
+    int b;
+};
+typedef struct test Test;
+bool structTest() {
+    /*Test test[2] = {
+        {.a = 1, .b = 2},
+        {.a = 3, .b = 4}
+    };*/
+    Test test1 = {
+        .a = 1,
+        .b = 2
+    }, *test2;
+    test2 = &test1;
+    if (test1.a == test2->a) {
+        printf("test1.a = test2.a? : %s\n", BOOL_STR(test1.a == test2->a));
+        return true;
+    }
+    return false;
+}
+
+void unionTest() {
+}
+//# TODO: 第十章后半部分(p307~)及第十一章十二章部分省略 C2237A39-AD6A-4AF4-8CEC-0D284B549543
+//---------------------------------------------------------------------------
+//                                 第十二章  10
+//---------------------------------------------------------------------------
+//                             暂时只看动态分配内存
+void highTopic() {
+    int i, *j = NULL;
+    for(i = 0; i < 100; i++) {
+        if(mallocPro(j, sizeof(int)*4)) {
+            printf("freed\n");
+            free(j);
+        }
+    }
+}
+
+/*bool mallocPro(void *p, long unsigned size) {
+    p = malloc(size);
+    if(!p) {
+        printf("false\n");
+        return false;
+    }
+    printf("true\n");
+    return true;
+}*/
