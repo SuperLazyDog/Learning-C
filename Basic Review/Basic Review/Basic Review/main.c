@@ -7,12 +7,16 @@
 //
 
 #include <stdio.h>
-#include "test.h"
-#include "Basic.h"
-#include "Bool.h"
-#include "MemorySet.h"
+#include "test.h"//单纯的测试
+#include "Basic.h"//C语言基本复习
+#include "Bool.h"//创建bool
+#include "MemorySet.h"//安全的动态内存
+#include "AlgorithmSelector.h"//算法
 
 int main(int argc, const char * argv[]) {
+    //---------------------------------------------------------------------------
+    //                               C语言基本复习
+    //---------------------------------------------------------------------------
     //basicSelector(1);
     //basicSelector(2);
     //basicSelector(3);
@@ -22,7 +26,11 @@ int main(int argc, const char * argv[]) {
     //basicSelector(7);
     //basicSelector(8);
     
-    basicSelector(10);
+    //basicSelector(10);
+    //---------------------------------------------------------------------------
+    //                                算法
+    //---------------------------------------------------------------------------
+    algorithmSelector(search);
     return 0;
 }
 

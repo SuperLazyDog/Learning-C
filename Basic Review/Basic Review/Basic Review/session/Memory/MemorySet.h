@@ -14,6 +14,6 @@
 #include "Bool.h"
 
 
-bool mallocPro(void *p, long unsigned size);
-
+void *mallocPro(void *p, long unsigned size);
+void *callocPro(void *p, long unsigned n, long unsigned size);
 #endif /* MemorySet_h */

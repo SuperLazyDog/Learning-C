@@ -65,6 +65,7 @@ void basicSelector(int a) {
             highTopic();
             break;
         default:
+             puts("nothing matches requirement");
             break;
     }
     
@@ -327,11 +328,17 @@ void unionTest() {
 //                             暂时只看动态分配内存
 void highTopic() {
     int i, *j = NULL;
+    puts("------------");
     for(i = 0; i < 100; i++) {
         if(mallocPro(j, sizeof(int)*4)) {
-            printf("freed\n");
+            printf("mallocPro freed\n");
             free(j);
         }
+        if(callocPro(j, 2, sizeof(int)*4)) {
+            printf("callocPro freed\n");
+            free(j);
+        }
+        puts("------------");
     }
 }
 
