@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		49791D691EF4485A00355A29 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 49791D681EF4485A00355A29 /* main.c */; };
 		49791D791EF44CDF00355A29 /* test.c in Sources */ = {isa = PBXBuildFile; fileRef = 49791D771EF44CDF00355A29 /* test.c */; };
+		49CA0F2C1EF5250F006F0A71 /* Basic.c in Sources */ = {isa = PBXBuildFile; fileRef = 49CA0F2A1EF5250F006F0A71 /* Basic.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,8 @@
 		49791D681EF4485A00355A29 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		49791D771EF44CDF00355A29 /* test.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = test.c; sourceTree = "<group>"; };
 		49791D781EF44CDF00355A29 /* test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = test.h; sourceTree = "<group>"; };
+		49CA0F2A1EF5250F006F0A71 /* Basic.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Basic.c; sourceTree = "<group>"; };
+		49CA0F2B1EF5250F006F0A71 /* Basic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Basic.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +64,7 @@
 		49791D671EF4485A00355A29 /* Basic Review */ = {
 			isa = PBXGroup;
 			children = (
+				49CA0F291EF524F4006F0A71 /* session */,
 				49791D681EF4485A00355A29 /* main.c */,
 				49791D771EF44CDF00355A29 /* test.c */,
 				49791D781EF44CDF00355A29 /* test.h */,
@@ -73,6 +77,15 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		49CA0F291EF524F4006F0A71 /* session */ = {
+			isa = PBXGroup;
+			children = (
+				49CA0F2A1EF5250F006F0A71 /* Basic.c */,
+				49CA0F2B1EF5250F006F0A71 /* Basic.h */,
+			);
+			path = session;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -133,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49CA0F2C1EF5250F006F0A71 /* Basic.c in Sources */,
 				49791D691EF4485A00355A29 /* main.c in Sources */,
 				49791D791EF44CDF00355A29 /* test.c in Sources */,
 			);

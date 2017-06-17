@@ -7,15 +7,14 @@
 //
 
 #include <stdio.h>
-
 #include "test.h"
-//#define INCLUDE_TEST_H
+#include "Basic.h"
+
+
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    printf("Hello, World!\n");
-#ifdef INCLUDE_TEST_H
-    printA(a);
-#endif
+    basicSelector(4);
     return 0;
 }
+
+

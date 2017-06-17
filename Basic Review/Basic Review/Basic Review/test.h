@@ -11,7 +11,6 @@
 
 #include <stdio.h>
 
-#endif /* test_h */
-
 extern int a;
 void printA(int num);
+#endif /* test_h */
