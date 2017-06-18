@@ -8,6 +8,7 @@
 
 #include "Tree.h"
 #define BINTREE_COUNT 1
+
 //---------------------------------------------------------------------------
 //                               本地函数声明
 //---------------------------------------------------------------------------
@@ -88,7 +89,7 @@ void initializeBin(BinNode *p) {
 //-------------------------------------------------------
 BinNode *createBinNode(void) {//本地函数
     BinNode *binTree = NULL;
-    if((binTree = mallocPro(binTree, sizeof(BinNode)))) {
+    if((binTree = mallocPro(binTree, sizeof(BinNode), GETSTR_MEMSET))) {
         return binTree;
     }
     puts("wrong, can't create Node");
@@ -168,7 +169,7 @@ BinNode *insertNode(BinNode *p, const BinType *data, int compareBinTree(const Bi
 int deleteBinNode(BinNode **root, const BinType *data, int compareBinTree(const BinType *key, const BinType *val)) {
     BinNode *next, *temp;
     BinNode **left;//接上的节点
-    BinNode **p = root;//**root ---> * root[]
+    BinNode **p = root;//**root ---> *root[]
     
     while (true) {//寻找目标
         int outTemp;

@@ -9,22 +9,36 @@
 #include "MemorySet.h"
 
 
-void *mallocPro(void *p, long unsigned size) {
+void *mallocPro(void *p, long unsigned size, bool getStr) {
     p = malloc(size);
-    if(!p) {
-        printf("false\n");
-        return NULL;
+    if(getStr) {
+        if(!p) {
+            printf("malloc failed\n");
+            return NULL;
+        }
+        printf("malloc successfully\n");
+        return p;
+    }else {
+        if(!p) {
+            return NULL;
+        }
+        return p;
     }
-    printf("true\n");
-    return p;
 }
 
-void *callocPro(void *p, long unsigned n, long unsigned size) {
+void *callocPro(void *p, long unsigned n, long unsigned size, bool getStr) {
     p = calloc(n, size);
-    if(!p) {
-        printf("false\n");
-        return NULL;
+    if(getStr) {
+        if(!p) {
+            printf("calloc failed\n");
+            return NULL;
+        }
+        printf("calloc successfully\n");
+        return p;
+    }else {
+        if(!p) {
+            return NULL;
+        }
+        return p;
     }
-    printf("true\n");
-    return p;
 }

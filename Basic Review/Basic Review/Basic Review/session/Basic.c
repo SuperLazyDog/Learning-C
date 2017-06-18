@@ -7,7 +7,7 @@
 //
 
 #include "Basic.h"
-
+#define GETSTR_MEMSET false
 //---------------------------------------------------------------------------
 //                               本地函数声明
 //---------------------------------------------------------------------------
@@ -331,11 +331,11 @@ void highTopic() {
     int i, *j = NULL;
     puts("------------");
     for(i = 0; i < 100; i++) {
-        if(mallocPro(j, sizeof(int)*4)) {
+        if(mallocPro(j, sizeof(int)*4, GETSTR_MEMSET)) {
             printf("mallocPro freed\n");
             free(j);
         }
-        if(callocPro(j, 2, sizeof(int)*4)) {
+        if(callocPro(j, 2, sizeof(int)*4, GETSTR_MEMSET)) {
             printf("callocPro freed\n");
             free(j);
         }

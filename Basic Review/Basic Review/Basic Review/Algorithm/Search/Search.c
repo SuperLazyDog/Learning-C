@@ -45,7 +45,7 @@ void searchTest(){
     sentinelSearch(targetSearch, TESTCOUNT, 624917313);
     puts("//---------------------------------------------");
     puts("//                二分法检索");
-    puts("//---------------------------------------------");
+    puts("//----------- ----------------------------------");
     setTarget(true, TESTCOUNT);
     binarySearch(targetSearch, TESTCOUNT, 781);
 }
@@ -55,7 +55,7 @@ void searchTest(){
 //-------------------------------------------------------
 bool setTarget(bool isOrderd, int num) {
     int i;
-    targetSearch = (int *)mallocPro(targetSearch, num*sizeof(int));
+    targetSearch = (int *)mallocPro(targetSearch, num*sizeof(int), GETSTR_MEMSET);
     if(targetSearch) {
         //targetSearch = (int *)targetSearch;
         if(!isOrderd) {//无序
@@ -144,7 +144,7 @@ bool binarySearch(const int p[], const int num, const int key) {
     printf("lb = %d   rb = %d\n", lb, rb);
     return false;
 }
-//# TODO: 哈希表的检索 p102~137
+//# TODO: 哈希表的检索 p102~137   6E232BC8-AEC4-4264-91C7-95253570F2CB
 //---------------------------------------------------------------------------
 //                                  笔记
 //---------------------------------------------------------------------------

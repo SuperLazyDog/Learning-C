@@ -13,11 +13,15 @@
 #include "Search.h"
 #include "List.h"
 #include "Tree.h"
+#include "SampleDataStruct.h"
+#include "Hash.h"
 
 enum algorithm {//选择器的列举型
     search,
     list,
     tree,
+    hash,
+    sampleDataStruct,
     other
 };
 

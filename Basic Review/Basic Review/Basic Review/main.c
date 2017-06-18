@@ -40,14 +40,10 @@ int main(int argc, const char * argv[]) {
     //---------------------------------------------------------------------------
     //algorithmSelector(search);
     //algorithmSelector(list);
-    algorithmSelector(tree);
-    /*List list;
-    initialize(&list);
-    int a[2] = {123, 321};
-    insertInHead(&list, &a[0]);
-    insertInHead(&list, &a[1]);
-    showCurrent(&list, printABC, true);
-    showAll(&list, printABC);*/
+    //algorithmSelector(tree);
+    algorithmSelector(hash);
+    algorithmSelector(sampleDataStruct);
+
     
     
     return 0;
