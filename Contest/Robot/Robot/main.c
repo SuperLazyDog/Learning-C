@@ -1,13 +1,209 @@
 //
-//  Tree.c
-//  Basic Review
+//  main.c
+//  Robot
 //
 //  Created by 徐伟达 on 2017/6/18.
 //  Copyright © 2017年 徐伟达. All rights reserved.
 //
 
-#include "Tree.h"
-#define BINTREE_COUNT 1
+#include <stdio.h>
+#include <stdlib.h>
+
+//---------------------------------------------------------------------------
+//                              比赛专用定义
+//---------------------------------------------------------------------------
+//-------------------------------------------------------
+//                       类型定义
+//-------------------------------------------------------
+typedef struct {
+    int numOfRobot;
+    int numOfWorkDown;
+    int time;
+    int internal;
+    int type;
+} BinType; //处理的数据类型
+
+typedef enum {
+    work,
+    creatRobot,
+    rest
+} WorkType;
+
+typedef struct __BinNode { //二叉树
+    BinType data;
+    struct __BinNode *left;
+    struct __BinNode *right;
+} BinNode;
+
+typedef enum {//比较结果
+    bigger = 1,
+    smaller = -1,
+    equal = 0,
+} Compare;
+
+typedef enum { preOrder, inOrder, postOrder } Order; //遍历的顺序
+
+int compareBinTree(const BinType *key, const BinType *val) {
+    //工作往右，造机器人往左
+    if(key->type == work) {
+        return bigger;
+    }else if(key->type == creatRobot) {
+        return smaller;
+    }else {
+        return equal;
+    }
+}
+//测试专用打印函数
+void printBin(const BinType *data) {//带换行, 要自己定义
+    if(data) {
+        printf("time: %d\n", data->time);
+    }
+}
+
+//---------------------------------------------------------------------------
+//                               bool
+//---------------------------------------------------------------------------
+typedef enum { false, true } bool;
+#define BOOL_STR(b) ((b) ? "true":"false")
+
+//---------------------------------------------------------------------------
+//                               memset
+//---------------------------------------------------------------------------
+void *mallocPro(void *p, long unsigned size);
+void *callocPro(void *p, long unsigned n, long unsigned size);
+
+//---------------------------------------------------------------------------
+//                                  树
+//---------------------------------------------------------------------------
+
+//-------------------------------------------------------
+//                     管理测试的函数
+//-------------------------------------------------------
+void treeTest();
+
+//-------------------------------------------------------
+//                        初始化
+//-------------------------------------------------------
+void initializeBin(BinNode *p);
+
+//-------------------------------------------------------
+//                        检索
+//-------------------------------------------------------
+BinNode *searchBinTree(BinNode *p, const BinType *data, int compare(const BinType *key, const BinType *val));
+
+//-------------------------------------------------------
+//                       插入节点
+//-------------------------------------------------------
+BinNode *insertNode(BinNode *p, const BinType *data, int compare(const BinType *key, const BinType *val));
+
+//-------------------------------------------------------
+//                       删除节点
+//-------------------------------------------------------
+int deleteBinNode(BinNode **root, const BinType *data, int compare(const BinType *key, const BinType *val));
+
+//-------------------------------------------------------
+//                        求深度
+//-------------------------------------------------------
+int getTreeHeight(BinNode *p);
+
+//-------------------------------------------------------
+//                        统计个数
+//-------------------------------------------------------
+int getTreeCount(BinNode *p);
+
+//-------------------------------------------------------
+//                      表示全部节点
+//-------------------------------------------------------
+bool showAllBinNodePreOrder(const BinNode *p, void printBin(const BinType *data));//前序
+bool showAllBinNodeInOrder(const BinNode *p, void printBin(const BinType *data));//中序
+bool showAllBinNodePostOrder(const BinNode *p, void printBin(const BinType *data));//后序
+
+//-------------------------------------------------------
+//                      删除全部节点
+//-------------------------------------------------------
+bool clearAllBinNode(BinNode *p);
+
+
+
+//---------------------------------------------------------------------------
+//                                 main
+//---------------------------------------------------------------------------
+int workTest, costOfRobotTest;
+
+BinNode *conductMission(BinNode *p) {
+    //默认都gotoWork
+    if(p->data.time < workTest) {
+        //gotoWork
+        BinNode gotoWork = *p;
+        gotoWork.data.type = work;
+        gotoWork.data.numOfWorkDown += gotoWork.data.internal;
+        gotoWork.data.time += 1;
+        p = insertNode(p, &gotoWork.data, compareBinTree);
+        conductMission(&gotoWork);
+        
+        
+        //gotoCreatRobot
+        BinNode gotoCreatRobot = *p;
+        gotoCreatRobot.data.numOfRobot++;
+        gotoCreatRobot.data.type = creatRobot;
+        gotoCreatRobot.data.internal += 1;
+        gotoCreatRobot.data.time += costOfRobotTest;
+        p = insertNode(p, &gotoCreatRobot.data, compareBinTree);
+        conductMission(&gotoCreatRobot);
+        
+    }
+    return p;
+    
+}
+int main(int argc, const char * argv[]) {
+    
+    int i;
+    BinNode *root = NULL;
+    BinType rootData;
+    rootData.internal = 1;
+    rootData.numOfRobot = 1;
+    rootData.numOfWorkDown = 0;
+    rootData.time = 0;
+    rootData.type = rest;
+    root = insertNode(root, &rootData, compareBinTree);
+    /*while(scanf("%d%d", &workTest, &costOfRobotTest) != EOF) {
+        printf("work: %d costOfRobot: %d\n", workTest,  costOfRobotTest);
+    }*/
+    scanf("%d%d", &workTest, &costOfRobotTest);
+    printf("work: %d costOfRobot: %d\n", workTest,  costOfRobotTest);
+    conductMission(root);
+    printf("height: %d, count: %d\n", getTreeHeight(root), getTreeCount(root));
+    showAllBinNodeInOrder(root, printBin);
+    return 0;
+}
+
+//---------------------------------------------------------------------------
+//                              memset
+//---------------------------------------------------------------------------
+//-------------------------------------------------------
+void *mallocPro(void *p, long unsigned size) {
+    p = malloc(size);
+    if(!p) {
+        //printf("false\n");
+        return NULL;
+    }
+    //printf("true\n");
+    return p;
+}
+
+void *callocPro(void *p, long unsigned n, long unsigned size) {
+    p = calloc(n, size);
+    if(!p) {
+        printf("false\n");
+        return NULL;
+    }
+    printf("true\n");
+    return p;
+}
+//---------------------------------------------------------------------------
+//                              tree
+//---------------------------------------------------------------------------
+#define BINTREE_COUNT 10
 //---------------------------------------------------------------------------
 //                               本地函数声明
 //---------------------------------------------------------------------------
@@ -26,35 +222,13 @@ void printBin(const BinType *data);//带换行, 要自己定义
 //-------------------------------------------------------
 //                     管理测试的函数
 //-------------------------------------------------------
-//测试专用比较函数
-int compareBinTree(const BinType *key, const BinType *val) {
-    if(*key > *val) {
-        return bigger;
-    }else if(*key < *val) {
-        return smaller;
-    }else {
-        return equal;
-    }
-}
-//测试专用打印函数
-void printBin(const BinType *data) {//带换行, 要自己定义
-    if(data) {
-        printf("%d\n", *data);
-    }
-}
 
-void treeTest() {//注: 根节点要自己创建
+/*void treeTest() {//注: 根节点要自己创建
     int i;
     int tst = 2007237709;
     int *array = (int *)malloc(sizeof(int)*BINTREE_COUNT);
     //int array[BINTREE_COUNT];
     BinNode *root = NULL;//(BinNode *)malloc(sizeof(BinNode));
-    
-    /*if(!root || !array) {
-        //puts("生成根节点失败");
-        return;
-    }*/
-    
     //生成
     for(i = 0; i < BINTREE_COUNT; i++) {
         array[i] = rand();
@@ -73,16 +247,13 @@ void treeTest() {//注: 根节点要自己创建
     
     printf("count: %d\n", getTreeCount(root));
     printf("height: %d\n", getTreeHeight(root));
-}
+}*/
 
 //-------------------------------------------------------
 //                        初始化
 //-------------------------------------------------------
-void initializeBin(BinNode *p) {
-    p->data = 0;
-    p->left = NULL;
-    p->right = NULL;
-}
+//void initializeBin(BinNode *p)
+//# TODO: 指针里的结构体怎么初始化
 //-------------------------------------------------------
 //                     生成节点
 //-------------------------------------------------------
@@ -154,17 +325,17 @@ BinNode *insertNode(BinNode *p, const BinType *data, int compareBinTree(const Bi
 //# TODO: 理解二叉树节点删除的原理   EC2912DE-2120-4FAB-ABD8-1EC873CFE2C7
 //# TODO: 递归   0096FF87-E0E6-4B0F-8C74-B8875832B4C0
 /*-------------------------------------------------------
-                           笔记
+ 笔记
  ①没有子节点: 直接删除
  ②有一个子节点: 左对左，右対右
  ③有两个子节点: 只看左节点的子孙 ---> 搜索最大值(越往右越大) ---> 把这个移到删除处
  
  删除含有目标数据的节点
- int deleteBinNode(BinNode **root, const BinType *data, int compareBinTree(const BinType *key, const BinType *val)) 
+ int deleteBinNode(BinNode **root, const BinType *data, int compareBinTree(const BinType *key, const BinType *val))
  BinNode **root  根节点
  BinType *data   目标数据
  int compareBinTree(const BinType *key, const BinType *val)  比较函数
--------------------------------------------------------*/
+ -------------------------------------------------------*/
 int deleteBinNode(BinNode **root, const BinType *data, int compareBinTree(const BinType *key, const BinType *val)) {
     BinNode *next, *temp;
     BinNode **left;//接上的节点
@@ -272,4 +443,3 @@ bool clearAllBinNode(BinNode *p) {
     }
     return true;
 }
-

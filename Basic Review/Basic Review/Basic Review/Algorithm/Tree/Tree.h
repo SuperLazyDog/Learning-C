@@ -28,11 +28,13 @@ typedef struct __BinNode { //二叉树
     struct __BinNode *right;
 } BinNode;
 
-typedef enum {
-    bigger,
-    smaller,
-    equal,
+typedef enum {//比较结果
+    bigger = 1,
+    smaller = -1,
+    equal = 0,
 } Compare;
+
+typedef enum { preOrder, inOrder, postOrder } Order; //遍历的顺序
 //-------------------------------------------------------
 //                     管理测试的函数
 //-------------------------------------------------------
@@ -59,9 +61,21 @@ BinNode *insertNode(BinNode *p, const BinType *data, int compare(const BinType *
 int deleteBinNode(BinNode **root, const BinType *data, int compare(const BinType *key, const BinType *val));
 
 //-------------------------------------------------------
+//                        求深度
+//-------------------------------------------------------
+int getTreeHeight(BinNode *p);
+
+//-------------------------------------------------------
+//                        统计个数
+//-------------------------------------------------------
+int getTreeCount(BinNode *p);
+
+//-------------------------------------------------------
 //                      表示全部节点
 //-------------------------------------------------------
-bool showAllBinNode(const BinNode *p, void printBin(const BinType *data));
+bool showAllBinNodePreOrder(const BinNode *p, void printBin(const BinType *data));//前序
+bool showAllBinNodeInOrder(const BinNode *p, void printBin(const BinType *data));//中序
+bool showAllBinNodePostOrder(const BinNode *p, void printBin(const BinType *data));//后序
 
 //-------------------------------------------------------
 //                      删除全部节点

@@ -40,7 +40,7 @@ int main(int argc, const char * argv[]) {
     //---------------------------------------------------------------------------
     //algorithmSelector(search);
     //algorithmSelector(list);
-    //algorithmSelector(tree);
+    algorithmSelector(tree);
     /*List list;
     initialize(&list);
     int a[2] = {123, 321};
