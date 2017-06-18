@@ -11,12 +11,17 @@
 
 #include <stdio.h>
 #include "Search.h"
+#include "List.h"
 
-enum algorithm {
+enum algorithm {//选择器的列举型
     search,
+    list,
     other
 };
 
+//---------------------------------------------------------------------------
+//                               选择器
+//---------------------------------------------------------------------------
 void algorithmSelector(int num);
 
 #endif /* AlgorithmSelector_h */

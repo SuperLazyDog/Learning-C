@@ -8,12 +8,17 @@
 
 #include "AlgorithmSelector.h"
 
+//---------------------------------------------------------------------------
+//                               选择器
+//---------------------------------------------------------------------------
 void algorithmSelector(int num) {
     switch (num) {
         case search:
             searchTest();
             break;
-            
+        case list:
+            listTest();
+            break;
         default:
             puts("nothing matches requirement");
             break;

@@ -6,14 +6,21 @@
 //  Copyright © 2017年 徐伟达. All rights reserved.
 //
 
+//标准库头文件
 #include <stdio.h>
+//功能性头文件
 #include "test.h"//单纯的测试
 #include "Basic.h"//C语言基本复习
+#include "AlgorithmSelector.h"//算法
+//辅助类头文件
 #include "Bool.h"//创建bool
 #include "MemorySet.h"//安全的动态内存
-#include "AlgorithmSelector.h"//算法
 
 int main(int argc, const char * argv[]) {
+    //---------------------------------------------------------------------------
+    //                               各种测试
+    //---------------------------------------------------------------------------
+    testSelector(second);
     //---------------------------------------------------------------------------
     //                               C语言基本复习
     //---------------------------------------------------------------------------
@@ -30,7 +37,8 @@ int main(int argc, const char * argv[]) {
     //---------------------------------------------------------------------------
     //                                算法
     //---------------------------------------------------------------------------
-    algorithmSelector(search);
+    //algorithmSelector(search);
+    algorithmSelector(list);
     return 0;
 }
 
