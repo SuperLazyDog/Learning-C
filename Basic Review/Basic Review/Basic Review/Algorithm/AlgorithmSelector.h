@@ -12,10 +12,12 @@
 #include <stdio.h>
 #include "Search.h"
 #include "List.h"
+#include "Tree.h"
 
 enum algorithm {//选择器的列举型
     search,
     list,
+    tree,
     other
 };
 

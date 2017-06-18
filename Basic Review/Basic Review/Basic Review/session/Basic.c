@@ -24,6 +24,7 @@ void basicSelector(int a) {
     int temp;
     //a = 1  getchar
     char charTemp;
+    puts("start basic review");
     switch (a) {
         case 0:
             printf("input your num: ");
@@ -68,7 +69,7 @@ void basicSelector(int a) {
              puts("nothing matches requirement");
             break;
     }
-    
+    puts("end basic review");
 }
 //---------------------------------------------------------------------------
 //                          第二章，第三章  0，1

@@ -14,6 +14,7 @@
 //---------------------------------------------------------------------------
 Node *createNode(void);
 void setNode(Node *node, const type *data, Node *next);
+void print(type data);
 
 //-------------------------------------------------------
 //                      共有变量
@@ -34,16 +35,16 @@ void listTest() {
 //-------------------------------------------------------
 Node *createNode(void) {//本地函数
     Node *temp = NULL;
-    temp =  mallocPro(temp, sizeof(Node));
-    if(!temp) {
-        puts("wrong, can't create Node");
-        return NULL;
+    if((temp =  mallocPro(temp, sizeof(Node)))) {
+        return temp;
     }
-    return temp;
+    puts("wrong, can't create Node");
+    return NULL;
+    
 }
 
 //-------------------------------------------------------
-//                     设置节点
+//                      设置节点
 //-------------------------------------------------------
 void setNode(Node *node, const type *data, Node *next) {//本地函数
     node->data = *data;
@@ -79,6 +80,7 @@ Node *searchNode(List *list, const type *data, bool compare(const type *left, co
 bool insertInHead(List *list, const type *data) {
     Node *temp = list->head;
     list->head = createNode();
+    list->crnt = list->head;
     setNode(list->head, data, temp);
     return true;
 }
@@ -175,7 +177,7 @@ bool clearAll(List *list) {
 //-------------------------------------------------------
 //                      表示当前节点
 //-------------------------------------------------------
-bool printCurrent(List *list, void print(type data), bool needNewLine) {
+bool showCurrent(List *list, void print(type data), bool needNewLine) {
     if (!list->crnt) {
         puts("the current item of list does not exit!");
     }else {
@@ -196,6 +198,8 @@ bool showAll(List *list, void print(type data)) {
         Node *temp = list->head;
         while(temp) {
             print(temp->data);
+            puts("");
+            temp = temp->next;
         }
     }
     return true;
@@ -209,6 +213,12 @@ bool terminate(List *list) {
     return true;
 }
 
+//-------------------------------------------------------
+//                         打印函数
+//-------------------------------------------------------
+void print(type data) {
+    printf("your num is %d", data);
+}
 //# TODO: p354~383 其他形式的链表
 //---------------------------------------------------------------------------
 //                                  笔记

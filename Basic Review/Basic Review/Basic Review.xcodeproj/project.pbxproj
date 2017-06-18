@@ -12,6 +12,8 @@
 		490A6DD01EF5CCF10064A1C9 /* Search.c in Sources */ = {isa = PBXBuildFile; fileRef = 490A6DCE1EF5CCF10064A1C9 /* Search.c */; };
 		490A6DD31EF5CE990064A1C9 /* AlgorithmSelector.c in Sources */ = {isa = PBXBuildFile; fileRef = 490A6DD11EF5CE990064A1C9 /* AlgorithmSelector.c */; };
 		490A6DD71EF5EB820064A1C9 /* List.c in Sources */ = {isa = PBXBuildFile; fileRef = 490A6DD51EF5EB820064A1C9 /* List.c */; };
+		490A6DDB1EF610430064A1C9 /* Tree.c in Sources */ = {isa = PBXBuildFile; fileRef = 490A6DD91EF610430064A1C9 /* Tree.c */; };
+		490A6DE11EF612430064A1C9 /* LoadData.c in Sources */ = {isa = PBXBuildFile; fileRef = 490A6DDF1EF612430064A1C9 /* LoadData.c */; };
 		49791D691EF4485A00355A29 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 49791D681EF4485A00355A29 /* main.c */; };
 		49791D791EF44CDF00355A29 /* test.c in Sources */ = {isa = PBXBuildFile; fileRef = 49791D771EF44CDF00355A29 /* test.c */; };
 		49CA0F2C1EF5250F006F0A71 /* Basic.c in Sources */ = {isa = PBXBuildFile; fileRef = 49CA0F2A1EF5250F006F0A71 /* Basic.c */; };
@@ -40,6 +42,10 @@
 		490A6DD21EF5CE990064A1C9 /* AlgorithmSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlgorithmSelector.h; sourceTree = "<group>"; };
 		490A6DD51EF5EB820064A1C9 /* List.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = List.c; sourceTree = "<group>"; };
 		490A6DD61EF5EB820064A1C9 /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = List.h; sourceTree = "<group>"; };
+		490A6DD91EF610430064A1C9 /* Tree.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Tree.c; sourceTree = "<group>"; };
+		490A6DDA1EF610430064A1C9 /* Tree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tree.h; sourceTree = "<group>"; };
+		490A6DDF1EF612430064A1C9 /* LoadData.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = LoadData.c; sourceTree = "<group>"; };
+		490A6DE01EF612430064A1C9 /* LoadData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadData.h; sourceTree = "<group>"; };
 		49791D651EF4485A00355A29 /* Basic Review */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Basic Review"; sourceTree = BUILT_PRODUCTS_DIR; };
 		49791D681EF4485A00355A29 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		49791D771EF44CDF00355A29 /* test.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = test.c; sourceTree = "<group>"; };
@@ -82,6 +88,7 @@
 			children = (
 				490A6DCD1EF5CCC50064A1C9 /* Search */,
 				490A6DD41EF5EB570064A1C9 /* List */,
+				490A6DD81EF6102C0064A1C9 /* Tree */,
 				490A6DD11EF5CE990064A1C9 /* AlgorithmSelector.c */,
 				490A6DD21EF5CE990064A1C9 /* AlgorithmSelector.h */,
 			);
@@ -107,9 +114,38 @@
 			path = List;
 			sourceTree = "<group>";
 		};
+		490A6DD81EF6102C0064A1C9 /* Tree */ = {
+			isa = PBXGroup;
+			children = (
+				490A6DDA1EF610430064A1C9 /* Tree.h */,
+				490A6DD91EF610430064A1C9 /* Tree.c */,
+			);
+			path = Tree;
+			sourceTree = "<group>";
+		};
+		490A6DDD1EF612160064A1C9 /* Contest Template */ = {
+			isa = PBXGroup;
+			children = (
+				490A6DDE1EF612160064A1C9 /* I/O */,
+			);
+			name = "Contest Template";
+			path = "Basic Review/Contest Template";
+			sourceTree = "<group>";
+		};
+		490A6DDE1EF612160064A1C9 /* I/O */ = {
+			isa = PBXGroup;
+			children = (
+				490A6DE01EF612430064A1C9 /* LoadData.h */,
+				490A6DDF1EF612430064A1C9 /* LoadData.c */,
+			);
+			name = I/O;
+			path = "I:O";
+			sourceTree = "<group>";
+		};
 		49791D5C1EF4485A00355A29 = {
 			isa = PBXGroup;
 			children = (
+				490A6DDD1EF612160064A1C9 /* Contest Template */,
 				49791D671EF4485A00355A29 /* Basic Review */,
 				49791D661EF4485A00355A29 /* Products */,
 				49CA0F241EF44FB1006F0A71 /* Frameworks */,
@@ -214,9 +250,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				49CA0F2C1EF5250F006F0A71 /* Basic.c in Sources */,
+				490A6DE11EF612430064A1C9 /* LoadData.c in Sources */,
 				490A6DD01EF5CCF10064A1C9 /* Search.c in Sources */,
 				490A6DD31EF5CE990064A1C9 /* AlgorithmSelector.c in Sources */,
 				490A6DD71EF5EB820064A1C9 /* List.c in Sources */,
+				490A6DDB1EF610430064A1C9 /* Tree.c in Sources */,
 				490A6DCB1EF5C6660064A1C9 /* MemorySet.c in Sources */,
 				49791D691EF4485A00355A29 /* main.c in Sources */,
 				49791D791EF44CDF00355A29 /* test.c in Sources */,
