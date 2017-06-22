@@ -31,8 +31,8 @@ void algorithmSelector(int num) {
             treeTest();
             break;
         case hash:
-            puts("start hash test");
-            hashTest();
+            puts("start hash test\n");
+            chainHashTest();
             break;
         case sampleDataStruct:
             puts("start data struct test");
@@ -42,6 +42,6 @@ void algorithmSelector(int num) {
             puts("nothing matches requirement");
             break;
     }
-    puts("end algorithm test");
+    puts("\nend algorithm test");
     puts("******************************************\n");
 }

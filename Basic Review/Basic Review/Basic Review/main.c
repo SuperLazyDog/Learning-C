@@ -41,8 +41,9 @@ int main(int argc, const char * argv[]) {
     //algorithmSelector(search);
     //algorithmSelector(list);
     //algorithmSelector(tree);
+    //algorithmSelector(sampleDataStruct);
     algorithmSelector(hash);
-    algorithmSelector(sampleDataStruct);
+    
 
     
     
