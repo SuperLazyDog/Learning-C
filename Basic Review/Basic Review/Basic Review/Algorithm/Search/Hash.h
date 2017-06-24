@@ -105,17 +105,17 @@ bool initialize_ChainHash(ChainHash *hashTable, SIZE size); // 初始化链式�
 //                        检索
 //-------------------------------------------------------
 //ChainHash_Node *search(const ChainHash *hashTable, const Data *data);
-ChainHash_Node *search_ChainHash(const ChainHash *hashTable, const ChainHash_Data *data, ChainHash_Key getHashKey(ChainHash_Data *data, int size), bool compareData_HashChain(const ChainHash_Data *ldata, const ChainHash_Data *rdata));
+ChainHash_Node *search_ChainHash(const ChainHash *hashTable, const ChainHash_Data *data, ChainHash_Key getHashKey(const ChainHash_Data *data, int size), bool compareData_HashChain(const ChainHash_Data *ldata, const ChainHash_Data *rdata));
 
 //-------------------------------------------------------
 //                        追加
 //-------------------------------------------------------
-bool Insert_Data_ChainHash(ChainHash *hashTable, const ChainHash_Data *data, ChainHash_InsertLocation where);
+ChainHash_Node *insert_Data_ChainHash(ChainHash *hashTable, const ChainHash_Data *data, ChainHash_InsertLocation where, bool compareData_ChainHash(const ChainHash_Data *ldata, const ChainHash_Data *rdata));
 
 //-------------------------------------------------------
 //                        删除
 //-------------------------------------------------------
-bool delete_Data_ChainHash(ChainHash *hashTable, const ChainHash_Data *data);
+bool delete_Data_ChainHash(ChainHash *hashTable, const ChainHash_Data *data, bool compareData_ChainHash(const ChainHash_Data *ldata, const ChainHash_Data *rdata));
 
 //-------------------------------------------------------
 //                     全部表示(dump)

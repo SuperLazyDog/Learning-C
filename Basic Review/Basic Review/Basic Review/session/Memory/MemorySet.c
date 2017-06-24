@@ -7,9 +7,12 @@
 //
 
 #include "MemorySet.h"
+#include "SampleDataStruct.h"
+#include "Hash.h"
 
 
 void *mallocPro(void *p, long unsigned size, bool getStr) {
+    p = NULL;
     p = malloc(size);
     if(getStr) {
         if(!p) {
@@ -27,6 +30,7 @@ void *mallocPro(void *p, long unsigned size, bool getStr) {
 }
 
 void *callocPro(void *p, long unsigned n, long unsigned size, bool getStr) {
+    p = NULL;
     p = calloc(n, size);
     if(getStr) {
         if(!p) {

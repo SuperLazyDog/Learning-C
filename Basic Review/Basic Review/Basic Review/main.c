@@ -12,8 +12,9 @@
 #include "test.h"//单纯的测试
 #include "Basic.h"//C语言基本复习
 #include "AlgorithmSelector.h"//算法
-//#include "List.h"
+//include "List.h"
 //辅助类头文件
+#include "String.h"
 #include "Bool.h"//创建bool
 #include "MemorySet.h"//安全的动态内存
 //void printABC(type data);
@@ -22,6 +23,7 @@ int main(int argc, const char * argv[]) {
     //                               各种测试
     //---------------------------------------------------------------------------
     //testSelector(second);
+    testSelector(third);
     //---------------------------------------------------------------------------
     //                               C语言基本复习
     //---------------------------------------------------------------------------
@@ -43,8 +45,6 @@ int main(int argc, const char * argv[]) {
     //algorithmSelector(tree);
     //algorithmSelector(sampleDataStruct);
     algorithmSelector(hash);
-    
-
     
     
     return 0;

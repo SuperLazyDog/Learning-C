@@ -116,7 +116,7 @@ HUMANLP creatOneHuman(HUMANLP human, Name name, FLESHLP p_body, SPIRITLP p_spiri
 //-------------------------------------------------------
 //                        展示
 //-------------------------------------------------------
-void showHuman(HUMANLP human, bool isBrief) {
+void showHuman(const HUMANLP human, bool isBrief) {
     switch (isBrief) {
         case false:
             puts("------------------------------------");

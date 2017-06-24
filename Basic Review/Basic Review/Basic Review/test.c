@@ -28,6 +28,10 @@ void testSelector(int num) {
             break;
         case second:
             funcPoinTest(12, 22, compare);
+            break;
+        case third:
+            pointProTest();
+            break;
         default:
             break;
     }
@@ -55,4 +59,26 @@ void funcPoinTest(int lsh, int rsh, bool compare(int a, int b)) {
 
 bool compare(int a, int b) {
     return a > b;
+}
+
+
+//-------------------------------------------------------
+//                      结构体里的指针
+//-------------------------------------------------------
+typedef struct __Point_Test {
+    int a;
+    struct __Point_Test *next;
+} PointTest;
+
+void pointProTest() {
+    PointTest *test = NULL;
+    if ((test = (PointTest *)mallocPro(test, sizeof(PointTest *), GETSTR_MEMSET))) {
+        puts("success");
+        test->a = 1;
+        PointTest *temp = test->next;
+        if (temp == NULL) {
+            printf("failed\n");
+        }
+    }
+    
 }
