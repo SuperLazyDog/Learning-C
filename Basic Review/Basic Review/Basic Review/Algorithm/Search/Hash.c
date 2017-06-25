@@ -29,7 +29,26 @@
 //---------------------------------------------
 //                获取哈希值的函数
 //---------------------------------------------
-ChainHash_Key getHashKey(const ChainHash_Data *data, int size) {
+ChainHash_Key getHashKey(const ChainHash_Data *data, SIZE size) {// 测试专用
+    return (*(data)) % size;
+}
+//---------------------------------------------
+//                  数据对比函数
+//---------------------------------------------
+bool compareData_ChainHash(const ChainHash_Data *ldata, const ChainHash_Data *rdata) {//测试专用
+    return *ldata == *rdata;
+}
+//---------------------------------------------
+//                  输出格式
+//---------------------------------------------
+bool showNode(ChainHash_Data *data) {
+    printf("%d", *data);
+    return true;
+}
+//---------------------------------------------
+//                获取哈希值的函数
+//---------------------------------------------
+/*ChainHash_Key getHashKey(const ChainHash_Data *data, int size) {
     //return strlen(data->name) % size;
     if (!strcmp(data->name, "")) {
         return 0;
@@ -54,7 +73,7 @@ bool showNode(ChainHash_Data *data) {
     printf("%s", data->name);
     //printf("OK");
     return true;
-}
+}*/
 //---------------------------------------------------------------------------
 //                               本地函数声明
 //---------------------------------------------------------------------------
@@ -89,7 +108,7 @@ static bool setNode_ChainHash(ChainHash_Node *node, const ChainHash_Data *data, 
 //-------------------------------------------------------
 #define SIZE_CHAINHASH 15
 void chainHashTest() {
-    //-----------------------------------------
+    /*//-----------------------------------------
     //              创建样本数据
     //-----------------------------------------
     SPIRITLP spritit_p = createSpirit(char_shy);
@@ -108,7 +127,7 @@ void chainHashTest() {
     //-----------------------------------------
     ChainHash *sample_chainHash = NULL;
     sample_chainHash = (ChainHash *)mallocPro(sample_chainHash, sizeof(ChainHash *), GETSTR_MEMSET);
-    bool result = initialize_ChainHash(sample_chainHash, 15);//初始化测试
+    bool result = initialize_ChainHash(sample_chainHash, SIZE_CHAINHASH);//初始化测试
     printf("result %s\n", BOOL_STR(result));
     dump_ChainHash(sample_chainHash, showNode);
     //printf("size %d point %p\n", sample_chainHash.size, sample_chainHash.table);
@@ -139,7 +158,7 @@ void chainHashTest() {
     delete_Data_ChainHash(sample_chainHash, human_p3, compareData_ChainHash);//删一个
     dump_ChainHash(sample_chainHash, showNode);
     clear_ChainHash(sample_chainHash);//全删
-    dump_ChainHash(sample_chainHash, showNode);
+    dump_ChainHash(sample_chainHash, showNode);*/
 }
 
 //-------------------------------------------------------
@@ -153,7 +172,7 @@ bool initialize_ChainHash(ChainHash *hashTable, SIZE size) { // 初始化链式�
     }
     //指针也好，数据也好，占用的内存是实际数据内存大小
     hashTable->table = NULL;//calloc(size, sizeof(ChainHash_Node));//mallocPro(hashTable, sizeof(ChainHash_Node **), GETSTR_MEMSET);
-    hashTable->table = callocPro(hashTable->table, SIZE_CHAINHASH, sizeof(ChainHash_Node *), GETSTR_MEMSET);
+    hashTable->table = (ChainHash_Node **)callocPro(hashTable->table, size, sizeof(ChainHash_Node *), GETSTR_MEMSET);
     // !! # TODO: 为什么不先判断hashTable是否存在
     if(hashTable->table == NULL) {
         hashTable->size = 0; //带入零，防止误操作
@@ -198,7 +217,8 @@ ChainHash_Node *insert_Data_ChainHash(ChainHash *hashTable, const ChainHash_Data
     ChainHash_Node *item = hashTable->table[key]; //读取key所在位置
     ChainHash_Node *temp = NULL;//加在开头时候用来暂存新的开头
     //puts("prepare for insert");
-    ChainHash_Node **row = &hashTable->table[key]; //双重指针定位周边
+    //ChainHash_Node **row = &hashTable->table[key]; //双重指针定位周边
+    ChainHash_Node *pre = item;
     
     int count = -1; //chainHash_lase专用, 捕捉前一个的双重指针
     while (item != NULL) {
@@ -210,7 +230,8 @@ ChainHash_Node *insert_Data_ChainHash(ChainHash *hashTable, const ChainHash_Data
         item = item->next;
         if(where == chainHash_last) {
             if (count >= 0) {
-                (*row) = (*row)->next;
+                //(*row) = (*row)->next;
+                pre = pre->next;
             }
             count++;
         }
@@ -240,12 +261,14 @@ ChainHash_Node *insert_Data_ChainHash(ChainHash *hashTable, const ChainHash_Data
             //               加在最后
             //---------------------------------------
             if ((item = (ChainHash_Node *)callocPro(item, 1, sizeof(ChainHash_Node), GETSTR_MEMSET)) == NULL) {
-                return false; // 初始化内存失败
+                return NULL; // 初始化内存失败
             }
             //temp->next = NULL;
             setNode_ChainHash(item, data, NULL);//最新节点后面跟空指针
+            printf("count: %d\n", count);
             if (count >= 0) {
-                (*row)->next = item;
+                //(*row)->next = item;
+                pre->next = item;
             }else {
                 hashTable->table[key] = item;
             }

@@ -16,13 +16,16 @@
 //辅助类头文件
 #include "Bool.h"//创建bool
 #include "MemorySet.h"//安全的动态内存
+//测试类头文件
+#include "Hash.h"
 
 
 
 enum test {//选择器的列举型
     first,
     second,
-    third
+    third,
+    chainHash
 };
 
 //---------------------------------------------------------------------------
@@ -43,4 +46,8 @@ void funcPoinTest(int lsh, int rsh, bool compare(int a, int b));
 //                      结构体里的指针
 //-------------------------------------------------------
 void pointProTest();
+//-------------------------------------------------------
+//                       链式哈希表
+//-------------------------------------------------------
+void chainHashProTest();
 #endif /* test_h */

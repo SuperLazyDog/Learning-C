@@ -53,7 +53,8 @@
 //-------------------------------------------------------
 //------------------------------
 //实际使用时候改变这个定义     散式哈希表处理的数据类型
-typedef Human ChainHash_Data;
+//typedef Human ChainHash_Data;
+typedef int ChainHash_Data;
 //------------------------------
 typedef int INT;
 typedef INT SIZE, LENGTH;
@@ -81,7 +82,7 @@ typedef enum {//新元素的插入位置
 //---------------------------------------------
 //                获取哈希值的函数
 //---------------------------------------------
-ChainHash_Key getHashValue(const ChainHash_Data *data, SIZE size); // 测试专用
+ChainHash_Key getHashKey(const ChainHash_Data *data, SIZE size); // 测试专用
 //---------------------------------------------
 //                  数据对比函数
 //---------------------------------------------

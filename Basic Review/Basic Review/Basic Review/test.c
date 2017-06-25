@@ -32,6 +32,8 @@ void testSelector(int num) {
         case third:
             pointProTest();
             break;
+        case chainHash:
+            chainHashProTest();
         default:
             break;
     }
@@ -80,5 +82,26 @@ void pointProTest() {
             printf("failed\n");
         }
     }
+    
+}
+
+//-------------------------------------------------------
+//                       链式哈希表
+//-------------------------------------------------------
+#define __USE_CHAINHASH
+//typedef int ChainHash_Data;
+
+void chainHashProTest() {
+    ChainHash table;
+    int size = 100;
+    bool result = initialize_ChainHash(&table, size);
+    printf("result: %s\n", BOOL_STR(result));
+    ChainHash_Data i;
+    
+    for (i = 0; i < 10000; i++) {
+        printf("i = %d  ", i);
+        insert_Data_ChainHash(&table, &i, chainHash_last, compareData_ChainHash);
+    }
+    dump_ChainHash(&table, showNode);
     
 }
