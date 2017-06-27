@@ -38,6 +38,10 @@ void algorithmSelector(int num) {
             puts("start data struct test");
             dataStructTest();
             break;
+        case hash_OpenAdressing:
+            puts("start open adressing hash test\n");
+            OpenAdressingHashTest();
+            break;
         default:
             puts("nothing matches requirement");
             break;
