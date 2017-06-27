@@ -42,6 +42,10 @@ void algorithmSelector(int num) {
             puts("start open adressing hash test\n");
             OpenAdressingHashTest();
             break;
+        case stack:
+            puts("start stack test\n");
+            stackTestPro();
+            break;
         default:
             puts("nothing matches requirement");
             break;

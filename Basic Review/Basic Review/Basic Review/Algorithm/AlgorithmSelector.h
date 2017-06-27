@@ -16,6 +16,7 @@
 #include "SampleDataStruct.h"
 #include "Hash.h"
 #include "Hash_OpenAdressing.h"
+#include "Stack.h"
 //# TODO: list, hash等，进一步封装   F25CEB2E-B31D-4DB3-9600-A0390865832E
 enum algorithm {//选择器的列举型
     search,
@@ -24,6 +25,7 @@ enum algorithm {//选择器的列举型
     hash,
     sampleDataStruct,
     hash_OpenAdressing,
+    stack,
     other
 };
 

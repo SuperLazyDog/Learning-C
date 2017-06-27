@@ -18,6 +18,7 @@
 		490A6DFC1EF7089B0064A1C9 /* SampleDataStruct.c in Sources */ = {isa = PBXBuildFile; fileRef = 490A6DFA1EF7089B0064A1C9 /* SampleDataStruct.c */; };
 		490A6DFF1EF726540064A1C9 /* String.c in Sources */ = {isa = PBXBuildFile; fileRef = 490A6DFD1EF726540064A1C9 /* String.c */; };
 		4940AFCA1F02E2400044BC3E /* Hash_OpenAdressing.c in Sources */ = {isa = PBXBuildFile; fileRef = 4940AFC81F02E2400044BC3E /* Hash_OpenAdressing.c */; };
+		4940AFCE1F02EA3B0044BC3E /* Stack.c in Sources */ = {isa = PBXBuildFile; fileRef = 4940AFCC1F02EA3B0044BC3E /* Stack.c */; };
 		49791D691EF4485A00355A29 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 49791D681EF4485A00355A29 /* main.c */; };
 		49791D791EF44CDF00355A29 /* test.c in Sources */ = {isa = PBXBuildFile; fileRef = 49791D771EF44CDF00355A29 /* test.c */; };
 		49CA0F2C1EF5250F006F0A71 /* Basic.c in Sources */ = {isa = PBXBuildFile; fileRef = 49CA0F2A1EF5250F006F0A71 /* Basic.c */; };
@@ -58,6 +59,8 @@
 		490A6DFE1EF726540064A1C9 /* String.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = String.h; path = "Basic Review/Session/Type/String.h"; sourceTree = SOURCE_ROOT; };
 		4940AFC81F02E2400044BC3E /* Hash_OpenAdressing.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Hash_OpenAdressing.c; path = Search/Hash_OpenAdressing.c; sourceTree = "<group>"; };
 		4940AFC91F02E2400044BC3E /* Hash_OpenAdressing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Hash_OpenAdressing.h; path = Search/Hash_OpenAdressing.h; sourceTree = "<group>"; };
+		4940AFCC1F02EA3B0044BC3E /* Stack.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Stack.c; sourceTree = "<group>"; };
+		4940AFCD1F02EA3B0044BC3E /* Stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stack.h; sourceTree = "<group>"; };
 		49791D651EF4485A00355A29 /* Basic Review */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Basic Review"; sourceTree = BUILT_PRODUCTS_DIR; };
 		49791D681EF4485A00355A29 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		49791D771EF44CDF00355A29 /* test.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = test.c; sourceTree = "<group>"; };
@@ -100,6 +103,7 @@
 		490A6DCC1EF5CCAB0064A1C9 /* Algorithm */ = {
 			isa = PBXGroup;
 			children = (
+				4940AFCB1F02EA290044BC3E /* Stack_Queue */,
 				490A6DCD1EF5CCC50064A1C9 /* Search */,
 				490A6DD41EF5EB570064A1C9 /* List */,
 				490A6DD81EF6102C0064A1C9 /* Tree */,
@@ -169,6 +173,15 @@
 			);
 			name = SampleDataStruct;
 			path = Search/SampleDataStruct;
+			sourceTree = "<group>";
+		};
+		4940AFCB1F02EA290044BC3E /* Stack_Queue */ = {
+			isa = PBXGroup;
+			children = (
+				4940AFCC1F02EA3B0044BC3E /* Stack.c */,
+				4940AFCD1F02EA3B0044BC3E /* Stack.h */,
+			);
+			path = Stack_Queue;
 			sourceTree = "<group>";
 		};
 		49791D5C1EF4485A00355A29 = {
@@ -281,6 +294,7 @@
 				49CA0F2C1EF5250F006F0A71 /* Basic.c in Sources */,
 				490A6DE11EF612430064A1C9 /* LoadData.c in Sources */,
 				4940AFCA1F02E2400044BC3E /* Hash_OpenAdressing.c in Sources */,
+				4940AFCE1F02EA3B0044BC3E /* Stack.c in Sources */,
 				490A6DD01EF5CCF10064A1C9 /* Search.c in Sources */,
 				490A6DFF1EF726540064A1C9 /* String.c in Sources */,
 				490A6DD31EF5CE990064A1C9 /* AlgorithmSelector.c in Sources */,

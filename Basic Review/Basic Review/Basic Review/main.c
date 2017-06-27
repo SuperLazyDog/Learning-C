@@ -46,7 +46,8 @@ int main(int argc, const char * argv[]) {
     //algorithmSelector(tree);
     //algorithmSelector(sampleDataStruct);
     //algorithmSelector(hash);
-    algorithmSelector(hash_OpenAdressing);
+    //algorithmSelector(hash_OpenAdressing);
+    algorithmSelector(stack);
     
     
     return 0;
