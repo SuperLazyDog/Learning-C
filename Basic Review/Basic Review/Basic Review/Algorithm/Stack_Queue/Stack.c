@@ -44,7 +44,19 @@ void stackTestPro() {
 //                       初始化
 //-------------------------------------------------------
 bool initialize_Stack(Stack *stack, Capacity max) { // 初始化堆
-    return false;
+	
+	if (stack == NULL) {
+		stack = (Stack *)mallocPro(stack, sizeof(Stack));
+		if (stack == NULL) {
+			return false;//初始化内存失败
+		}
+	}
+	
+	if ((stack->stackList = (Stack_Data *)callocPro(stack->stackList, max, sizeof(Stack_Data))) == NULL) {
+		return false;//堆的数据链内存初始化失败
+	}
+	stack->max = max;
+    return true;
 }
 
 //-------------------------------------------------------

@@ -165,6 +165,7 @@ void chainHashTest() {
 //                       初始化
 //-------------------------------------------------------
 //# TODO: malloc, alloc, calloc, realloc   1F916BF4-7F64-4EAE-B9B1-7ECD00EFF5B2
+//# TODO: 修改mallocPro, 增加初始化memsetPro
 bool initialize_ChainHash(ChainHash *hashTable, SIZE size) { // 初始化链式哈希表
     int i;
     if(hashTable == NULL) {
