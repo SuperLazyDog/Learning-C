@@ -27,6 +27,8 @@ bool compareData_Stack(const Stack_Data *ldata, const Stack_Data *rdata) {//测�
 //---------------------------------------------
 bool showData_Stack(Stack_Data *data) { //测试专用
 	printf("%d \n", *data);
+    return true;
+}
 
 //---------------------------------------------
 //                  数据对比函数
@@ -35,7 +37,7 @@ bool compareData_Stack(const Stack_Data *ldata, const Stack_Data *rdata);//测�
 //---------------------------------------------
 //                  输出格式
 //---------------------------------------------
-bool showData_Stack(OpenAdressingHash_Data *data); //测试专用
+bool showData_Stack(Stack_Data *data); //测试专用
 //---------------------------------------------
 //                获取哈希值的函数
 //---------------------------------------------
@@ -66,13 +68,13 @@ void stackTestPro() {
 bool initialize_Stack(Stack *stack, Capacity max) { // 初始化堆
 	stack->pointer = 0;
 	if (stack == NULL) {
-		stack = (Stack *)mallocPro(stack, sizeof(Stack));
+		stack = (Stack *)mallocPro(stack, sizeof(Stack), GETSTR_MEMSET);
 		if (stack == NULL) {
 			return false;//初始化内存失败
 		}
 	}
 	
-	if ((stack->stackList = (Stack_Data *)callocPro(stack->stackList, max, sizeof(Stack_Data))) == NULL) {
+	if ((stack->stackList = (Stack_Data *)callocPro(stack->stackList, max, sizeof(Stack_Data), GETSTR_MEMSET)) == NULL) {
 		stack->max = 0;
 		return false;//堆的数据链内存初始化失败
 	}
@@ -99,7 +101,7 @@ bool pop_From_Stack(Stack *stack, Stack_Data *temp) {
 	if (stack->pointer <= 0) {
 		return false; //堆为空
 	}
-	*temp = stack->stackList[--pointer];//--pointer 
+	*temp = stack->stackList[--stack->pointer];//--pointer
     return true;
 }
 
@@ -185,6 +187,7 @@ POINTER search_In_Stack(const Stack *stack, const Stack_Data *data,
 		if (compareData_Stack(data, &stack->stackList[i])) {
 			return (POINTER)i;
 		}
+    }
     return (POINTER)false; //目标数据不存在
 }
 
