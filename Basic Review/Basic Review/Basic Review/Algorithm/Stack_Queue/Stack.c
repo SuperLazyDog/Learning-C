@@ -175,22 +175,23 @@ bool isFull_Stack(const Stack *stack) {
 //                       搜索数据
 //-------------------------------------------------------
 //# TODO: 搜索顺序: 从头到尾， 从尾到头
-bool search_In_Stack(const Stack *stack, const Stack_Data *data, 
+POINTER search_In_Stack(const Stack *stack, const Stack_Data *data, 
 			bool compareData_Stack(const Stack_Data *ldata, const Stack_Data *rdata)) {
 	int i;
 	if (stack == NULL) { //指定堆不存在
-		return false;
+		return (POINTER)false;
 	}
 	for(i=0; i < stack->pointer; i++) {
 		if (compareData_Stack(data, &stack->stackList[i])) {
-			return true;
+			return (POINTER)i;
 		}
-    return false; //目标数据不存在
+    return (POINTER)false; //目标数据不存在
 }
 
 //-------------------------------------------------------
 //                        表示
 //-------------------------------------------------------
+//# TODO: 表示顺序: 从头到尾， 从尾到头
 bool showStack(const Stack *stack,  bool showData_Stack(Stack_Data *data)) {
 	int i;
 	if (stack == NULL) { //指定堆不存在

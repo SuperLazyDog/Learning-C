@@ -129,7 +129,7 @@ bool isFull_Stack(const Stack *stack);
 //-------------------------------------------------------
 //                       搜索数据
 //-------------------------------------------------------
-bool search_In_Stack(const Stack *stack, const Stack_Data *data, 
+POINTER search_In_Stack(const Stack *stack, const Stack_Data *data, 
 			bool compareData_Stack(const Stack_Data *ldata, const Stack_Data *rdata));
 
 //-------------------------------------------------------
