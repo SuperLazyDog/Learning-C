@@ -51,6 +51,15 @@ typedef struct {
 //                     需要自定义的函数
 //-------------------------------------------------------
 //---------------------------------------------
+//                  数据对比函数
+//---------------------------------------------
+bool compareData_Stack(const Stack_Data *ldata, const Stack_Data *rdata);//测试专用
+//---------------------------------------------
+//                  输出格式
+//---------------------------------------------
+bool showData_Stack(Stack_Data *data); //测试专用
+
+//---------------------------------------------
 //                获取哈希值的函数
 //---------------------------------------------
 /*OpenAdressingHash_Key getHashKey_OpenAdressingHash(const OpenAdressingHash_Data *data, SIZE size); // 测试专用
@@ -120,12 +129,13 @@ bool isFull_Stack(const Stack *stack);
 //-------------------------------------------------------
 //                       搜索数据
 //-------------------------------------------------------
-Stack_Data *search_In_Stack(const Stack *stack, const Stack_Data *data);
+bool search_In_Stack(const Stack *stack, const Stack_Data *data, 
+			bool compareData_Stack(const Stack_Data *ldata, const Stack_Data *rdata));
 
 //-------------------------------------------------------
 //                        表示
 //-------------------------------------------------------
-bool showStack(const Stack *stack);
+bool showStack(const Stack *stack,  bool showData_Stack(Stack_Data *data));
 
 //-------------------------------------------------------
 //                        收尾
