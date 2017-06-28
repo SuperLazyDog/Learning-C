@@ -25,6 +25,7 @@ int main(int argc, const char * argv[]) {
     //testSelector(second);
     //testSelector(third);
     //testSelector(chainHash);
+    testSelector(memTest);
     //---------------------------------------------------------------------------
     //                               C语言基本复习
     //---------------------------------------------------------------------------
@@ -47,8 +48,8 @@ int main(int argc, const char * argv[]) {
     //algorithmSelector(sampleDataStruct);
     //algorithmSelector(hash);
     //algorithmSelector(hash_OpenAdressing);
-    algorithmSelector(stack);
-    
+    //algorithmSelector(stack);
+    algorithmSelector(queue);
     
     return 0;
 }

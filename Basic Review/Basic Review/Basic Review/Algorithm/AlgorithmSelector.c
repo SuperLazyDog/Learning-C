@@ -44,7 +44,11 @@ void algorithmSelector(int num) {
             break;
         case stack:
             puts("start stack test\n");
-            stackTestPro();
+            stackTest();
+            break;
+        case queue:
+            puts("start queue test\n");
+            queueTest();
             break;
         default:
             puts("nothing matches requirement");

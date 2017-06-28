@@ -34,6 +34,9 @@ void testSelector(int num) {
             break;
         case chainHash:
             chainHashProTest();
+        case memTest:
+            memsetProTest();
+            break;
         default:
             break;
     }
@@ -104,4 +107,18 @@ void chainHashProTest() {
     }
     dump_ChainHash(&table, showNode);
     
+}
+
+//-------------------------------------------------------
+//                         内存
+//-------------------------------------------------------
+void memsetProTest() {
+    int *a = malloc(sizeof(int)*20); //a[20]
+    int **b = calloc(20, sizeof(int *));//b[20][20]
+    //memset(<#void *__b#>, <#int __c#>, <#size_t __len#>)
+    b[2][1] = 1;
+    printf("b[2][1]: %d\n", b[2][1]);
+    free(b);
+    free(a);
+    return;
 }

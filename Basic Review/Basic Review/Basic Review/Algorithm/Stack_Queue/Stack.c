@@ -58,7 +58,7 @@ bool showData_Stack(Stack_Data *data); //测试专用
 //-------------------------------------------------------
 //                     管理测试的函数
 //-------------------------------------------------------
-void stackTestPro() {
+void stackTest() {
     
 }
 
@@ -127,7 +127,7 @@ bool clear_Stack(Stack *stack) {
 //-------------------------------------------------------
 //                       获取容量
 //-------------------------------------------------------
-//# TODO: bool ---> Bool   /Basic Resive/session/Bool.h
+//# TODO: bool ---> Bool   /Basic Resive/session/Bool.h  4BA881E8-B763-462C-9A8F-102DB615D585
 Capacity getCapacity_From_Stack(const Stack *stack) {
 	if (stack == NULL) { //指定堆不存在
 		return (Capacity)false;
@@ -176,7 +176,7 @@ bool isFull_Stack(const Stack *stack) {
 //-------------------------------------------------------
 //                       搜索数据
 //-------------------------------------------------------
-//# TODO: 搜索顺序: 从头到尾， 从尾到头
+//# TODO: 搜索顺序: 从头到尾， 从尾到头  D8216609-5979-4D8B-8BEB-7985B85D9E2C
 POINTER search_In_Stack(const Stack *stack, const Stack_Data *data, 
 			bool compareData_Stack(const Stack_Data *ldata, const Stack_Data *rdata)) {
 	int i;
@@ -194,7 +194,7 @@ POINTER search_In_Stack(const Stack *stack, const Stack_Data *data,
 //-------------------------------------------------------
 //                        表示
 //-------------------------------------------------------
-//# TODO: 表示顺序: 从头到尾， 从尾到头
+//# TODO: 表示顺序: 从头到尾， 从尾到头  625B74F1-2CC4-487D-8796-A1B6276B87EE
 bool showStack(const Stack *stack,  bool showData_Stack(Stack_Data *data)) {
 	int i;
 	if (stack == NULL) { //指定堆不存在

@@ -1,20 +1,18 @@
 //
-//  Stack.h
+//  Queue.h
 //  Basic Review
 //
-//  Created by 徐伟达 on 2017/6/28.
+//  Created by 徐伟达 on 2017/6/29.
 //  Copyright © 2017年 徐伟达. All rights reserved.
 //
 
-#ifndef Stack_h
-#define Stack_h
+#ifndef Queue_h
+#define Queue_h
 
 #include <stdio.h>
 #include <stdlib.h>
 #include "Bool.h"
 #include "MemorySet.h"
-
-
 
 //---------------------------------------------------------------------------
 //                                  笔记
@@ -40,11 +38,11 @@ typedef INT Capacity;
 typedef INT POINTER;
 
 
-typedef struct {
+/*typedef struct {
     Capacity max;
     POINTER pointer;
     Stack_Data *stackList;
-} Stack;
+} Stack;*/
 
 //-------------------------------------------------------
 //                     需要自定义的函数
@@ -52,35 +50,35 @@ typedef struct {
 //---------------------------------------------
 //                  数据对比函数
 //---------------------------------------------
-bool compareData_Stack(const Stack_Data *ldata, const Stack_Data *rdata);//测试专用
+/*bool compareData_Stack(const Stack_Data *ldata, const Stack_Data *rdata);//测试专用
 //---------------------------------------------
 //                  输出格式
 //---------------------------------------------
-bool showData_Stack(Stack_Data *data); //测试专用
+bool showData_Stack(Stack_Data *data); //测试专用*/
 
 //---------------------------------------------
 //                获取哈希值的函数
 //---------------------------------------------
 /*OpenAdressingHash_Key getHashKey_OpenAdressingHash(const OpenAdressingHash_Data *data, SIZE size); // 测试专用
-//---------------------------------------------
-//                再次哈希值的函数
-//---------------------------------------------
-OpenAdressingHash_Key getReHashKey_OpenAdressingHash(const OpenAdressingHash_Key key, SIZE size);
-//---------------------------------------------
-//                  数据对比函数
-//---------------------------------------------
-bool compareData_OpenAdressingHash(const OpenAdressingHash_Data *ldata, const OpenAdressingHash_Data *rdata);//测试专用
-//---------------------------------------------
-//                  输出格式
-//---------------------------------------------
-bool showBucket_OpenAdressingHash(OpenAdressingHash_Data *data);*/
+ //---------------------------------------------
+ //                再次哈希值的函数
+ //---------------------------------------------
+ OpenAdressingHash_Key getReHashKey_OpenAdressingHash(const OpenAdressingHash_Key key, SIZE size);
+ //---------------------------------------------
+ //                  数据对比函数
+ //---------------------------------------------
+ bool compareData_OpenAdressingHash(const OpenAdressingHash_Data *ldata, const OpenAdressingHash_Data *rdata);//测试专用
+ //---------------------------------------------
+ //                  输出格式
+ //---------------------------------------------
+ bool showBucket_OpenAdressingHash(OpenAdressingHash_Data *data);*/
 
 //-------------------------------------------------------
 //                     管理测试的函数
 //-------------------------------------------------------
-void stackTest();
+void queueTest();
 
-//-------------------------------------------------------
+/*//-------------------------------------------------------
 //                       初始化
 //-------------------------------------------------------
 bool initialize_Stack(Stack *stack, Capacity max); // 初始化堆
@@ -128,8 +126,8 @@ bool isFull_Stack(const Stack *stack);
 //-------------------------------------------------------
 //                       搜索数据
 //-------------------------------------------------------
-POINTER search_In_Stack(const Stack *stack, const Stack_Data *data, 
-			bool compareData_Stack(const Stack_Data *ldata, const Stack_Data *rdata));
+POINTER search_In_Stack(const Stack *stack, const Stack_Data *data,
+                        bool compareData_Stack(const Stack_Data *ldata, const Stack_Data *rdata));
 
 //-------------------------------------------------------
 //                        表示
@@ -139,5 +137,6 @@ bool showStack(const Stack *stack,  bool showData_Stack(Stack_Data *data));
 //-------------------------------------------------------
 //                        收尾
 //-------------------------------------------------------
-bool terminate_Stack(Stack *stack);
-#endif /* Stack_h */
+bool terminate_Stack(Stack *stack);*/
+
+#endif /* Queue_h */

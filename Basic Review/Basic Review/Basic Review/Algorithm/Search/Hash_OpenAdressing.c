@@ -103,9 +103,9 @@ static bool setNode_OpenAdressingHash(OpenAdressingHash_Bucket *bucket, const Op
 //---------------------------------------------------------------------------
 //                                API函数
 //---------------------------------------------------------------------------
-//# TODO: 返回结果不用bool，改用enum
-//# TODO: 改用函数指针     changed--------->  全部放弃函数指针
-//# TODO: terminate要清楚哈希表管理器指向的内存  ChainHash
+//# TODO: 返回结果不用bool，改用enum D0159A0D-B4A7-43A4-8816-D59857D04B15
+//# TODO: 改用函数指针     changed--------->  全部放弃函数指针  764E5771-5FAA-4354-8C11-E65640730C08
+//# TODO: terminate要清楚哈希表管理器指向的内存  ChainHash  25E2CFFB-E347-4EED-8FE2-969990C64B1C
 //-------------------------------------------------------
 //                     管理测试的函数
 //-------------------------------------------------------
@@ -174,7 +174,7 @@ bool insert_Data_OpenAdressingHash(OpenAdressingHash *hashTable, const OpenAdres
 
 	if(search_OpenAdressingHash(hashTable, data) != NULL) {
 		return false;//　要插入的数据已存在
-		//# TODO: 不用这个是否会更快
+		//# TODO: 不用这个是否会更快  834BAD6D-E773-4F35-BC1F-CD01FD736179
 	}
 
 	for (i = 0; i < hashTable->size; i++) {

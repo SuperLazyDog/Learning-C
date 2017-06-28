@@ -19,6 +19,7 @@
 		4940AFCA1F02E2400044BC3E /* Hash_OpenAdressing.c in Sources */ = {isa = PBXBuildFile; fileRef = 4940AFC81F02E2400044BC3E /* Hash_OpenAdressing.c */; };
 		4940AFCE1F02EA3B0044BC3E /* Stack.c in Sources */ = {isa = PBXBuildFile; fileRef = 4940AFCC1F02EA3B0044BC3E /* Stack.c */; };
 		4940AFD21F040A220044BC3E /* LoadData.c in Sources */ = {isa = PBXBuildFile; fileRef = 4940AFD01F040A220044BC3E /* LoadData.c */; };
+		4940AFD51F043A310044BC3E /* Queue.c in Sources */ = {isa = PBXBuildFile; fileRef = 4940AFD31F043A310044BC3E /* Queue.c */; };
 		49791D691EF4485A00355A29 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 49791D681EF4485A00355A29 /* main.c */; };
 		49791D791EF44CDF00355A29 /* test.c in Sources */ = {isa = PBXBuildFile; fileRef = 49791D771EF44CDF00355A29 /* test.c */; };
 		49CA0F2C1EF5250F006F0A71 /* Basic.c in Sources */ = {isa = PBXBuildFile; fileRef = 49CA0F2A1EF5250F006F0A71 /* Basic.c */; };
@@ -61,6 +62,8 @@
 		4940AFCD1F02EA3B0044BC3E /* Stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stack.h; sourceTree = "<group>"; };
 		4940AFD01F040A220044BC3E /* LoadData.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = LoadData.c; sourceTree = "<group>"; };
 		4940AFD11F040A220044BC3E /* LoadData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadData.h; sourceTree = "<group>"; };
+		4940AFD31F043A310044BC3E /* Queue.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Queue.c; sourceTree = "<group>"; };
+		4940AFD41F043A310044BC3E /* Queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Queue.h; sourceTree = "<group>"; };
 		49791D651EF4485A00355A29 /* Basic Review */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Basic Review"; sourceTree = BUILT_PRODUCTS_DIR; };
 		49791D681EF4485A00355A29 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		49791D771EF44CDF00355A29 /* test.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = test.c; sourceTree = "<group>"; };
@@ -170,6 +173,8 @@
 			children = (
 				4940AFCC1F02EA3B0044BC3E /* Stack.c */,
 				4940AFCD1F02EA3B0044BC3E /* Stack.h */,
+				4940AFD31F043A310044BC3E /* Queue.c */,
+				4940AFD41F043A310044BC3E /* Queue.h */,
 			);
 			path = Stack_Queue;
 			sourceTree = "<group>";
@@ -303,6 +308,7 @@
 				490A6DF81EF6E0B90064A1C9 /* Hash.c in Sources */,
 				490A6DFC1EF7089B0064A1C9 /* SampleDataStruct.c in Sources */,
 				49791D691EF4485A00355A29 /* main.c in Sources */,
+				4940AFD51F043A310044BC3E /* Queue.c in Sources */,
 				49791D791EF44CDF00355A29 /* test.c in Sources */,
 				490A6DC41EF5B5F00064A1C9 /* Bool.c in Sources */,
 			);

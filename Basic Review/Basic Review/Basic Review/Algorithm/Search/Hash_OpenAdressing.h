@@ -16,8 +16,8 @@
 #include "MemorySet.h"
 #include <string.h>
 
-//# TODO: Hash.h改名---> Hash_Chain.h
-//# TODO: 增加备注: Hash_Chain 拉链法   Hash_OpenAdressing 开放寻址法  如这里的线性探测再散列法
+//# TODO: Hash.h改名---> Hash_Chain.h  77020035-AA17-4021-9216-DC673A915FB7
+//# TODO: 增加备注: Hash_Chain 拉链法   Hash_OpenAdressing 开放寻址法  如这里的线性探测再散列法 F588E20F-371D-443F-9677-0190F449DC07
 
 //---------------------------------------------------------------------------
 //                                  笔记
