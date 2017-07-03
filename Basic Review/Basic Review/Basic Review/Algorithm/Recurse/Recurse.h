@@ -48,4 +48,15 @@ unsigned long getFactorial(unsigned long num);
 void numTest_Rescurse(int num);
 //去除递归
 void numTest_NoRescurse(int num);
+
+//-------------------------------------------------------
+//                       哈诺塔
+//-------------------------------------------------------
+void process_tower_hanoi(int id, int start, int destination);
+
+//-------------------------------------------------------
+//                       八王妃
+//-------------------------------------------------------
+void setQueue(int colum);
+void showMap_Queue(Bool isBrief);
 #endif /* Recurse_h */
