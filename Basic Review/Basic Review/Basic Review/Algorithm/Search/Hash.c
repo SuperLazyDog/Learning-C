@@ -35,13 +35,13 @@ ChainHash_Key getHashKey(const ChainHash_Data *data, SIZE size) {// 测试专用
 //---------------------------------------------
 //                  数据对比函数
 //---------------------------------------------
-bool compareData_ChainHash(const ChainHash_Data *ldata, const ChainHash_Data *rdata) {//测试专用
+Bool compareData_ChainHash(const ChainHash_Data *ldata, const ChainHash_Data *rdata) {//测试专用
     return *ldata == *rdata;
 }
 //---------------------------------------------
 //                  输出格式
 //---------------------------------------------
-bool showNode(ChainHash_Data *data) {
+Bool showNode(ChainHash_Data *data) {
     printf("%d", *data);
     return true;
 }
@@ -59,7 +59,7 @@ bool showNode(ChainHash_Data *data) {
 //---------------------------------------------
 //                  对比函数
 //---------------------------------------------
-bool compareData_ChainHash(const ChainHash_Data *ldata, const ChainHash_Data *rdata) {
+Bool compareData_ChainHash(const ChainHash_Data *ldata, const ChainHash_Data *rdata) {
     if(strcmp(ldata->name, rdata->name) == 0) {
         return true;
     }else {
@@ -69,7 +69,7 @@ bool compareData_ChainHash(const ChainHash_Data *ldata, const ChainHash_Data *rd
 //---------------------------------------------
 //                  输出格式
 //---------------------------------------------
-bool showNode(ChainHash_Data *data) {
+Bool showNode(ChainHash_Data *data) {
     printf("%s", data->name);
     //printf("OK");
     return true;
@@ -88,7 +88,7 @@ bool showNode(ChainHash_Data *data) {
 //---------------------------------------------
 //                  设置节点
 //---------------------------------------------
-static bool setNode_ChainHash(ChainHash_Node *node, const ChainHash_Data *data, ChainHash_Node *next) {
+static Bool setNode_ChainHash(ChainHash_Node *node, const ChainHash_Data *data, ChainHash_Node *next) {
     node->data = *data;
     node->next = next;
     
@@ -127,8 +127,8 @@ void chainHashTest() {
     //-----------------------------------------
     ChainHash *sample_chainHash = NULL;
     sample_chainHash = (ChainHash *)mallocPro(sample_chainHash, sizeof(ChainHash *), GETSTR_MEMSET);
-    bool result = initialize_ChainHash(sample_chainHash, SIZE_CHAINHASH);//初始化测试
-    printf("result %s\n", BOOL_STR(result));
+    Bool result = initialize_ChainHash(sample_chainHash, SIZE_CHAINHASH);//初始化测试
+    printf("result %s\n", Bool_STR(result));
     dump_ChainHash(sample_chainHash, showNode);
     //printf("size %d point %p\n", sample_chainHash.size, sample_chainHash.table);
     
@@ -164,9 +164,9 @@ void chainHashTest() {
 //-------------------------------------------------------
 //                       初始化
 //-------------------------------------------------------
-//# TODO: malloc, alloc, calloc, realloc   1F916BF4-7F64-4EAE-B9B1-7ECD00EFF5B2
-//# TODO: 修改mallocPro, 增加初始化memsetPro D7B1391A-13C6-441B-8069-D027F1856FBE
-bool initialize_ChainHash(ChainHash *hashTable, SIZE size) { // 初始化链式哈希表
+// # TODO: malloc, alloc, calloc, realloc   1F916BF4-7F64-4EAE-B9B1-7ECD00EFF5B2
+// # TODO: 修改mallocPro, 增加初始化memsetPro D7B1391A-13C6-441B-8069-D027F1856FBE
+Bool initialize_ChainHash(ChainHash *hashTable, SIZE size) { // 初始化链式哈希表
     int i;
     if(hashTable == NULL) {
         return false;
@@ -191,7 +191,7 @@ bool initialize_ChainHash(ChainHash *hashTable, SIZE size) { // 初始化链式�
 //-------------------------------------------------------
 ChainHash_Node *search_ChainHash(const ChainHash *hashTable, const ChainHash_Data *data,
                        ChainHash_Key getHashKey(const ChainHash_Data *data, int size), //获取哈希表值的函数
-                       bool compareData_ChainHash(const ChainHash_Data *ldata, const ChainHash_Data *rdata)) { //比较值大小的函数
+                       Bool compareData_ChainHash(const ChainHash_Data *ldata, const ChainHash_Data *rdata)) { //比较值大小的函数
     
     ChainHash_Key key = getHashKey(data, hashTable->size);//计算哈希值
     ChainHash_Node *temp = hashTable->table[key];//获取相应数据
@@ -210,7 +210,7 @@ ChainHash_Node *search_ChainHash(const ChainHash *hashTable, const ChainHash_Dat
 //                        追加
 //-------------------------------------------------------
 ChainHash_Node *insert_Data_ChainHash(ChainHash *hashTable, const ChainHash_Data *data, ChainHash_InsertLocation where,
-                                    bool compareData_ChainHash(const ChainHash_Data *ldata, const ChainHash_Data *rdata)) {
+                                    Bool compareData_ChainHash(const ChainHash_Data *ldata, const ChainHash_Data *rdata)) {
     //puts("|||||||||||||||||||||\n");
     //puts("before insert");
     //showHuman((HUMANLP)data, true);
@@ -284,12 +284,12 @@ ChainHash_Node *insert_Data_ChainHash(ChainHash *hashTable, const ChainHash_Data
 //-------------------------------------------------------
 //                        删除
 //-------------------------------------------------------
-bool delete_Data_ChainHash(ChainHash *hashTable, const ChainHash_Data *data,
-                           bool compareData_ChainHash(const ChainHash_Data *ldata, const ChainHash_Data *rdata)) {
+Bool delete_Data_ChainHash(ChainHash *hashTable, const ChainHash_Data *data,
+                           Bool compareData_ChainHash(const ChainHash_Data *ldata, const ChainHash_Data *rdata)) {
     ChainHash_Key key = getHashKey(data, hashTable->size);
     ChainHash_Node *item = hashTable->table[key];//指向目标桶
     ChainHash_Node **table = &hashTable->table[key];//指向整个哈希表的目标列的指针 也可以写成*item;
-//# TODO: 多重指针   C26DB890-B0BF-4EE1-BAE8-2A3E64DA48DC
+// # TODO: 多重指针   C26DB890-B0BF-4EE1-BAE8-2A3E64DA48DC
     while (item != NULL) {//开始寻找目标
         if (compareData_ChainHash(data, &item->data)) {//找到目标
             *table = item->next;
@@ -320,7 +320,7 @@ bool delete_Data_ChainHash(ChainHash *hashTable, const ChainHash_Data *data,
 //-------------------------------------------------------
 //                        Dump
 //-------------------------------------------------------
-void dump_ChainHash(const ChainHash *hashTable, bool showNode(ChainHash_Data *data)) {
+void dump_ChainHash(const ChainHash *hashTable, Bool showNode(ChainHash_Data *data)) {
     int i;
     //ChainHash_Node *temp = NULL;
     
@@ -376,7 +376,7 @@ void hashTest_chain();
 //-------------------------------------------------------
 //                        初始化
 //-------------------------------------------------------
-bool Initialize(ChainHash *h, int size);
+Bool Initialize(ChainHash *h, int size);
 
 //-------------------------------------------------------
 //                         检索
@@ -395,8 +395,8 @@ int Delete(ChainHash *h, const CHAINHASHDATALP member);
 //-------------------------------------------------------
 //                      删除全部数据
 //-------------------------------------------------------
-bool dump(const ChainHash *h);
+Bool dump(const ChainHash *h);
 //-------------------------------------------------------
 //                         收尾
 //-------------------------------------------------------
-bool Dump(const ChainHash *h);*/
+Bool Dump(const ChainHash *h);*/

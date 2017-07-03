@@ -16,7 +16,7 @@
 #include "SampleDataStruct.h"
 #include <string.h>
 #define nil	NULL
-//#  alloc, malloc, calloc, realloc总结
+// !! #  alloc, malloc, calloc, realloc总结 13E98FED-1B4A-4023-BA3E-B91C1F3DFA00
 //---------------------------------------------------------------------------
 //                                  笔记
 //---------------------------------------------------------------------------
@@ -86,11 +86,11 @@ ChainHash_Key getHashKey(const ChainHash_Data *data, SIZE size); // 测试专用
 //---------------------------------------------
 //                  数据对比函数
 //---------------------------------------------
-bool compareData_ChainHash(const ChainHash_Data *ldata, const ChainHash_Data *rdata);//测试专用
+Bool compareData_ChainHash(const ChainHash_Data *ldata, const ChainHash_Data *rdata);//测试专用
 //---------------------------------------------
 //                  输出格式
 //---------------------------------------------
-bool showNode(ChainHash_Data *data);
+Bool showNode(ChainHash_Data *data);
 
 //-------------------------------------------------------
 //                     管理测试的函数
@@ -100,28 +100,28 @@ void chainHashTest();
 //-------------------------------------------------------
 //                       初始化
 //-------------------------------------------------------
-bool initialize_ChainHash(ChainHash *hashTable, SIZE size); // 初始化链式哈希表
+Bool initialize_ChainHash(ChainHash *hashTable, SIZE size); // 初始化链式哈希表
 
 //-------------------------------------------------------
 //                        检索
 //-------------------------------------------------------
 //ChainHash_Node *search(const ChainHash *hashTable, const Data *data);
-ChainHash_Node *search_ChainHash(const ChainHash *hashTable, const ChainHash_Data *data, ChainHash_Key getHashKey(const ChainHash_Data *data, int size), bool compareData_HashChain(const ChainHash_Data *ldata, const ChainHash_Data *rdata));
+ChainHash_Node *search_ChainHash(const ChainHash *hashTable, const ChainHash_Data *data, ChainHash_Key getHashKey(const ChainHash_Data *data, int size), Bool compareData_HashChain(const ChainHash_Data *ldata, const ChainHash_Data *rdata));
 
 //-------------------------------------------------------
 //                        追加
 //-------------------------------------------------------
-ChainHash_Node *insert_Data_ChainHash(ChainHash *hashTable, const ChainHash_Data *data, ChainHash_InsertLocation where, bool compareData_ChainHash(const ChainHash_Data *ldata, const ChainHash_Data *rdata));
+ChainHash_Node *insert_Data_ChainHash(ChainHash *hashTable, const ChainHash_Data *data, ChainHash_InsertLocation where, Bool compareData_ChainHash(const ChainHash_Data *ldata, const ChainHash_Data *rdata));
 
 //-------------------------------------------------------
 //                        删除
 //-------------------------------------------------------
-bool delete_Data_ChainHash(ChainHash *hashTable, const ChainHash_Data *data, bool compareData_ChainHash(const ChainHash_Data *ldata, const ChainHash_Data *rdata));
+Bool delete_Data_ChainHash(ChainHash *hashTable, const ChainHash_Data *data, Bool compareData_ChainHash(const ChainHash_Data *ldata, const ChainHash_Data *rdata));
 
 //-------------------------------------------------------
 //                     全部表示(dump)
 //-------------------------------------------------------
-void dump_ChainHash(const ChainHash *hashTable, bool showNode(ChainHash_Data *data));
+void dump_ChainHash(const ChainHash *hashTable, Bool showNode(ChainHash_Data *data));
 
 //-------------------------------------------------------
 //                       全部删除

@@ -86,6 +86,6 @@ HUMANLP creatOneHuman(HUMANLP human, Name name, FLESHLP p_body, SPIRITLP p_spiri
 //-------------------------------------------------------
 //                        展示
 //-------------------------------------------------------
-void showHuman(const HUMANLP human, bool isBrief);
+void showHuman(const HUMANLP human, Bool isBrief);
 
 #endif /* SampleDataStruct_h */

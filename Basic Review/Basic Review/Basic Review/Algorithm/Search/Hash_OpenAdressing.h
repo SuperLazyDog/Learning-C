@@ -16,8 +16,8 @@
 #include "MemorySet.h"
 #include <string.h>
 
-//# TODO: Hash.h改名---> Hash_Chain.h  77020035-AA17-4021-9216-DC673A915FB7
-//# TODO: 增加备注: Hash_Chain 拉链法   Hash_OpenAdressing 开放寻址法  如这里的线性探测再散列法 F588E20F-371D-443F-9677-0190F449DC07
+// # TODO: Hash.h改名---> Hash_Chain.h  77020035-AA17-4021-9216-DC673A915FB7
+// # TODO: 增加备注: Hash_Chain 拉链法   Hash_OpenAdressing 开放寻址法  如这里的线性探测再散列法 F588E20F-371D-443F-9677-0190F449DC07
 
 //---------------------------------------------------------------------------
 //                                  笔记
@@ -72,11 +72,11 @@ OpenAdressingHash_Key getReHashKey_OpenAdressingHash(const OpenAdressingHash_Key
 //---------------------------------------------
 //                  数据对比函数
 //---------------------------------------------
-bool compareData_OpenAdressingHash(const OpenAdressingHash_Data *ldata, const OpenAdressingHash_Data *rdata);//测试专用
+Bool compareData_OpenAdressingHash(const OpenAdressingHash_Data *ldata, const OpenAdressingHash_Data *rdata);//测试专用
 //---------------------------------------------
 //                  输出格式
 //---------------------------------------------
-bool showBucket_OpenAdressingHash(OpenAdressingHash_Data *data);
+Bool showBucket_OpenAdressingHash(OpenAdressingHash_Data *data);
 
 //-------------------------------------------------------
 //                     管理测试的函数
@@ -86,7 +86,7 @@ void OpenAdressingHashTest();
 //-------------------------------------------------------
 //                       初始化
 //-------------------------------------------------------
-bool initialize_OpenAdressingHash(OpenAdressingHash *hashTable, SIZE size); // 初始化链式哈希表
+Bool initialize_OpenAdressingHash(OpenAdressingHash *hashTable, SIZE size); // 初始化链式哈希表
 
 //-------------------------------------------------------
 //                        检索
@@ -96,31 +96,31 @@ OpenAdressingHash_Bucket *search_OpenAdressingHash(const OpenAdressingHash *hash
 /*OpenAdressingHash_Bucket *search_OpenAdressingHash(const OpenAdressingHash *hashTable, const OpenAdressingHash_Data *data, 
 		OpenAdressingHash_Key getHashKey_OpenAdressingHash(const OpenAdressingHash_Data *data, SIZE size), 
 		OpenAdressingHash_Key getReHashKey_OpenAdressingHash(const OpenAdressingHash_Key key, SIZE size)
-		bool compareData_OpenAdressingHash(const OpenAdressingHash_Data *ldata, const OpenAdressingHash_Data *rdata));*/
+		Bool compareData_OpenAdressingHash(const OpenAdressingHash_Data *ldata, const OpenAdressingHash_Data *rdata));*/
 
 //-------------------------------------------------------
 //                        追加
 //-------------------------------------------------------
-bool insert_Data_OpenAdressingHash(OpenAdressingHash *hashTable, const OpenAdressingHash_Data *data);
-/*bool insert_Data_OpenAdressingHash(OpenAdressingHash *hashTable, const OpenAdressingHash_Data *data,
+Bool insert_Data_OpenAdressingHash(OpenAdressingHash *hashTable, const OpenAdressingHash_Data *data);
+/*Bool insert_Data_OpenAdressingHash(OpenAdressingHash *hashTable, const OpenAdressingHash_Data *data,
 		OpenAdressingHash_Key getHashKey_OpenAdressingHash(const OpenAdressingHash_Data *data, SIZE size), 
 		OpenAdressingHash_Key getReHashKey_OpenAdressingHash(const OpenAdressingHash_Key key, SIZE size), 
-		bool compareData_OpenAdressingHash(const OpenAdressingHash_Data *ldata, const OpenAdressingHash_Data *rdata));*/
+		Bool compareData_OpenAdressingHash(const OpenAdressingHash_Data *ldata, const OpenAdressingHash_Data *rdata));*/
 
 //-------------------------------------------------------
 //                        删除
 //-------------------------------------------------------
-bool delete_Data_OpenAdressingHash(OpenAdressingHash *hashTable, const OpenAdressingHash_Data *data);
-/*bool delete_Data_OpenAdressingHash(OpenAdressingHash *hashTable, const OpenAdressingHash_Data *data,
+Bool delete_Data_OpenAdressingHash(OpenAdressingHash *hashTable, const OpenAdressingHash_Data *data);
+/*Bool delete_Data_OpenAdressingHash(OpenAdressingHash *hashTable, const OpenAdressingHash_Data *data,
 		OpenAdressingHash_Key getHashKey_OpenAdressingHash(const OpenAdressingHash_Data *data, SIZE size), 
 		OpenAdressingHash_Key getReHashKey_OpenAdressingHash(const OpenAdressingHash_Key key, SIZE size), 
-		bool compareData_OpenAdressingHash(const OpenAdressingHash_Data *ldata, const OpenAdressingHash_Data *rdata));*/
+		Bool compareData_OpenAdressingHash(const OpenAdressingHash_Data *ldata, const OpenAdressingHash_Data *rdata));*/
 //-------------------------------------------------------
 //                        Dump
 //-------------------------------------------------------
 //void dump_OpenAdressingHash(const OpenAdressingHash *hashTable);
 void dump_OpenAdressingHash(const OpenAdressingHash *hashTable,
-		bool showBucket_OpenAdressingHash(OpenAdressingHash_Data *data));
+		Bool showBucket_OpenAdressingHash(OpenAdressingHash_Data *data));
 
 //-------------------------------------------------------
 //                       全部删除

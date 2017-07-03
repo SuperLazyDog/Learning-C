@@ -21,14 +21,14 @@
  */
 
 //---------------------------------------------------------------------------
-//                                堆(stack)
+//                                堆(Queue)
 //---------------------------------------------------------------------------
 //-------------------------------------------------------
 //                       类型定义
 //-------------------------------------------------------
 //------------------------------
 //实际使用时候改变这个定义     散式哈希表处理的数据类型
-typedef int Stack_Data;
+typedef int Queue_Data;
 //------------------------------
 typedef int INT;
 typedef INT SIZE, LENGTH;
@@ -38,11 +38,13 @@ typedef INT Capacity;
 typedef INT POINTER;
 
 
-/*typedef struct {
+typedef struct {
     Capacity max;
-    POINTER pointer;
-    Stack_Data *stackList;
-} Stack;*/
+    SIZE num;
+    POINTER front;
+    POINTER rear;
+    Queue_Data *queueList;
+} Queue;
 
 //-------------------------------------------------------
 //                     需要自定义的函数
@@ -50,93 +52,76 @@ typedef INT POINTER;
 //---------------------------------------------
 //                  数据对比函数
 //---------------------------------------------
-/*bool compareData_Stack(const Stack_Data *ldata, const Stack_Data *rdata);//测试专用
+Bool compareData_Queue(const Queue_Data *ldata, const Queue_Data *rdata);//测试专用
 //---------------------------------------------
 //                  输出格式
 //---------------------------------------------
-bool showData_Stack(Stack_Data *data); //测试专用*/
-
-//---------------------------------------------
-//                获取哈希值的函数
-//---------------------------------------------
-/*OpenAdressingHash_Key getHashKey_OpenAdressingHash(const OpenAdressingHash_Data *data, SIZE size); // 测试专用
- //---------------------------------------------
- //                再次哈希值的函数
- //---------------------------------------------
- OpenAdressingHash_Key getReHashKey_OpenAdressingHash(const OpenAdressingHash_Key key, SIZE size);
- //---------------------------------------------
- //                  数据对比函数
- //---------------------------------------------
- bool compareData_OpenAdressingHash(const OpenAdressingHash_Data *ldata, const OpenAdressingHash_Data *rdata);//测试专用
- //---------------------------------------------
- //                  输出格式
- //---------------------------------------------
- bool showBucket_OpenAdressingHash(OpenAdressingHash_Data *data);*/
+Bool showData_Queue(Queue_Data *data); //测试专用
 
 //-------------------------------------------------------
 //                     管理测试的函数
 //-------------------------------------------------------
 void queueTest();
 
-/*//-------------------------------------------------------
+//-------------------------------------------------------
 //                       初始化
 //-------------------------------------------------------
-bool initialize_Stack(Stack *stack, Capacity max); // 初始化堆
+Queue *initialize_Queue(Queue *queue, Capacity max); // 初始化堆
 
 //-------------------------------------------------------
-//                        Push
+//                       插入数据
 //-------------------------------------------------------
-bool push_In_Stack(Stack *stack, Stack_Data *data);
+Bool enque_Queue(Queue *queue, Queue_Data *data);
 
 //-------------------------------------------------------
-//                        Pop
+//                       取出数据
 //-------------------------------------------------------
-bool pop_From_Stack(Stack *stack, Stack_Data *temp);
+Bool deque_Queue(Queue *queue, Queue_Data *temp);
 
 //-------------------------------------------------------
 //                        Peek
 //-------------------------------------------------------
-bool peek_at_Stack(const Stack *stack, Stack_Data *temp);
+Bool peek_at_Queue(const Queue *queue, Queue_Data *temp);
 
 //-------------------------------------------------------
 //                        Clear
 //-------------------------------------------------------
-bool clear_Stack(Stack *stack);
+Bool clear_Queue(Queue *queue);
 
 //-------------------------------------------------------
 //                       获取容量
 //-------------------------------------------------------
-Capacity getCapacity_From_Stack(const Stack *stack);
+Capacity getCapacity_From_Queue(const Queue *queue);
 
 //-------------------------------------------------------
 //                      获取数据数
 //-------------------------------------------------------
-Size getCount_Of_Data(const Stack *stack);
+Size getCount_Of_Queue_Data(const Queue *queue);
 
 //-------------------------------------------------------
 //                       是否空
 //-------------------------------------------------------
-bool isEmpty_Stack(const Stack *stack);
+Bool isEmpty_Queue(const Queue *queue);
 
 //-------------------------------------------------------
 //                       是否满
 //-------------------------------------------------------
-bool isFull_Stack(const Stack *stack);
+Bool isFull_Queue(const Queue *queue);
 
 //-------------------------------------------------------
 //                       搜索数据
 //-------------------------------------------------------
-POINTER search_In_Stack(const Stack *stack, const Stack_Data *data,
-                        bool compareData_Stack(const Stack_Data *ldata, const Stack_Data *rdata));
+POINTER search_In_Queue(const Queue *queue, const Queue_Data *data,
+                        Bool compareData_Queue(const Queue_Data *ldata, const Queue_Data *rdata));
 
 //-------------------------------------------------------
 //                        表示
 //-------------------------------------------------------
-bool showStack(const Stack *stack,  bool showData_Stack(Stack_Data *data));
+Bool showQueue(const Queue *Queue,  Bool showData_Queue(Queue_Data *data));
 
 //-------------------------------------------------------
 //                        收尾
 //-------------------------------------------------------
-bool terminate_Stack(Stack *stack);*/
+Bool terminate_Queue(Queue *queue);
 
 #endif /* Queue_h */

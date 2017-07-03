@@ -15,7 +15,7 @@ void recursive(int a);
 void pointArguments(int *a, int *b);
 
 //第十二章 动态分配内存
-//bool mallocPro(void *p, long unsigned size);
+//Bool mallocPro(void *p, long unsigned size);
 //---------------------------------------------------------------------------
 //                               选择器
 //---------------------------------------------------------------------------
@@ -292,7 +292,7 @@ void IOTest() {
     
 }
 
-//# TODO: 第九章 文件的输入输出暂时省略 440DF976-D4A2-4BFB-9AC8-82EC722C6959
+// # TODO: 第九章 文件的输入输出暂时省略 440DF976-D4A2-4BFB-9AC8-82EC722C6959
 
 //---------------------------------------------------------------------------
 //                                 第十章  8
@@ -303,7 +303,7 @@ struct test {
     int b;
 };
 typedef struct test Test;
-bool structTest() {
+Bool structTest() {
     /*Test test[2] = {
         {.a = 1, .b = 2},
         {.a = 3, .b = 4}
@@ -314,7 +314,7 @@ bool structTest() {
     }, *test2;
     test2 = &test1;
     if (test1.a == test2->a) {
-        printf("test1.a = test2.a? : %s\n", BOOL_STR(test1.a == test2->a));
+        printf("test1.a = test2.a? : %s\n", Bool_STR(test1.a == test2->a));
         return true;
     }
     return false;
@@ -322,7 +322,7 @@ bool structTest() {
 
 void unionTest() {
 }
-//# TODO: 第十章后半部分(p307~)及第十一章十二章部分省略 C2237A39-AD6A-4AF4-8CEC-0D284B549543
+// # TODO: 第十章后半部分(p307~)及第十一章十二章部分省略 C2237A39-AD6A-4AF4-8CEC-0D284B549543
 //---------------------------------------------------------------------------
 //                                 第十二章  10
 //---------------------------------------------------------------------------
@@ -343,7 +343,7 @@ void highTopic() {
     }
 }
 
-/*bool mallocPro(void *p, long unsigned size) {
+/*Bool mallocPro(void *p, long unsigned size) {
     p = malloc(size);
     if(!p) {
         printf("false\n");

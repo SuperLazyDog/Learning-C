@@ -57,46 +57,46 @@ void initialize(List *list);
 //-------------------------------------------------------
 //                         检索
 //-------------------------------------------------------
-Node *searchNode(List *list, const type *data, bool compare(const type *left, const type *right));
+Node *searchNode(List *list, const type *data, Bool compare(const type *left, const type *right));
 
 //-------------------------------------------------------
 //                       开头插入
 //-------------------------------------------------------
-bool insertInHead(List *list, const type *data);
+Bool insertInHead(List *list, const type *data);
 
 //-------------------------------------------------------
 //                        末尾插入
 //-------------------------------------------------------
-bool insertInTail(List *list, const type *data);
+Bool insertInTail(List *list, const type *data);
 
 //-------------------------------------------------------
 //                      删除头节点
 //-------------------------------------------------------
-bool deleteHead(List *list);
+Bool deleteHead(List *list);
 
 //-------------------------------------------------------
 //                      删除尾节点
 //-------------------------------------------------------
-bool deleteTail(List *list);
+Bool deleteTail(List *list);
 
 //-------------------------------------------------------
 //                    删除当前所在节点
 //-------------------------------------------------------
-bool deleteCurrent(List *list);
+Bool deleteCurrent(List *list);
 
 //-------------------------------------------------------
 //                      删除所有节点
 //-------------------------------------------------------
-bool clearAll(List *list);
+Bool clearAll(List *list);
 
 //-------------------------------------------------------
 //                      表示当前节点
 //-------------------------------------------------------
-bool showCurrent(List *list, void print(type data), bool needNewLine);
+Bool showCurrent(List *list, void print(type data), Bool needNewLine);
 
 //-------------------------------------------------------
 //                      表示所有节点
 //-------------------------------------------------------
-bool showAll(List *list, void print(type data));
+Bool showAll(List *list, void print(type data));
 
 #endif /* List_h */

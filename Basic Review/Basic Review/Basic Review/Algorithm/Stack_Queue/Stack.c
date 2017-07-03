@@ -19,13 +19,13 @@
 //---------------------------------------------
 //                  数据对比函数
 //---------------------------------------------
-bool compareData_Stack(const Stack_Data *ldata, const Stack_Data *rdata) {//测试专用
+Bool compareData_Stack(const Stack_Data *ldata, const Stack_Data *rdata) {//测试专用
 	return *ldata == *rdata;
 }
 //---------------------------------------------
 //                  输出格式
 //---------------------------------------------
-bool showData_Stack(Stack_Data *data) { //测试专用
+Bool showData_Stack(Stack_Data *data) { //测试专用
 	printf("%d \n", *data);
     return true;
 }
@@ -33,11 +33,11 @@ bool showData_Stack(Stack_Data *data) { //测试专用
 //---------------------------------------------
 //                  数据对比函数
 //---------------------------------------------
-bool compareData_Stack(const Stack_Data *ldata, const Stack_Data *rdata);//测试专用
+Bool compareData_Stack(const Stack_Data *ldata, const Stack_Data *rdata);//测试专用
 //---------------------------------------------
 //                  输出格式
 //---------------------------------------------
-bool showData_Stack(Stack_Data *data); //测试专用
+Bool showData_Stack(Stack_Data *data); //测试专用
 //---------------------------------------------
 //                获取哈希值的函数
 //---------------------------------------------
@@ -49,11 +49,11 @@ bool showData_Stack(Stack_Data *data); //测试专用
  //---------------------------------------------
  //                  数据对比函数
  //---------------------------------------------
- bool compareData_OpenAdressingHash(const OpenAdressingHash_Data *ldata, const OpenAdressingHash_Data *rdata);//测试专用
+ Bool compareData_OpenAdressingHash(const OpenAdressingHash_Data *ldata, const OpenAdressingHash_Data *rdata);//测试专用
  //---------------------------------------------
  //                  输出格式
  //---------------------------------------------
- bool showBucket_OpenAdressingHash(OpenAdressingHash_Data *data);*/
+ Bool showBucket_OpenAdressingHash(OpenAdressingHash_Data *data);*/
 
 //-------------------------------------------------------
 //                     管理测试的函数
@@ -65,7 +65,7 @@ void stackTest() {
 //-------------------------------------------------------
 //                       初始化
 //-------------------------------------------------------
-bool initialize_Stack(Stack *stack, Capacity max) { // 初始化堆
+Bool initialize_Stack(Stack *stack, Capacity max) { // 初始化堆
 	stack->pointer = 0;
 	if (stack == NULL) {
 		stack = (Stack *)mallocPro(stack, sizeof(Stack), GETSTR_MEMSET);
@@ -85,7 +85,7 @@ bool initialize_Stack(Stack *stack, Capacity max) { // 初始化堆
 //-------------------------------------------------------
 //                        Push
 //-------------------------------------------------------
-bool push_In_Stack(Stack *stack, Stack_Data *data) {
+Bool push_In_Stack(Stack *stack, Stack_Data *data) {
 	if (stack->pointer >= stack->max) {
 		return false; //堆内数据已满
 	}
@@ -97,7 +97,7 @@ bool push_In_Stack(Stack *stack, Stack_Data *data) {
 //-------------------------------------------------------
 //                        Pop
 //-------------------------------------------------------
-bool pop_From_Stack(Stack *stack, Stack_Data *temp) {
+Bool pop_From_Stack(Stack *stack, Stack_Data *temp) {
 	if (stack->pointer <= 0) {
 		return false; //堆为空
 	}
@@ -108,7 +108,7 @@ bool pop_From_Stack(Stack *stack, Stack_Data *temp) {
 //-------------------------------------------------------
 //                        Peek
 //-------------------------------------------------------
-bool peek_at_Stack(const Stack *stack, Stack_Data *temp) {
+Bool peek_at_Stack(const Stack *stack, Stack_Data *temp) {
 	if (stack->pointer <= 0) {
 		return false; //堆为空
 	}
@@ -119,7 +119,7 @@ bool peek_at_Stack(const Stack *stack, Stack_Data *temp) {
 //-------------------------------------------------------
 //                        Clear
 //-------------------------------------------------------
-bool clear_Stack(Stack *stack) {
+Bool clear_Stack(Stack *stack) {
 	stack->pointer = 0;
     return true;
 }
@@ -127,7 +127,7 @@ bool clear_Stack(Stack *stack) {
 //-------------------------------------------------------
 //                       获取容量
 //-------------------------------------------------------
-//# TODO: bool ---> Bool   /Basic Resive/session/Bool.h  4BA881E8-B763-462C-9A8F-102DB615D585
+// # TODO: bool ---> Bool   /Basic Resive/session/Bool.h  4BA881E8-B763-462C-9A8F-102DB615D585
 Capacity getCapacity_From_Stack(const Stack *stack) {
 	if (stack == NULL) { //指定堆不存在
 		return (Capacity)false;
@@ -156,7 +156,7 @@ Size getCount_Of_Data(const Stack *stack) {
 //-------------------------------------------------------
 //                       是否空
 //-------------------------------------------------------
-bool isEmpty_Stack(const Stack *stack) {
+Bool isEmpty_Stack(const Stack *stack) {
 	if (stack == NULL) { //指定堆不存在
 		return false;
 	}
@@ -166,7 +166,7 @@ bool isEmpty_Stack(const Stack *stack) {
 //-------------------------------------------------------
 //                       是否满
 //-------------------------------------------------------
-bool isFull_Stack(const Stack *stack) {
+Bool isFull_Stack(const Stack *stack) {
 	if (stack == NULL) { //指定堆不存在
 		return false;
 	}
@@ -176,9 +176,9 @@ bool isFull_Stack(const Stack *stack) {
 //-------------------------------------------------------
 //                       搜索数据
 //-------------------------------------------------------
-//# TODO: 搜索顺序: 从头到尾， 从尾到头  D8216609-5979-4D8B-8BEB-7985B85D9E2C
+// # TODO: 搜索顺序: 从头到尾， 从尾到头  D8216609-5979-4D8B-8BEB-7985B85D9E2C
 POINTER search_In_Stack(const Stack *stack, const Stack_Data *data, 
-			bool compareData_Stack(const Stack_Data *ldata, const Stack_Data *rdata)) {
+			Bool compareData_Stack(const Stack_Data *ldata, const Stack_Data *rdata)) {
 	int i;
 	if (stack == NULL) { //指定堆不存在
 		return (POINTER)false;
@@ -194,8 +194,8 @@ POINTER search_In_Stack(const Stack *stack, const Stack_Data *data,
 //-------------------------------------------------------
 //                        表示
 //-------------------------------------------------------
-//# TODO: 表示顺序: 从头到尾， 从尾到头  625B74F1-2CC4-487D-8796-A1B6276B87EE
-bool showStack(const Stack *stack,  bool showData_Stack(Stack_Data *data)) {
+// # TODO: 表示顺序: 从头到尾， 从尾到头  625B74F1-2CC4-487D-8796-A1B6276B87EE
+Bool showStack(const Stack *stack,  Bool showData_Stack(Stack_Data *data)) {
 	int i;
 	if (stack == NULL) { //指定堆不存在
 		return false;
@@ -211,7 +211,7 @@ bool showStack(const Stack *stack,  bool showData_Stack(Stack_Data *data)) {
 //-------------------------------------------------------
 //                        收尾
 //-------------------------------------------------------
-bool terminate_Stack(Stack *stack) {
+Bool terminate_Stack(Stack *stack) {
 	if (stack == NULL) { //指定堆不存在
 		return true;
 	}

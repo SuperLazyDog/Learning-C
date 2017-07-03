@@ -14,6 +14,6 @@
 #include "Bool.h"
 #define GETSTR_MEMSET false
 
-void *mallocPro(void *p, long unsigned size, bool getStr);
-void *callocPro(void *p, long unsigned n, long unsigned size, bool getStr);
+void *mallocPro(void *p, long unsigned size, Bool getStr);
+void *callocPro(void *p, long unsigned n, long unsigned size, Bool getStr);
 #endif /* MemorySet_h */

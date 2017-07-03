@@ -50,6 +50,10 @@ void algorithmSelector(int num) {
             puts("start queue test\n");
             queueTest();
             break;
+        case recurse:
+            puts("start recursive test\n");
+            recurseTest();
+            break;
         default:
             puts("nothing matches requirement");
             break;

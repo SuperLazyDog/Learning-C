@@ -15,7 +15,7 @@
 //include "List.h"
 //辅助类头文件
 #include "String.h"
-#include "Bool.h"//创建bool
+#include "Bool.h"//创建Bool
 #include "MemorySet.h"//安全的动态内存
 //void printABC(type data);
 int main(int argc, const char * argv[]) {
@@ -25,7 +25,7 @@ int main(int argc, const char * argv[]) {
     //testSelector(second);
     //testSelector(third);
     //testSelector(chainHash);
-    testSelector(memTest);
+    //testSelector(memTest);
     //---------------------------------------------------------------------------
     //                               C语言基本复习
     //---------------------------------------------------------------------------
@@ -49,7 +49,8 @@ int main(int argc, const char * argv[]) {
     //algorithmSelector(hash);
     //algorithmSelector(hash_OpenAdressing);
     //algorithmSelector(stack);
-    algorithmSelector(queue);
+    //algorithmSelector(queue);
+    algorithmSelector(recurse);
     
     return 0;
 }

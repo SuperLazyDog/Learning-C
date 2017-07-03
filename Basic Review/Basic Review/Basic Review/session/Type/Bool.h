@@ -11,12 +11,12 @@
 
 #include <stdio.h>
 
-/*enum bools {
+/*enum Bools {
     true = 1,
     false = 0,
 };
-typedef enum bools bool;*/
-typedef enum { false, true } bool;
-#define BOOL_STR(b) ((b) ? "true":"false")
+typedef enum Bools Bool;*/
+typedef enum { false, true } Bool;
+#define Bool_STR(b) ((b) ? "true":"false")
 
 #endif /* Bool_h */

@@ -14,7 +14,7 @@
 //功能性头文件
 #include "AlgorithmSelector.h"//算法
 //辅助类头文件
-#include "Bool.h"//创建bool
+#include "Bool.h"//创建Bool
 #include "MemorySet.h"//安全的动态内存
 //测试类头文件
 #include "Hash.h"
@@ -41,7 +41,7 @@ void printA(int num);
 //-------------------------------------------------------
 //                       函数指针
 //-------------------------------------------------------
-void funcPoinTest(int lsh, int rsh, bool compare(int a, int b));
+void funcPoinTest(int lsh, int rsh, Bool compare(int a, int b));
 
 //-------------------------------------------------------
 //                      结构体里的指针

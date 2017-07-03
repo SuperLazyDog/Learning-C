@@ -52,11 +52,11 @@ typedef struct {
 //---------------------------------------------
 //                  数据对比函数
 //---------------------------------------------
-bool compareData_Stack(const Stack_Data *ldata, const Stack_Data *rdata);//测试专用
+Bool compareData_Stack(const Stack_Data *ldata, const Stack_Data *rdata);//测试专用
 //---------------------------------------------
 //                  输出格式
 //---------------------------------------------
-bool showData_Stack(Stack_Data *data); //测试专用
+Bool showData_Stack(Stack_Data *data); //测试专用
 
 //---------------------------------------------
 //                获取哈希值的函数
@@ -69,11 +69,11 @@ OpenAdressingHash_Key getReHashKey_OpenAdressingHash(const OpenAdressingHash_Key
 //---------------------------------------------
 //                  数据对比函数
 //---------------------------------------------
-bool compareData_OpenAdressingHash(const OpenAdressingHash_Data *ldata, const OpenAdressingHash_Data *rdata);//测试专用
+Bool compareData_OpenAdressingHash(const OpenAdressingHash_Data *ldata, const OpenAdressingHash_Data *rdata);//测试专用
 //---------------------------------------------
 //                  输出格式
 //---------------------------------------------
-bool showBucket_OpenAdressingHash(OpenAdressingHash_Data *data);*/
+Bool showBucket_OpenAdressingHash(OpenAdressingHash_Data *data);*/
 
 //-------------------------------------------------------
 //                     管理测试的函数
@@ -83,27 +83,27 @@ void stackTest();
 //-------------------------------------------------------
 //                       初始化
 //-------------------------------------------------------
-bool initialize_Stack(Stack *stack, Capacity max); // 初始化堆
+Bool initialize_Stack(Stack *stack, Capacity max); // 初始化堆
 
 //-------------------------------------------------------
 //                        Push
 //-------------------------------------------------------
-bool push_In_Stack(Stack *stack, Stack_Data *data);
+Bool push_In_Stack(Stack *stack, Stack_Data *data);
 
 //-------------------------------------------------------
 //                        Pop
 //-------------------------------------------------------
-bool pop_From_Stack(Stack *stack, Stack_Data *temp);
+Bool pop_From_Stack(Stack *stack, Stack_Data *temp);
 
 //-------------------------------------------------------
 //                        Peek
 //-------------------------------------------------------
-bool peek_at_Stack(const Stack *stack, Stack_Data *temp);
+Bool peek_at_Stack(const Stack *stack, Stack_Data *temp);
 
 //-------------------------------------------------------
 //                        Clear
 //-------------------------------------------------------
-bool clear_Stack(Stack *stack);
+Bool clear_Stack(Stack *stack);
 
 //-------------------------------------------------------
 //                       获取容量
@@ -118,26 +118,26 @@ Size getCount_Of_Data(const Stack *stack);
 //-------------------------------------------------------
 //                       是否空
 //-------------------------------------------------------
-bool isEmpty_Stack(const Stack *stack);
+Bool isEmpty_Stack(const Stack *stack);
 
 //-------------------------------------------------------
 //                       是否满
 //-------------------------------------------------------
-bool isFull_Stack(const Stack *stack);
+Bool isFull_Stack(const Stack *stack);
 
 //-------------------------------------------------------
 //                       搜索数据
 //-------------------------------------------------------
 POINTER search_In_Stack(const Stack *stack, const Stack_Data *data, 
-			bool compareData_Stack(const Stack_Data *ldata, const Stack_Data *rdata));
+			Bool compareData_Stack(const Stack_Data *ldata, const Stack_Data *rdata));
 
 //-------------------------------------------------------
 //                        表示
 //-------------------------------------------------------
-bool showStack(const Stack *stack,  bool showData_Stack(Stack_Data *data));
+Bool showStack(const Stack *stack,  Bool showData_Stack(Stack_Data *data));
 
 //-------------------------------------------------------
 //                        收尾
 //-------------------------------------------------------
-bool terminate_Stack(Stack *stack);
+Bool terminate_Stack(Stack *stack);
 #endif /* Stack_h */

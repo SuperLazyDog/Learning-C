@@ -11,7 +11,7 @@
 //---------------------------------------------------------------------------
 //                               本地函数声明
 //---------------------------------------------------------------------------
-bool compare(int a, int b);
+Bool compare(int a, int b);
 
 //-------------------------------------------------------
 //                      共有变量
@@ -54,7 +54,7 @@ void printA(int num) { //2017/06/17
 //-------------------------------------------------------
 //                       函数指针
 //-------------------------------------------------------
-void funcPoinTest(int lsh, int rsh, bool compare(int a, int b)) {
+void funcPoinTest(int lsh, int rsh, Bool compare(int a, int b)) {
     if((*compare)(lsh, rsh)) {
         printf("a > b\n");
     }else {
@@ -62,7 +62,7 @@ void funcPoinTest(int lsh, int rsh, bool compare(int a, int b)) {
     }
 }
 
-bool compare(int a, int b) {
+Bool compare(int a, int b) {
     return a > b;
 }
 
@@ -97,8 +97,8 @@ void pointProTest() {
 void chainHashProTest() {
     ChainHash table;
     int size = 100;
-    bool result = initialize_ChainHash(&table, size);
-    printf("result: %s\n", BOOL_STR(result));
+    Bool result = initialize_ChainHash(&table, size);
+    printf("result: %s\n", Bool_STR(result));
     ChainHash_Data i;
     
     for (i = 0; i < 10000; i++) {
@@ -114,8 +114,11 @@ void chainHashProTest() {
 //-------------------------------------------------------
 void memsetProTest() {
     int *a = malloc(sizeof(int)*20); //a[20]
-    int **b = calloc(20, sizeof(int *));//b[20][20]
+    int **b = calloc((unsigned long)20, sizeof(int *));//b[20][20]
     //memset(<#void *__b#>, <#int __c#>, <#size_t __len#>)
+    for (int i = 0; i < 20; i++) {
+        b[i] = (int *)malloc((sizeof(int)*20));
+    }
     b[2][1] = 1;
     printf("b[2][1]: %d\n", b[2][1]);
     free(b);

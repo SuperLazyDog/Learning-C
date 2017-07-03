@@ -152,8 +152,8 @@ BinNode *insertNode(BinNode *p, const BinType *data, int compareBinTree(const Bi
 //-------------------------------------------------------
 //                       删除节点
 //-------------------------------------------------------
-//# TODO: 理解二叉树节点删除的原理   EC2912DE-2120-4FAB-ABD8-1EC873CFE2C7
-//# TODO: 递归   0096FF87-E0E6-4B0F-8C74-B8875832B4C0
+// # TODO: 理解二叉树节点删除的原理   EC2912DE-2120-4FAB-ABD8-1EC873CFE2C7
+// # TODO: 递归   0096FF87-E0E6-4B0F-8C74-B8875832B4C0
 /*-------------------------------------------------------
                            笔记
  ①没有子节点: 直接删除
@@ -232,7 +232,7 @@ int getTreeCount(BinNode *p) {
 //                      表示全部节点
 //-------------------------------------------------------
 //前序
-bool showAllBinNodePreOrder(const BinNode *p, void printBin(const BinType *data)) { //前序
+Bool showAllBinNodePreOrder(const BinNode *p, void printBin(const BinType *data)) { //前序
     if(p != NULL) {
         //puts("printBin");
         printBin((&p->data));
@@ -243,7 +243,7 @@ bool showAllBinNodePreOrder(const BinNode *p, void printBin(const BinType *data)
 }
 
 //中序
-bool showAllBinNodeInOrder(const BinNode *p, void printBin(const BinType *data)) { //中序
+Bool showAllBinNodeInOrder(const BinNode *p, void printBin(const BinType *data)) { //中序
     if(p) {
         showAllBinNodeInOrder(p->left, printBin);
         printBin(&(p->data));
@@ -253,7 +253,7 @@ bool showAllBinNodeInOrder(const BinNode *p, void printBin(const BinType *data))
     return true;
 }
 //后序
-bool showAllBinNodePostOrder(const BinNode *p, void printBin(const BinType *data)) { //后序
+Bool showAllBinNodePostOrder(const BinNode *p, void printBin(const BinType *data)) { //后序
     if(p) {
         showAllBinNodePostOrder(p->left, printBin);
         showAllBinNodePostOrder(p->right, printBin);
@@ -265,7 +265,7 @@ bool showAllBinNodePostOrder(const BinNode *p, void printBin(const BinType *data
 //-------------------------------------------------------
 //                      删除全部节点
 //-------------------------------------------------------
-bool clearAllBinNode(BinNode *p) {
+Bool clearAllBinNode(BinNode *p) {
     if(p) {
         clearAllBinNode(p->left);
         clearAllBinNode(p->right);

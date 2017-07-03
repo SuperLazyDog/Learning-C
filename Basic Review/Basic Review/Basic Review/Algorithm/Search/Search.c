@@ -12,7 +12,7 @@
 //---------------------------------------------------------------------------
 //                               本地函数声明
 //---------------------------------------------------------------------------
-bool setTarget(bool isOrderd, int num);
+Bool setTarget(Bool isOrderd, int num);
 
 //-------------------------------------------------------
 //                      共有变量
@@ -53,7 +53,7 @@ void searchTest(){
 //-------------------------------------------------------
 //                      设置目标
 //-------------------------------------------------------
-bool setTarget(bool isOrderd, int num) {
+Bool setTarget(Bool isOrderd, int num) {
     int i;
     targetSearch = (int *)mallocPro(targetSearch, num*sizeof(int), GETSTR_MEMSET);
     if(targetSearch) {
@@ -80,7 +80,7 @@ bool setTarget(bool isOrderd, int num) {
 //                      线性搜索
 //-------------------------------------------------------
 //本来用while的话是哨兵检索的两倍，用了for后基本上一样
-bool lineSearch(const int p[], const int num, const int key) {
+Bool lineSearch(const int p[], const int num, const int key) {
     int i;
     for(i = 0; i < num; i++) {
         if(p[i] == key) {
@@ -98,7 +98,7 @@ bool lineSearch(const int p[], const int num, const int key) {
 //                      哨兵检索
 //-------------------------------------------------------
 //和上一个基本上也没多大差别
-bool sentinelSearch(int p[], const int num, const int key) {
+Bool sentinelSearch(int p[], const int num, const int key) {
     int i, temp = p[num-1];
     p[num-1] = key;
     for(i = 0; i < num; i++) {
@@ -120,7 +120,7 @@ bool sentinelSearch(int p[], const int num, const int key) {
 //-------------------------------------------------------
 //                      二分法检索
 //-------------------------------------------------------
-bool binarySearch(const int p[], const int num, const int key) {
+Bool binarySearch(const int p[], const int num, const int key) {
     int lb = 0; //left border
     int rb = num-1; //right border
     int ml;//middle line
@@ -144,7 +144,7 @@ bool binarySearch(const int p[], const int num, const int key) {
     printf("lb = %d   rb = %d\n", lb, rb);
     return false;
 }
-//# TODO: 哈希表的检索 p102~137   6E232BC8-AEC4-4264-91C7-95253570F2CB
+// # TODO: 哈希表的检索 p102~137   6E232BC8-AEC4-4264-91C7-95253570F2CB
 //---------------------------------------------------------------------------
 //                                  笔记
 //---------------------------------------------------------------------------

@@ -61,7 +61,7 @@ void initialize(List *list) {
 //-------------------------------------------------------
 //                        搜索
 //-------------------------------------------------------
-Node *searchNode(List *list, const type *data, bool compare(const type *left, const type *right)) {
+Node *searchNode(List *list, const type *data, Bool compare(const type *left, const type *right)) {
     Node *temp = list->head;//从开头开始检索
     while (temp) {
         if((*compare)(data, &temp->data)) {
@@ -76,7 +76,7 @@ Node *searchNode(List *list, const type *data, bool compare(const type *left, co
 //-------------------------------------------------------
 //                        开头插入
 //-------------------------------------------------------
-bool insertInHead(List *list, const type *data) {
+Bool insertInHead(List *list, const type *data) {
     Node *temp = list->head;
     list->head = createNode();
     list->crnt = list->head;
@@ -87,7 +87,7 @@ bool insertInHead(List *list, const type *data) {
 //-------------------------------------------------------
 //                        末尾插入
 //-------------------------------------------------------
-bool insertInTail(List *list, const type *data) {
+Bool insertInTail(List *list, const type *data) {
     Node *temp = list->head;
     if(!temp) { //链表为空
         insertInHead(list, data);
@@ -106,7 +106,7 @@ bool insertInTail(List *list, const type *data) {
 //-------------------------------------------------------
 //                      删除头节点
 //-------------------------------------------------------
-bool deleteHead(List *list) {
+Bool deleteHead(List *list) {
     if(list->head){
         Node *temp = list->head;
         list->head = list->crnt = temp->next;
@@ -119,7 +119,7 @@ bool deleteHead(List *list) {
 //-------------------------------------------------------
 //                      删除尾节点
 //-------------------------------------------------------
-bool deleteTail(List *list) {
+Bool deleteTail(List *list) {
     Node *temp = list->head;
     Node *pre = NULL;
     
@@ -142,7 +142,7 @@ bool deleteTail(List *list) {
 //-------------------------------------------------------
 //                    删除当前所在节点
 //-------------------------------------------------------
-bool deleteCurrent(List *list) {
+Bool deleteCurrent(List *list) {
     if(list->head) {
         if(!list->head->next) {
             deleteHead(list);
@@ -165,7 +165,7 @@ bool deleteCurrent(List *list) {
 //-------------------------------------------------------
 //                      删除所有节点
 //-------------------------------------------------------
-bool clearAll(List *list) {
+Bool clearAll(List *list) {
     while (list->head) {
         deleteHead(list);
     }
@@ -176,7 +176,7 @@ bool clearAll(List *list) {
 //-------------------------------------------------------
 //                      表示当前节点
 //-------------------------------------------------------
-bool showCurrent(List *list, void print(type data), bool needNewLine) {
+Bool showCurrent(List *list, void print(type data), Bool needNewLine) {
     if (!list->crnt) {
         puts("the current item of list does not exit!");
     }else {
@@ -190,7 +190,7 @@ bool showCurrent(List *list, void print(type data), bool needNewLine) {
 //-------------------------------------------------------
 //                      表示所有节点
 //-------------------------------------------------------
-bool showAll(List *list, void print(type data)) {
+Bool showAll(List *list, void print(type data)) {
     if(!list->head) {
         puts("the list does not exit!");
     }else {
@@ -207,7 +207,7 @@ bool showAll(List *list, void print(type data)) {
 //-------------------------------------------------------
 //                         扫尾
 //-------------------------------------------------------
-bool terminate(List *list) {
+Bool terminate(List *list) {
     clearAll(list);
     return true;
 }
@@ -218,7 +218,7 @@ bool terminate(List *list) {
 void print(type data) {
     printf("your num is %d", data);
 }
-//# TODO: p354~383 其他形式的链表  BC692207-4335-4739-8EB1-C142B2B356D1
+// # TODO: p354~383 其他形式的链表  BC692207-4335-4739-8EB1-C142B2B356D1
 //---------------------------------------------------------------------------
 //                                  笔记
 //---------------------------------------------------------------------------

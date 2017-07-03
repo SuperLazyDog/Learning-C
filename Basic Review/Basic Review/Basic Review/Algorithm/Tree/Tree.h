@@ -73,13 +73,13 @@ int getTreeCount(BinNode *p);
 //-------------------------------------------------------
 //                      表示全部节点
 //-------------------------------------------------------
-bool showAllBinNodePreOrder(const BinNode *p, void printBin(const BinType *data));//前序
-bool showAllBinNodeInOrder(const BinNode *p, void printBin(const BinType *data));//中序
-bool showAllBinNodePostOrder(const BinNode *p, void printBin(const BinType *data));//后序
+Bool showAllBinNodePreOrder(const BinNode *p, void printBin(const BinType *data));//前序
+Bool showAllBinNodeInOrder(const BinNode *p, void printBin(const BinType *data));//中序
+Bool showAllBinNodePostOrder(const BinNode *p, void printBin(const BinType *data));//后序
 
 //-------------------------------------------------------
 //                      删除全部节点
 //-------------------------------------------------------
-bool clearAllBinNode(BinNode *p);
+Bool clearAllBinNode(BinNode *p);
 
 #endif /* Tree_h */

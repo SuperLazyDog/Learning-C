@@ -41,13 +41,13 @@ OpenAdressingHash_Key getReHashKey_OpenAdressingHash(const OpenAdressingHash_Key
 //---------------------------------------------
 //                  数据对比函数
 //---------------------------------------------
-bool compareData_OpenAdressingHash(const OpenAdressingHash_Data *ldata, const OpenAdressingHash_Data *rdata) {
+Bool compareData_OpenAdressingHash(const OpenAdressingHash_Data *ldata, const OpenAdressingHash_Data *rdata) {
 	return *ldata == *rdata;
 }
 //---------------------------------------------
 //                  输出格式
 //---------------------------------------------
-bool showBucket_OpenAdressingHash(OpenAdressingHash_Data *data) {
+Bool showBucket_OpenAdressingHash(OpenAdressingHash_Data *data) {
 	printf("%d ", *data);
 	return false;
 }
@@ -67,7 +67,7 @@ bool showBucket_OpenAdressingHash(OpenAdressingHash_Data *data) {
 //---------------------------------------------
 //                  对比函数
 //---------------------------------------------
-bool compareData_ChainHash(const ChainHash_Data *ldata, const ChainHash_Data *rdata) {
+Bool compareData_ChainHash(const ChainHash_Data *ldata, const ChainHash_Data *rdata) {
     if(strcmp(ldata->name, rdata->name) == 0) {
         return true;
     }else {
@@ -77,7 +77,7 @@ bool compareData_ChainHash(const ChainHash_Data *ldata, const ChainHash_Data *rd
 //---------------------------------------------
 //                  输出格式
 //---------------------------------------------
-bool showNode(ChainHash_Data *data) {
+Bool showNode(ChainHash_Data *data) {
     printf("%s", data->name);
     //printf("OK");
     return true;
@@ -88,7 +88,7 @@ bool showNode(ChainHash_Data *data) {
 //---------------------------------------------
 //                  设置节点
 //---------------------------------------------
-static bool setNode_OpenAdressingHash(OpenAdressingHash_Bucket *bucket, const OpenAdressingHash_Data *data, Status_OpenAdressingHash status) {
+static Bool setNode_OpenAdressingHash(OpenAdressingHash_Bucket *bucket, const OpenAdressingHash_Data *data, Status_OpenAdressingHash status) {
     bucket->data = *data;
     //printf("test: %d\n", bucket->data);
 	bucket->status = status;
@@ -103,9 +103,9 @@ static bool setNode_OpenAdressingHash(OpenAdressingHash_Bucket *bucket, const Op
 //---------------------------------------------------------------------------
 //                                API函数
 //---------------------------------------------------------------------------
-//# TODO: 返回结果不用bool，改用enum D0159A0D-B4A7-43A4-8816-D59857D04B15
-//# TODO: 改用函数指针     changed--------->  全部放弃函数指针  764E5771-5FAA-4354-8C11-E65640730C08
-//# TODO: terminate要清楚哈希表管理器指向的内存  ChainHash  25E2CFFB-E347-4EED-8FE2-969990C64B1C
+// # TODO: 返回结果不用Bool，改用enum D0159A0D-B4A7-43A4-8816-D59857D04B15
+// # TODO: 改用函数指针     changed--------->  全部放弃函数指针  764E5771-5FAA-4354-8C11-E65640730C08
+// # TODO: terminate要清楚哈希表管理器指向的内存  ChainHash  25E2CFFB-E347-4EED-8FE2-969990C64B1C
 //-------------------------------------------------------
 //                     管理测试的函数
 //-------------------------------------------------------
@@ -124,7 +124,7 @@ void OpenAdressingHashTest() {
 //-------------------------------------------------------
 //                       初始化
 //-------------------------------------------------------
-bool initialize_OpenAdressingHash(OpenAdressingHash *hashTable, SIZE size) {// 初始化开放寻址哈希表
+Bool initialize_OpenAdressingHash(OpenAdressingHash *hashTable, SIZE size) {// 初始化开放寻址哈希表
 	int i;
 	if (hashTable == NULL) { //一开始为空指针
 		hashTable = mallocPro(hashTable, sizeof(hashTable), GETSTR_MEMSET);
@@ -166,7 +166,7 @@ OpenAdressingHash_Bucket *search_OpenAdressingHash(const OpenAdressingHash *hash
 //-------------------------------------------------------
 //                        追加
 //-------------------------------------------------------
-bool insert_Data_OpenAdressingHash(OpenAdressingHash *hashTable, const OpenAdressingHash_Data *data) {
+Bool insert_Data_OpenAdressingHash(OpenAdressingHash *hashTable, const OpenAdressingHash_Data *data) {
 	int i;
 	OpenAdressingHash_Key key = getHashKey_OpenAdressingHash(data, hashTable->size);
     //printf("key: %d\n", key);
@@ -174,7 +174,7 @@ bool insert_Data_OpenAdressingHash(OpenAdressingHash *hashTable, const OpenAdres
 
 	if(search_OpenAdressingHash(hashTable, data) != NULL) {
 		return false;//　要插入的数据已存在
-		//# TODO: 不用这个是否会更快  834BAD6D-E773-4F35-BC1F-CD01FD736179
+		// # TODO: 不用这个是否会更快  834BAD6D-E773-4F35-BC1F-CD01FD736179
 	}
 
 	for (i = 0; i < hashTable->size; i++) {
@@ -192,7 +192,7 @@ bool insert_Data_OpenAdressingHash(OpenAdressingHash *hashTable, const OpenAdres
 //-------------------------------------------------------
 //                        删除
 //-------------------------------------------------------
-bool delete_Data_OpenAdressingHash(OpenAdressingHash *hashTable, const OpenAdressingHash_Data *data) {
+Bool delete_Data_OpenAdressingHash(OpenAdressingHash *hashTable, const OpenAdressingHash_Data *data) {
 	//int i;
 	//OpenAdressingHash_key key = getHashKey_OpenAdressingHash(data, hashTable->size);
 	OpenAdressingHash_Bucket *bucket = search_OpenAdressingHash(hashTable, data);
@@ -208,7 +208,7 @@ bool delete_Data_OpenAdressingHash(OpenAdressingHash *hashTable, const OpenAdres
 //                        Dump
 //-------------------------------------------------------
 void dump_OpenAdressingHash(const OpenAdressingHash *hashTable,
-		bool showBucket_OpenAdressingHash(OpenAdressingHash_Data *data)) {
+		Bool showBucket_OpenAdressingHash(OpenAdressingHash_Data *data)) {
 	int i;
 	for (i = 0; i < hashTable->size; i++) {
 		printf("%d: ", i);

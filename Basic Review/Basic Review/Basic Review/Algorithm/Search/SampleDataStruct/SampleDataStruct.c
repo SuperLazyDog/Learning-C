@@ -20,7 +20,7 @@ static HUMANLP createOne() {
     return NULL;
 }
 
-static bool setOne(HUMANLP human, Name name, FLESHLP p_body, SPIRITLP p_spirit) {
+static Bool setOne(HUMANLP human, Name name, FLESHLP p_body, SPIRITLP p_spirit) {
     human->name = name;
     human->body = *p_body;
     human->mental = *p_spirit;
@@ -116,7 +116,7 @@ HUMANLP creatOneHuman(HUMANLP human, Name name, FLESHLP p_body, SPIRITLP p_spiri
 //-------------------------------------------------------
 //                        展示
 //-------------------------------------------------------
-void showHuman(const HUMANLP human, bool isBrief) {
+void showHuman(const HUMANLP human, Bool isBrief) {
     switch (isBrief) {
         case false:
             puts("------------------------------------");
