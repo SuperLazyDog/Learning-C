@@ -17,6 +17,7 @@
 		490A6DFC1EF7089B0064A1C9 /* SampleDataStruct.c in Sources */ = {isa = PBXBuildFile; fileRef = 490A6DFA1EF7089B0064A1C9 /* SampleDataStruct.c */; };
 		490A6DFF1EF726540064A1C9 /* String.c in Sources */ = {isa = PBXBuildFile; fileRef = 490A6DFD1EF726540064A1C9 /* String.c */; };
 		4936A2A41F09CF9A0043EC29 /* Recurse.c in Sources */ = {isa = PBXBuildFile; fileRef = 4936A2A21F09CF9A0043EC29 /* Recurse.c */; };
+		4936A2AB1F0BEA100043EC29 /* Sort.c in Sources */ = {isa = PBXBuildFile; fileRef = 4936A2A91F0BEA100043EC29 /* Sort.c */; };
 		4940AFCA1F02E2400044BC3E /* Hash_OpenAdressing.c in Sources */ = {isa = PBXBuildFile; fileRef = 4940AFC81F02E2400044BC3E /* Hash_OpenAdressing.c */; };
 		4940AFCE1F02EA3B0044BC3E /* Stack.c in Sources */ = {isa = PBXBuildFile; fileRef = 4940AFCC1F02EA3B0044BC3E /* Stack.c */; };
 		4940AFD21F040A220044BC3E /* LoadData.c in Sources */ = {isa = PBXBuildFile; fileRef = 4940AFD01F040A220044BC3E /* LoadData.c */; };
@@ -59,6 +60,8 @@
 		490A6DFE1EF726540064A1C9 /* String.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = String.h; path = "Basic Review/Session/Type/String.h"; sourceTree = SOURCE_ROOT; };
 		4936A2A21F09CF9A0043EC29 /* Recurse.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Recurse.c; sourceTree = "<group>"; };
 		4936A2A31F09CF9A0043EC29 /* Recurse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recurse.h; sourceTree = "<group>"; };
+		4936A2A91F0BEA100043EC29 /* Sort.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Sort.c; sourceTree = "<group>"; };
+		4936A2AA1F0BEA100043EC29 /* Sort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sort.h; sourceTree = "<group>"; };
 		4940AFC81F02E2400044BC3E /* Hash_OpenAdressing.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Hash_OpenAdressing.c; path = Search/Hash_OpenAdressing.c; sourceTree = "<group>"; };
 		4940AFC91F02E2400044BC3E /* Hash_OpenAdressing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Hash_OpenAdressing.h; path = Search/Hash_OpenAdressing.h; sourceTree = "<group>"; };
 		4940AFCC1F02EA3B0044BC3E /* Stack.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Stack.c; sourceTree = "<group>"; };
@@ -109,6 +112,7 @@
 		490A6DCC1EF5CCAB0064A1C9 /* Algorithm */ = {
 			isa = PBXGroup;
 			children = (
+				4936A2A81F0BEA100043EC29 /* Sort */,
 				4936A2A11F09CF8E0043EC29 /* Recurse */,
 				4940AFCB1F02EA290044BC3E /* Stack_Queue */,
 				490A6DCD1EF5CCC50064A1C9 /* Search */,
@@ -179,6 +183,15 @@
 				4936A2A31F09CF9A0043EC29 /* Recurse.h */,
 			);
 			path = Recurse;
+			sourceTree = "<group>";
+		};
+		4936A2A81F0BEA100043EC29 /* Sort */ = {
+			isa = PBXGroup;
+			children = (
+				4936A2A91F0BEA100043EC29 /* Sort.c */,
+				4936A2AA1F0BEA100043EC29 /* Sort.h */,
+			);
+			path = Sort;
 			sourceTree = "<group>";
 		};
 		4940AFCB1F02EA290044BC3E /* Stack_Queue */ = {
@@ -315,6 +328,7 @@
 				490A6DD01EF5CCF10064A1C9 /* Search.c in Sources */,
 				490A6DFF1EF726540064A1C9 /* String.c in Sources */,
 				490A6DD31EF5CE990064A1C9 /* AlgorithmSelector.c in Sources */,
+				4936A2AB1F0BEA100043EC29 /* Sort.c in Sources */,
 				490A6DD71EF5EB820064A1C9 /* List.c in Sources */,
 				4936A2A41F09CF9A0043EC29 /* Recurse.c in Sources */,
 				490A6DDB1EF610430064A1C9 /* Tree.c in Sources */,

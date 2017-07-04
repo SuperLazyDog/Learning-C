@@ -50,7 +50,8 @@ int main(int argc, const char * argv[]) {
     //algorithmSelector(hash_OpenAdressing);
     //algorithmSelector(stack);
     //algorithmSelector(queue);
-    algorithmSelector(recurse);
+    //algorithmSelector(recurse);
+    algorithmSelector(sort);
     
     return 0;
 }

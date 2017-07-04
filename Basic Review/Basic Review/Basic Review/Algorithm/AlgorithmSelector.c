@@ -54,6 +54,10 @@ void algorithmSelector(int num) {
             puts("start recursive test\n");
             recurseTest();
             break;
+        case sort:
+            puts("start sort test\n");
+            sortTest();
+            break;
         default:
             puts("nothing matches requirement");
             break;
