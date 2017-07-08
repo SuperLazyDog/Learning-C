@@ -131,18 +131,10 @@ Bool bubbleSort(int *data, unsigned int size, Bool beginAtFront, int version) {
                 }
                 return true;
             }else { //从尾开始
-                while (k < n-1) {
-                    for (j = size - 1; j > k; j--) {
-                        if (data[j - 1] > data[i]) {
-                            <#statements#>
-                        }
-                        
-                    }
-                }
-                /*k = size - 1;
+                k = size - 1;
                 for (i = 0; i < size-1; i++) {
                     Bool hasChanged = false;
-                    for (j = size-1; j > k; j--) {
+                    for (j = size-1; j > 0; j--) {
                         if (data[j-1] > data[j]) {
                             //printf("%d > %d\n", data[j-1], data[j]);
                             int temp = data[j];
@@ -152,16 +144,17 @@ Bool bubbleSort(int *data, unsigned int size, Bool beginAtFront, int version) {
                             k = j;
                         }
                     }
+                    i = k;
                     count++;
-                    printf("count %d, hasChanged %s\n", count, Bool_STR(hasChanged));
+                    printf("count %d, hasChanged %s, k %d\n", count, Bool_STR(hasChanged), k);
                     //printf("count %d\n", count);
                     if (hasChanged == false) {
                         break;
                     }
                 }
-                return false;
+                return true;
             }
-            return true;*/
+            return false;
         case V1://默认版本,没有任何改进
         case Default:
         default:
