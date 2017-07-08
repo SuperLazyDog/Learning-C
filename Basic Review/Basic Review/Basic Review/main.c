@@ -18,6 +18,7 @@
 #include "Bool.h"//创建Bool
 #include "MemorySet.h"//安全的动态内存
 //void printABC(type data);
+
 int main(int argc, const char * argv[]) {
     //---------------------------------------------------------------------------
     //                               各种测试

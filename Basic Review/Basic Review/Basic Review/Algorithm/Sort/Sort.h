@@ -10,6 +10,7 @@
 #define Sort_h
 
 #include <stdio.h>
+#include <stdlib.h>
 #include "Bool.h"
 #include "MemorySet.h"
 #include "String.h"
@@ -40,6 +41,6 @@ void sortTest();
 //-------------------------------------------------------
 //                       冒泡排序
 //-------------------------------------------------------
-Bool bubbleSort(int *data, unsigned int size, Bool beginAtFront);
+Bool bubbleSort(int *data, unsigned int size, Bool beginAtFront, int version);
 
 #endif /* Sort_h */
