@@ -43,4 +43,16 @@ void sortTest();
 //-------------------------------------------------------
 Bool bubbleSort(int *data, unsigned int size, Bool beginAtFront, int version);
 
+//-------------------------------------------------------
+//                     直接选择排序
+//-------------------------------------------------------
+//straight selection sort
+Bool straightSelectionSort(int *data, unsigned long size);
+
+//-------------------------------------------------------
+//                      插入排序
+//-------------------------------------------------------
+//shuttle sort
+Bool insertSort(int *data, unsigned long size);
+
 #endif /* Sort_h */

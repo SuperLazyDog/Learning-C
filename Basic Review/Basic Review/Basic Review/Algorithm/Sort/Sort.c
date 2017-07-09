@@ -33,7 +33,7 @@ enum Version_Bubble_Sort {
 void showAll_Sort(int *data, int size) {
     int i;
     for (i = 0; i < size; i++) {
-        printf("data[%d]: %d\n", i, data[i]);
+        printf("data[%2d]: %12d\n", i, data[i]);
     }
 }
 //-------------------------------------------------------
@@ -43,11 +43,32 @@ void sortTest() {
 #define SIZE_SORT 100
     int *sortSample = (int *)calloc(SIZE_SORT, sizeof(int));
     int i;
+    puts("-------------------------------------------------");
+    puts("                   冒泡排序");
+    puts("-------------------------------------------------");
     for (i = 0; i < SIZE_SORT; i++) {
         sortSample[i] = rand();
     }
     //showAll_Sort(sortSample, SIZE_SORT);
     bubbleSort(sortSample, (unsigned int) SIZE_SORT, false, V3);
+    showAll_Sort(sortSample, SIZE_SORT);
+    
+    puts("-------------------------------------------------");
+    puts("                  直接选择排序");
+    puts("-------------------------------------------------");
+    for (i = 0; i < SIZE_SORT; i++) {
+        sortSample[i] = rand();
+    }
+    straightSelectionSort(sortSample, SIZE_SORT);
+    showAll_Sort(sortSample, SIZE_SORT);
+    
+    puts("-------------------------------------------------");
+    puts("                    插入排序");
+    puts("-------------------------------------------------");
+    for (i = 0; i < SIZE_SORT; i++) {
+        sortSample[i] = rand();
+    }
+    insertSort(sortSample, SIZE_SORT);
     showAll_Sort(sortSample, SIZE_SORT);
 }
 
@@ -189,5 +210,55 @@ Bool bubbleSort(int *data, unsigned int size, Bool beginAtFront, int version) {
 }
 
 //-------------------------------------------------------
-//                       冒泡排序
+//                     直接选择排序
 //-------------------------------------------------------
+//straight selection sort
+Bool straightSelectionSort(int *data, unsigned long size) {
+    int i, j;
+    
+    for (i = 0; i < size - 1; i++) {
+        int minIndex = i;
+        for (j = i + 1; j < size; j++) {
+            if (data[minIndex] > data[j]) {
+                minIndex = j;
+            }
+        }
+        int temp = data[i];
+        data[i] = data[minIndex];
+        data[minIndex] = temp;
+    }
+    return true;
+}
+
+//-------------------------------------------------------
+//                      插入排序
+//-------------------------------------------------------
+//shuttle sort
+Bool insertSort(int *data, unsigned long size) {
+    int i, j, temp;
+    
+    //冒泡排序升级版
+    /*for (i = 1; i < size; i++) {
+        for (j = i; j >= 1; j--) {
+            if (data[j] < data[j-1]) {
+                int temp = data[j];
+                data[j] = data[j-1];
+                data[j-1] = temp;
+            }
+        }
+    }*/
+    //真插入排序
+    for (i = 1; i < size; i++) {
+        temp = data[i];
+        for (j = i; j >= 1; j--) {
+            if (data[j-1] > temp) {
+                data[j] = data[j-1];
+            }else {
+                break;
+            }
+            
+        }
+    }
+    
+    return true;
+}
