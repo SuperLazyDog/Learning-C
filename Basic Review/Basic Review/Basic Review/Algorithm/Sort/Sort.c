@@ -70,6 +70,15 @@ void sortTest() {
     }
     insertSort(sortSample, SIZE_SORT);
     showAll_Sort(sortSample, SIZE_SORT);
+    
+    puts("-------------------------------------------------");
+    puts("                    shell排序");
+    puts("-------------------------------------------------");
+    for (i = 0; i < SIZE_SORT; i++) {
+        sortSample[i] = rand();
+    }
+    shellSort(sortSample, SIZE_SORT);
+    showAll_Sort(sortSample, SIZE_SORT);
 }
 
 //-------------------------------------------------------
@@ -256,8 +265,8 @@ Bool insertSort(int *data, unsigned long size) {
             }else {
                 break;
             }
-            
         }
+        data[j] = temp;
     }
     
     return true;
@@ -271,13 +280,28 @@ Bool shellSort(int *data, unsigned long size) {
     unsigned long i, h, j;
 
     for (h = size/2; h > 0; h /= 2) {
-        for (i = 1; i < size; i++) {
+        for (i = h; i < size; i++) {
             int temp = data[i];
-            for (j = i; j >= 1; j--) {
-                if (temp >= data[j-1]) {
+            //for (j = i-h; j >= 1; j -= h) {  //错了!!!这一种是看的前一个，所以第一个也要取到
+            //for (j = i-h; j >= 0; j -= h) { //Xcode bug，这样会警告，把【>= 0】改成【> -1】
+            /*for (j = i-h; j >= 0; j -= h) {
+                if (temp >= data[j]) {
+                    break;
+                }else {
+                    data[j+h] = data[j];
+                }
+            }
+            data[j+h] = temp;*/
+            
+            
+            for (j = i; j >= h; j -= h) {
+                if (temp < data[j-h]) {
+                    data[j] = data[j-h];
+                }else {
                     break;
                 }
             }
+            data[j] = temp;
         }
     }
     return true;
