@@ -262,3 +262,23 @@ Bool insertSort(int *data, unsigned long size) {
     
     return true;
 }
+
+//-------------------------------------------------------
+//                     shell排序
+//-------------------------------------------------------
+//shell sort
+Bool shellSort(int *data, unsigned long size) {
+    unsigned long i, h, j;
+
+    for (h = size/2; h > 0; h /= 2) {
+        for (i = 1; i < size; i++) {
+            int temp = data[i];
+            for (j = i; j >= 1; j--) {
+                if (temp >= data[j-1]) {
+                    break;
+                }
+            }
+        }
+    }
+    return true;
+}

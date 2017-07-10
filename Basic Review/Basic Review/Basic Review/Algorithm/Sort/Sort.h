@@ -55,4 +55,10 @@ Bool straightSelectionSort(int *data, unsigned long size);
 //shuttle sort
 Bool insertSort(int *data, unsigned long size);
 
+//-------------------------------------------------------
+//                     shell排序
+//-------------------------------------------------------
+//shell sort
+Bool shellSort(int *data, unsigned long size);
+
 #endif /* Sort_h */
