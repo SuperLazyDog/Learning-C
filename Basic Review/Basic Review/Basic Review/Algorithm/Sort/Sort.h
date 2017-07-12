@@ -61,4 +61,10 @@ Bool insertSort(int *data, unsigned long size);
 //shell sort
 Bool shellSort(int *data, unsigned long size);
 
+//-------------------------------------------------------
+//                      快速排序
+//-------------------------------------------------------
+//quick sort
+Bool quickSort(int *data, unsigned long size);
+
 #endif /* Sort_h */

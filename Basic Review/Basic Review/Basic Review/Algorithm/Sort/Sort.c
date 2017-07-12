@@ -276,6 +276,7 @@ Bool insertSort(int *data, unsigned long size) {
 //                     shell排序
 //-------------------------------------------------------
 //shell sort
+// # TODO 自己重新实现shell排序
 Bool shellSort(int *data, unsigned long size) {
     unsigned long i, h, j;
 
@@ -305,4 +306,13 @@ Bool shellSort(int *data, unsigned long size) {
         }
     }
     return true;
+}
+
+//-------------------------------------------------------
+//                      快速排序
+//-------------------------------------------------------
+//quick sort
+Bool quickSort(int *data, unsigned long size) {
+    
+    return false;
 }
