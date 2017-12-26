@@ -15,9 +15,9 @@
 #include "AlgorithmPro.h"//数据结构与算法 O'REILLY
 //include "List.h"
 //辅助类头文件
-#include "String.h"
-#include "Bool.h"//创建Bool
-#include "MemorySet.h"//安全的动态内存
+//#include "String.h"
+//#include "Bool.h"//创建Bool
+//#include "MemorySet.h"//安全的动态内存
 
 void basicReviewRunner(void);
 void algorithmProRunner(void);
@@ -71,6 +71,6 @@ void basicReviewRunner() {
 //                             数据结构与算法
 //---------------------------------------------------------------------------
 void algorithmProRunner() {
-    printf("hello everyone\n");
+    
 }
 

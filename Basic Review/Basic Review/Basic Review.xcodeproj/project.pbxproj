@@ -26,6 +26,7 @@
 		49791D791EF44CDF00355A29 /* test.c in Sources */ = {isa = PBXBuildFile; fileRef = 49791D771EF44CDF00355A29 /* test.c */; };
 		49CA0F2C1EF5250F006F0A71 /* Basic.c in Sources */ = {isa = PBXBuildFile; fileRef = 49CA0F2A1EF5250F006F0A71 /* Basic.c */; };
 		49CCF2961FF20670005E7119 /* AlgorithmPro.c in Sources */ = {isa = PBXBuildFile; fileRef = 49CCF2951FF20670005E7119 /* AlgorithmPro.c */; };
+		49CCF29A1FF21474005E7119 /* S3_List.c in Sources */ = {isa = PBXBuildFile; fileRef = 49CCF2991FF21474005E7119 /* S3_List.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -79,6 +80,8 @@
 		49CA0F2B1EF5250F006F0A71 /* Basic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Basic.h; sourceTree = "<group>"; };
 		49CCF2941FF20670005E7119 /* AlgorithmPro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlgorithmPro.h; sourceTree = "<group>"; };
 		49CCF2951FF20670005E7119 /* AlgorithmPro.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = AlgorithmPro.c; sourceTree = "<group>"; };
+		49CCF2981FF21474005E7119 /* S3_List.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = S3_List.h; sourceTree = "<group>"; };
+		49CCF2991FF21474005E7119 /* S3_List.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = S3_List.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -269,12 +272,158 @@
 		49CCF28F1FF20383005E7119 /* Data struct and Algorithm */ = {
 			isa = PBXGroup;
 			children = (
+				49CCF2971FF2145B005E7119 /* S3 連結リスト */,
+				49CCF2A21FF21689005E7119 /* S4_スタック */,
+				49CCF2AA1FF2168A005E7119 /* S5_キュー */,
+				49CCF2A31FF21689005E7119 /* S6_木 */,
+				49CCF2AB1FF2168A005E7119 /* S7_優先度付きキューとヒープ */,
+				49CCF2A81FF2168A005E7119 /* S8_お互いに素な集合ADT */,
+				49CCF29B1FF21689005E7119 /* S9_グラフアルゴリズム */,
+				49CCF29E1FF21689005E7119 /* S10_整列 */,
+				49CCF29D1FF21689005E7119 /* S11_探索 */,
+				49CCF2A41FF2168A005E7119 /* S12_選択アルゴリズム［中央値］ */,
+				49CCF2A11FF21689005E7119 /* S13_記号表 */,
+				49CCF2A61FF2168A005E7119 /* S14_文字列アルゴリズム */,
+				49CCF2A51FF2168A005E7119 /* S16_アルゴリズム設計技法 */,
+				49CCF29C1FF21689005E7119 /* S17_貪欲アルゴリズム */,
+				49CCF2A01FF21689005E7119 /* S18_分割統治アルゴリズム */,
+				49CCF2A91FF2168A005E7119 /* S19_動的プログラミング */,
+				49CCF2A71FF2168A005E7119 /* S20_計算量クラス */,
+				49CCF29F1FF21689005E7119 /* S21_その他の各種概念 */,
 				49CCF2941FF20670005E7119 /* AlgorithmPro.h */,
 				49CCF2951FF20670005E7119 /* AlgorithmPro.c */,
 			);
 			name = "Data struct and Algorithm";
 			path = "/Users/xuweida/Desktop/github/Learning-C/Basic Review/Basic Review/Data struct and Algorithm";
 			sourceTree = "<absolute>";
+		};
+		49CCF2971FF2145B005E7119 /* S3 連結リスト */ = {
+			isa = PBXGroup;
+			children = (
+				49CCF2981FF21474005E7119 /* S3_List.h */,
+				49CCF2991FF21474005E7119 /* S3_List.c */,
+			);
+			path = "S3 連結リスト";
+			sourceTree = "<group>";
+		};
+		49CCF29B1FF21689005E7119 /* S9_グラフアルゴリズム */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "S9_グラフアルゴリズム";
+			sourceTree = "<group>";
+		};
+		49CCF29C1FF21689005E7119 /* S17_貪欲アルゴリズム */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "S17_貪欲アルゴリズム";
+			sourceTree = "<group>";
+		};
+		49CCF29D1FF21689005E7119 /* S11_探索 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "S11_探索";
+			sourceTree = "<group>";
+		};
+		49CCF29E1FF21689005E7119 /* S10_整列 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "S10_整列";
+			sourceTree = "<group>";
+		};
+		49CCF29F1FF21689005E7119 /* S21_その他の各種概念 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "S21_その他の各種概念";
+			sourceTree = "<group>";
+		};
+		49CCF2A01FF21689005E7119 /* S18_分割統治アルゴリズム */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "S18_分割統治アルゴリズム";
+			sourceTree = "<group>";
+		};
+		49CCF2A11FF21689005E7119 /* S13_記号表 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "S13_記号表";
+			sourceTree = "<group>";
+		};
+		49CCF2A21FF21689005E7119 /* S4_スタック */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "S4_スタック";
+			sourceTree = "<group>";
+		};
+		49CCF2A31FF21689005E7119 /* S6_木 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "S6_木";
+			sourceTree = "<group>";
+		};
+		49CCF2A41FF2168A005E7119 /* S12_選択アルゴリズム［中央値］ */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "S12_選択アルゴリズム［中央値］";
+			sourceTree = "<group>";
+		};
+		49CCF2A51FF2168A005E7119 /* S16_アルゴリズム設計技法 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "S16_アルゴリズム設計技法";
+			sourceTree = "<group>";
+		};
+		49CCF2A61FF2168A005E7119 /* S14_文字列アルゴリズム */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "S14_文字列アルゴリズム";
+			sourceTree = "<group>";
+		};
+		49CCF2A71FF2168A005E7119 /* S20_計算量クラス */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "S20_計算量クラス";
+			sourceTree = "<group>";
+		};
+		49CCF2A81FF2168A005E7119 /* S8_お互いに素な集合ADT */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "S8_お互いに素な集合ADT";
+			sourceTree = "<group>";
+		};
+		49CCF2A91FF2168A005E7119 /* S19_動的プログラミング */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "S19_動的プログラミング";
+			sourceTree = "<group>";
+		};
+		49CCF2AA1FF2168A005E7119 /* S5_キュー */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "S5_キュー";
+			sourceTree = "<group>";
+		};
+		49CCF2AB1FF2168A005E7119 /* S7_優先度付きキューとヒープ */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "S7_優先度付きキューとヒープ";
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -345,6 +494,7 @@
 				4936A2AB1F0BEA100043EC29 /* Sort.c in Sources */,
 				490A6DD71EF5EB820064A1C9 /* List.c in Sources */,
 				4936A2A41F09CF9A0043EC29 /* Recurse.c in Sources */,
+				49CCF29A1FF21474005E7119 /* S3_List.c in Sources */,
 				490A6DDB1EF610430064A1C9 /* Tree.c in Sources */,
 				490A6DCB1EF5C6660064A1C9 /* MemorySet.c in Sources */,
 				490A6DF81EF6E0B90064A1C9 /* Hash.c in Sources */,
