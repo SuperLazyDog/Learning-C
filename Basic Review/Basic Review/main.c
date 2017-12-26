@@ -52,7 +52,7 @@ int main(int argc, const char * argv[]) {
     //algorithmSelector(stack);
     //algorithmSelector(queue);
     //algorithmSelector(recurse);
-    algorithmSelector(sort);
+    //algorithmSelector(sort);
     
     return 0;
 }

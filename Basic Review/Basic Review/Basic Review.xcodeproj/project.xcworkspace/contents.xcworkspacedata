@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
+   <Group
+      location = "group:/Users/xuweida/Desktop/github/Learning-C/Basic Review/Basic Review/Data struct and Algorithm"
+      name = "Data struct and Algorithm">
+   </Group>
    <FileRef
-      location = "self:Basic Review.xcodeproj">
+      location = "self:">
    </FileRef>
 </Workspace>
