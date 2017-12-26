@@ -81,7 +81,7 @@ Bool showBucket_OpenAdressingHash(OpenAdressingHash_Data *data);
 //-------------------------------------------------------
 //                     管理测试的函数
 //-------------------------------------------------------
-void OpenAdressingHashTest();
+void OpenAdressingHashTest(void);
 
 //-------------------------------------------------------
 //                       初始化
