@@ -217,6 +217,7 @@
 		49791D5C1EF4485A00355A29 = {
 			isa = PBXGroup;
 			children = (
+				49791D681EF4485A00355A29 /* main.c */,
 				490A6DDD1EF612160064A1C9 /* Contest Template */,
 				49791D671EF4485A00355A29 /* Basic Review */,
 				49791D661EF4485A00355A29 /* Products */,
@@ -237,7 +238,6 @@
 			children = (
 				490A6DCC1EF5CCAB0064A1C9 /* Algorithm */,
 				49CA0F291EF524F4006F0A71 /* Session */,
-				49791D681EF4485A00355A29 /* main.c */,
 				49791D771EF44CDF00355A29 /* test.c */,
 				49791D781EF44CDF00355A29 /* test.h */,
 			);
