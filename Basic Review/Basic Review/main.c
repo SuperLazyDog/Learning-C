@@ -71,6 +71,6 @@ void basicReviewRunner() {
 //                             数据结构与算法
 //---------------------------------------------------------------------------
 void algorithmProRunner() {
-    
+    AlgorithmProSelector(s3);
 }
 

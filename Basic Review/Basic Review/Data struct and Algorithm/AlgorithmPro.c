@@ -15,6 +15,7 @@ void AlgorithmProSelector(AlgorithmProItem item) {
         case s2:
             break;
         case s3:
+            listTester();
             break;
         case s4:
             break;
