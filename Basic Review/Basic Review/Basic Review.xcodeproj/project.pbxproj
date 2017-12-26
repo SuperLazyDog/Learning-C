@@ -25,6 +25,7 @@
 		49791D691EF4485A00355A29 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 49791D681EF4485A00355A29 /* main.c */; };
 		49791D791EF44CDF00355A29 /* test.c in Sources */ = {isa = PBXBuildFile; fileRef = 49791D771EF44CDF00355A29 /* test.c */; };
 		49CA0F2C1EF5250F006F0A71 /* Basic.c in Sources */ = {isa = PBXBuildFile; fileRef = 49CA0F2A1EF5250F006F0A71 /* Basic.c */; };
+		49CCF2961FF20670005E7119 /* AlgorithmPro.c in Sources */ = {isa = PBXBuildFile; fileRef = 49CCF2951FF20670005E7119 /* AlgorithmPro.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -76,6 +77,8 @@
 		49791D781EF44CDF00355A29 /* test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = test.h; sourceTree = "<group>"; };
 		49CA0F2A1EF5250F006F0A71 /* Basic.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Basic.c; sourceTree = "<group>"; };
 		49CA0F2B1EF5250F006F0A71 /* Basic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Basic.h; sourceTree = "<group>"; };
+		49CCF2941FF20670005E7119 /* AlgorithmPro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlgorithmPro.h; sourceTree = "<group>"; };
+		49CCF2951FF20670005E7119 /* AlgorithmPro.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = AlgorithmPro.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,6 +269,8 @@
 		49CCF28F1FF20383005E7119 /* Data struct and Algorithm */ = {
 			isa = PBXGroup;
 			children = (
+				49CCF2941FF20670005E7119 /* AlgorithmPro.h */,
+				49CCF2951FF20670005E7119 /* AlgorithmPro.c */,
 			);
 			name = "Data struct and Algorithm";
 			path = "/Users/xuweida/Desktop/github/Learning-C/Basic Review/Basic Review/Data struct and Algorithm";
@@ -331,6 +336,7 @@
 			files = (
 				49CA0F2C1EF5250F006F0A71 /* Basic.c in Sources */,
 				4940AFD21F040A220044BC3E /* LoadData.c in Sources */,
+				49CCF2961FF20670005E7119 /* AlgorithmPro.c in Sources */,
 				4940AFCA1F02E2400044BC3E /* Hash_OpenAdressing.c in Sources */,
 				4940AFCE1F02EA3B0044BC3E /* Stack.c in Sources */,
 				490A6DD01EF5CCF10064A1C9 /* Search.c in Sources */,

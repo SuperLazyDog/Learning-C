@@ -9,17 +9,29 @@
 //标准库头文件
 #include <stdio.h>
 //功能性头文件
-#include "test.h"//单纯的测试
-#include "Basic.h"//C语言基本复习
-#include "AlgorithmSelector.h"//算法
+//#include "test.h"//单纯的测试
+//#include "Basic.h"//C语言基本复习
+//#include "AlgorithmSelector.h"//算法
+#include "AlgorithmPro.h"//数据结构与算法 O'REILLY
 //include "List.h"
 //辅助类头文件
 #include "String.h"
 #include "Bool.h"//创建Bool
 #include "MemorySet.h"//安全的动态内存
-//void printABC(type data);
+
+void basicReviewRunner(void);
+void algorithmProRunner(void);
 
 int main(int argc, const char * argv[]) {
+//    basicReviewRunner(); //第一遍学习
+    algorithmProRunner(); //深度学习 数据结构与算法
+    return 0;
+}
+
+//---------------------------------------------------------------------------
+//                             第一遍学习的内容
+//---------------------------------------------------------------------------
+void basicReviewRunner() {
     //---------------------------------------------------------------------------
     //                               各种测试
     //---------------------------------------------------------------------------
@@ -53,10 +65,12 @@ int main(int argc, const char * argv[]) {
     //algorithmSelector(queue);
     //algorithmSelector(recurse);
     //algorithmSelector(sort);
-    
-    return 0;
 }
-/*void printABC(type data) {
-    printf("your num is %d", data);
-}*/
+
+//---------------------------------------------------------------------------
+//                             数据结构与算法
+//---------------------------------------------------------------------------
+void algorithmProRunner() {
+    printf("hello everyone\n");
+}
 
