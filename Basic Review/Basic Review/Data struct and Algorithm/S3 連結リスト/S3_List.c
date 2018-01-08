@@ -61,7 +61,7 @@ void insertInLinkedList(struct listNode **head, int data, int position) {
     struct listNode *p, *q, *newNode;
     newNode = (struct listNode *)malloc(sizeof(struct listNode));
     if (!newNode) {
-        printf("MemoryError");
+        printf("MemoryError\n");
         return;
     }
     newNode->data = data;
@@ -92,7 +92,7 @@ void deleteNodeFromLinkedList(struct listNode **head, int position) {
     int k = 1;
     struct listNode *p, *q;
     if (!head) {
-        printf("List Empty");
+        printf("List Empty\n");
         return;
     }
     p = *head;
@@ -107,7 +107,7 @@ void deleteNodeFromLinkedList(struct listNode **head, int position) {
             p = p->next;
         }
         if (!p) {
-            printf("Position does not exist.");
+            printf("Position does not exist.\n");
         }else {
             q->next = p->next;
             free(p);
@@ -128,13 +128,120 @@ void deleteLinkedList(struct listNode **head) { // 全删除
     }
     *head = NULL;// free()释放内存，不改变指针指向的地址
 }
+
+//---------------------------------------------------------------------
+//                         3.7 双向链表 p47
+//---------------------------------------------------------------------
+//------------------------------------------------
+//                  链表的型声明
+//------------------------------------------------
+struct dllNode {
+    int data;
+    struct dllNode *next;
+    struct dllNode *prev;
+};
+//------------------------------------------------
+//                   函数声明
+//------------------------------------------------
+void dllInsert(struct dllNode **head, int data, int position);
+void dllDelete(struct dllNode **head, int position);
+//------------------------------------------------
+//                   基本运算
+//        遍历， 插入元素， 删除元素
+//------------------------------------------------
+// TODO-PRO: add [双向链表的遍历, 书上省略了]
+//------------------------
+// 插入: 开头, 末尾, 中间p49
+//------------------------
+void dllInsert(struct dllNode **head, int data, int position) {
+    // SHOW: SELF
+    int k = 1;
+    struct dllNode *p, *q, *newNode;
+    newNode = (struct dllNode *)malloc(sizeof(struct dllNode));
+    if (!head || !(*head)) {
+        printf("Head is NULL\n");
+    }
+    if (!newNode) {
+        printf("Memory Error\n");
+               return;
+    }
+    newNode->data = data;
+    p = *head;
+    if (position == 1) {
+        newNode->prev = NULL;
+        newNode->next = *head;
+        (*head)->prev = newNode;
+        *head = newNode;
+        return;
+    } else {
+        q = NULL;
+        while ((k < position) && p != NULL) {
+            // 第一个条件为真才判断第二个，所以如果p为NULL则一定是指定位置超出长度
+            q = p;
+            p = p->next;
+            k++;
+        }
+        if (k < position) { // 跳出仅因为第二个条件
+            printf("指定的位置超过了当前链表长度\n");
+            return;
+        } else {
+            if (p != NULL) { // 中间的插入
+                newNode->next = p;
+                newNode->prev = q;
+                p->prev = newNode;
+                q->next = newNode;
+            } else { // 末尾
+                newNode->next = NULL;
+                newNode->prev = q;
+                q->next = newNode;
+            }
+        }
+    }
+}
+//------------------------
+// 删除: 开头, 末尾, 中间p
+//------------------------
+void dllDelete(struct dllNode **head, int position) {
+	// SHOW: SELF
+	int k = 1;
+	struct dllNode *p, *q;
+	p = *head;
+	if (position == 1) {
+		(*head) = (*head)->next;
+		if ((*head) != NULL) {
+			(*head)->prev = NULL;
+		}
+		free(p);
+		return;
+	} else {
+		q = NULL;
+		while ((k < position) && p != NULL) {
+			q = p;
+			p = p->next;
+			k++;
+		}
+		if (k < position) {
+			printf("指定的位置超过了当前链表长度\n");
+			return;
+		} else {
+			if (p == NULL) {
+				q->next = NULL;
+				free(p);
+			} else {
+				q->next = p->next;
+				(q->next)->prev = q;
+				free(p);
+			}
+		}
+	}
+}
 //---------------------------------------------------------------------
 //                             测试函数
 //---------------------------------------------------------------------
 void listTester(void) {
     printf("hello\n");// TODO-PRO: 删除这行
-    struct listNode sample;
-    sample.data = 1;
-    sample.next = NULL;
-    printf("%d\n", listLength(&sample));
+//    struct listNode sample;
+//    sample.data = 1;
+//    sample.next = NULL;
+//    printf("%d\n", listLength(&sample));
 }
