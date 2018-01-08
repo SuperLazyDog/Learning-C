@@ -22,8 +22,10 @@ typedef struct listNode {
 //                   函数声明
 //------------------------------------------------
 void listTester(void);
-int listLength_Weida(struct listNode *head);
+int listLength(struct listNode *head);
 void insertInLinkedList(struct listNode **head, int data, int position);
+void deleteNodeFromLinkedList(struct listNode **head, int position);
+void deleteLinkedList(struct listNode **head);
 //------------------------------------------------
 //                   基本运算
 // 遍历， 插入元素， 删除元素
@@ -58,6 +60,10 @@ void insertInLinkedList(struct listNode **head, int data, int position) {
     int k = 1;
     struct listNode *p, *q, *newNode;
     newNode = (struct listNode *)malloc(sizeof(struct listNode));
+    if (!newNode) {
+        printf("MemoryError");
+        return;
+    }
     newNode->data = data;
     p = *head; // 直接改变head会使得外部的参数也变化，所以建一个指针来操作
     //插在开头
@@ -77,6 +83,51 @@ void insertInLinkedList(struct listNode **head, int data, int position) {
     }
 }
 
+//------------------------
+// 删除: 开头, 末尾, 中间p44
+//      全部删除 p46
+//------------------------
+void deleteNodeFromLinkedList(struct listNode **head, int position) {
+    // SHOW: SAMPLE [书上版本]
+    int k = 1;
+    struct listNode *p, *q;
+    if (!head) {
+        printf("List Empty");
+        return;
+    }
+    p = *head;
+    if (position == 1) { // 删除开头节点
+        *head = (*head)->next;
+        free(p);
+    }else {
+        q = NULL; // 初始化
+        while ((k < position) && (p != NULL)) {
+            k++;
+            q = p;
+            p = p->next;
+        }
+        if (!p) {
+            printf("Position does not exist.");
+        }else {
+            q->next = p->next;
+            free(p);
+        }
+    }
+}
+
+void deleteLinkedList(struct listNode **head) { // 全删除
+    // SHOW: SAMPLE [书上版本]
+    
+    // SHOW: SELF
+    struct listNode *p, *q;
+    p = *head;
+    while (p) {
+        q = p;
+        p = p->next;
+        free(q);
+    }
+    *head = NULL;// free()释放内存，不改变指针指向的地址
+}
 //---------------------------------------------------------------------
 //                             测试函数
 //---------------------------------------------------------------------
