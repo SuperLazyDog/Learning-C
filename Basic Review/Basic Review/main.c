@@ -8,6 +8,7 @@
 
 //标准库头文件
 #include <stdio.h>
+#include <stdlib.h>
 //功能性头文件
 //#include "test.h"//单纯的测试
 //#include "Basic.h"//C语言基本复习
