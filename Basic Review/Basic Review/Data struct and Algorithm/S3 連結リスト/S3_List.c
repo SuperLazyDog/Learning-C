@@ -250,7 +250,7 @@ struct cllNode { // circular list
 //------------------------------------------------
 int circularListLength(struct cllNode *head);
 void printCircularListData(struct cllNode *head);
-void insertAtEndInCll(struct cllNode *head, int data)
+void insertAtEndInCll(struct cllNode *head, int data);
 //------------------------------------------------
 //                   基本运算
 //        遍历， 插入元素， 删除元素
@@ -292,7 +292,7 @@ void printCircularListData(struct cllNode *head) {
 //------------------------
 //末尾
 void insertAtEndInCll(struct cllNode *head, int data) {
-	// SHOW: SELF [不用 **head， 用*head来尝试实现, 调整书上的循环执行位置]
+	// SHOW: SELF [不用**head，用*head来尝试实现, 调整书上的循环执行位置]
 	struct cllNode *current = head;
 	struct cllNode *newNode = (struct cllNode*)(malloc(sizeof(struct cllNode)));
 	if (!newNode) {
