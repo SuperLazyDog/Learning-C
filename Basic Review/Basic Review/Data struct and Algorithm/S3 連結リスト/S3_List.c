@@ -235,7 +235,82 @@ void dllDelete(struct dllNode **head, int position) {
 		}
 	}
 }
-// TODO-PRO: 继续
+//---------------------------------------------------------------------
+//                         3.8 循环链表 p53
+//---------------------------------------------------------------------
+//------------------------------------------------
+//                  链表的型声明
+//------------------------------------------------
+struct cllNode { // circular list
+	int data;
+	struct cllNode *next;
+};
+//------------------------------------------------
+//                   函数声明
+//------------------------------------------------
+int circularListLength(struct cllNode *head);
+void printCircularListData(struct cllNode *head);
+void insertAtEndInCll(struct cllNode *head, int data)
+//------------------------------------------------
+//                   基本运算
+//        遍历， 插入元素， 删除元素
+//------------------------------------------------
+//------------------------
+// 遍历, 打印 p55
+//------------------------
+int circularListLength(struct cllNode *head) {
+	// SHOW: SELF
+	struct cllNode *current = head;
+	int count = 0;
+	if (!head) {
+		return 0;
+	}
+	do {
+		current = current->next;
+		count++;
+	} while (current != head);
+	return count;
+}
+
+void printCircularListData(struct cllNode *head) {
+	// SHOW: SELF
+	struct cllNode *current = head;
+	int count = 0;
+	if (!head) {
+		puts("NULL");
+		return;
+	}
+	do {
+		printf("data[%d]: %d\n", count, current->data);
+		current = current->next;
+		count++;
+	} while (current != head);
+}
+
+//------------------------
+// 插入: 开头, 末尾 p55
+//------------------------
+//末尾
+void insertAtEndInCll(struct cllNode *head, int data) {
+	// SHOW: SELF [不用 **head， 用*head来尝试实现, 调整书上的循环执行位置]
+	struct cllNode *current = head;
+	struct cllNode *newNode = (struct cllNode*)(malloc(sizeof(struct cllNode)));
+	if (!newNode) {
+		puts("Memory Error\n");
+	}
+	newNode->data = data;
+	newNode->next = NULL;
+	if (!head) {
+		head = newNode;
+	} else {
+		do {
+			current = current->next;
+		} while (current != head);
+		current->next = newNode;
+		newNode->next = head;
+		
+	}
+}
 //---------------------------------------------------------------------
 //                             测试函数
 //---------------------------------------------------------------------
@@ -245,4 +320,7 @@ void listTester(void) {
 //    sample.data = 1;
 //    sample.next = NULL;
 //    printf("%d\n", listLength(&sample));
+	int *a, b = 1;
+	a = &b;
+	printf("*a: %d\na: %p\n&a: %p\n", *a, a, &a);
 }
