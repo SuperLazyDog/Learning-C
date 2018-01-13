@@ -251,6 +251,8 @@ struct cllNode { // circular list
 int circularListLength(struct cllNode *head);
 void printCircularListData(struct cllNode *head);
 void insertAtEndInCll(struct cllNode *head, int data);
+void insertAtEndInCll_v2(struct cllNode **head, int data);
+void insertAtBeginInCll(struct cllNode **head, int data);
 //------------------------------------------------
 //                   基本运算
 //        遍历， 插入元素， 删除元素
@@ -311,6 +313,52 @@ void insertAtEndInCll(struct cllNode *head, int data) {
 		
 	}
 }
+void insertAtEndInCll_v2(struct cllNode **head, int data) { // 还是末尾
+	// SHOW: SELF [用**head]
+	struct cllNode *newNode, *current = *head, *preCurrent = *head;
+	newNode = (struct cllNode*)malloc(sizeof(struct cllNode));
+	if (!newNode) {
+		puts("Memory Error\n");
+		return;
+	}
+	newNode->data = data;
+	newNode->next = NULL;
+	if (!(*head) || !head) {
+		head = &newNode; // TODO-PRO: problem [head = &newNode和 *head = newNode有什么区别]
+		return;
+	}
+	do {
+		preCurrent = current;
+		current = current->next;
+	} while (current != *head);
+	newNode->next = *head;
+	preCurrent->next = newNode;
+}
+//开头
+void insertAtBeginInCll(struct cllNode **head, int data) {
+	struct cllNode *current = NULL, *newNode;
+	newNode = (struct cllNode*)malloc(sizeof(struct cllNode));
+	if (!newNode) {
+		puts("Memory Error\n");
+		return;
+	}
+	newNode->data = data;
+	if (!head || !(*head)) {
+		head = &newNode;
+		newNode->next = newNode;
+		return;
+	}
+	current = *head;
+	while (current->next != *head) {
+		current = current->next;
+	}
+	current->next = newNode;
+	newNode->next = *head;
+}
+//------------------------
+// 删除: 开头, 末尾 p57
+//------------------------
+
 //---------------------------------------------------------------------
 //                             测试函数
 //---------------------------------------------------------------------
