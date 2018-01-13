@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49072BB7200A956D00B6EC22 /* S2_Recursion.c in Sources */ = {isa = PBXBuildFile; fileRef = 49072BB6200A956D00B6EC22 /* S2_Recursion.c */; };
 		490A6DC41EF5B5F00064A1C9 /* Bool.c in Sources */ = {isa = PBXBuildFile; fileRef = 490A6DC21EF5B5F00064A1C9 /* Bool.c */; };
 		490A6DCB1EF5C6660064A1C9 /* MemorySet.c in Sources */ = {isa = PBXBuildFile; fileRef = 490A6DC91EF5C6660064A1C9 /* MemorySet.c */; };
 		490A6DD01EF5CCF10064A1C9 /* Search.c in Sources */ = {isa = PBXBuildFile; fileRef = 490A6DCE1EF5CCF10064A1C9 /* Search.c */; };
@@ -42,6 +43,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		49072BB5200A956D00B6EC22 /* S2_Recursion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = S2_Recursion.h; sourceTree = "<group>"; };
+		49072BB6200A956D00B6EC22 /* S2_Recursion.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = S2_Recursion.c; sourceTree = "<group>"; };
 		490A6DC21EF5B5F00064A1C9 /* Bool.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Bool.c; sourceTree = "<group>"; };
 		490A6DC31EF5B5F00064A1C9 /* Bool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bool.h; sourceTree = "<group>"; };
 		490A6DC91EF5C6660064A1C9 /* MemorySet.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MemorySet.c; sourceTree = "<group>"; };
@@ -95,6 +98,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		49072BB1200A952600B6EC22 /* S2 再帰と後戻り */ = {
+			isa = PBXGroup;
+			children = (
+				49072BB5200A956D00B6EC22 /* S2_Recursion.h */,
+				49072BB6200A956D00B6EC22 /* S2_Recursion.c */,
+			);
+			path = "S2 再帰と後戻り";
+			sourceTree = "<group>";
+		};
 		490A6DC11EF5B5F00064A1C9 /* Type */ = {
 			isa = PBXGroup;
 			children = (
@@ -274,6 +286,7 @@
 			children = (
 				49CCF2941FF20670005E7119 /* AlgorithmPro.h */,
 				49CCF2951FF20670005E7119 /* AlgorithmPro.c */,
+				49072BB1200A952600B6EC22 /* S2 再帰と後戻り */,
 				49CCF2971FF2145B005E7119 /* S3 連結リスト */,
 				49CCF2A21FF21689005E7119 /* S4_スタック */,
 				49CCF2AA1FF2168A005E7119 /* S5_キュー */,
@@ -503,6 +516,7 @@
 				4940AFD51F043A310044BC3E /* Queue.c in Sources */,
 				49791D791EF44CDF00355A29 /* test.c in Sources */,
 				490A6DC41EF5B5F00064A1C9 /* Bool.c in Sources */,
+				49072BB7200A956D00B6EC22 /* S2_Recursion.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

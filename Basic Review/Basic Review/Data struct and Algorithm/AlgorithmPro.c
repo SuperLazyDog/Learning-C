@@ -13,8 +13,15 @@ void AlgorithmProSelector(AlgorithmProItem item) {
         case s1:
             break;
         case s2:
+			puts("----------------------------------\n");
+			puts("             S2 递归\n");
+			puts("----------------------------------\n");
+			recursionTester();
             break;
         case s3:
+			puts("----------------------------------\n");
+			puts("             S3 链表\n");
+			puts("----------------------------------\n");
             listTester();
             break;
         case s4:
