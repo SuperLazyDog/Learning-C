@@ -253,6 +253,8 @@ void printCircularListData(struct cllNode *head);
 void insertAtEndInCll(struct cllNode *head, int data);
 void insertAtEndInCll_v2(struct cllNode **head, int data);
 void insertAtBeginInCll(struct cllNode **head, int data);
+void deleteLastNodeFromCll(struct cllNode **head);
+void deleteFrontNodeFromCll(struct cllNode **head);
 //------------------------------------------------
 //                   基本运算
 //        遍历， 插入元素， 删除元素
@@ -336,6 +338,7 @@ void insertAtEndInCll_v2(struct cllNode **head, int data) { // 还是末尾
 }
 //开头
 void insertAtBeginInCll(struct cllNode **head, int data) {
+	// SHOW: SELF
 	struct cllNode *current = NULL, *newNode;
 	newNode = (struct cllNode*)malloc(sizeof(struct cllNode));
 	if (!newNode) {
@@ -358,7 +361,36 @@ void insertAtBeginInCll(struct cllNode **head, int data) {
 //------------------------
 // 删除: 开头, 末尾 p57
 //------------------------
+void deleteLastNodeFromCll(struct cllNode **head) { // 末尾
+	// SHOW: SELF
+	struct cllNode *current = *head, *preCurrent = *head;
+	if (!head || !(*head)) {
+		puts("List Empty\n");
+			 return;
+	}
+	while (current->next != *head) {
+		preCurrent = current;
+		current = current->next;
+	}
+	preCurrent->next = *head;
+	free(current);
+}
 
+void deleteFrontNodeFromCll(struct cllNode **head) { // 开头
+	// SHOW: SELF
+	struct cllNode *current = *head, *temp = *head;
+	if (!head || !(*head)) {
+		puts("List Empty\n");
+		return;
+	}
+	while (current->next != *head) {
+		current = current->next;
+	}
+	current->next = temp->next;
+	free(temp);
+	*head = current->next;
+	
+}
 //---------------------------------------------------------------------
 //                             测试函数
 //---------------------------------------------------------------------
