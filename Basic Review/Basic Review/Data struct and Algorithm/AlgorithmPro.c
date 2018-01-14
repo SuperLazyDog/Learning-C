@@ -25,6 +25,9 @@ void AlgorithmProSelector(AlgorithmProItem item) {
             listTester();
             break;
         case s4:
+			puts("----------------------------------\n");
+			puts("             S4 堆\n");
+			puts("----------------------------------\n");
             break;
         case s5:
             break;

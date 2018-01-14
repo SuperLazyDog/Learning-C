@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		49072BB7200A956D00B6EC22 /* S2_Recursion.c in Sources */ = {isa = PBXBuildFile; fileRef = 49072BB6200A956D00B6EC22 /* S2_Recursion.c */; };
+		49072BBA200BDAA500B6EC22 /* S4_Stack.c in Sources */ = {isa = PBXBuildFile; fileRef = 49072BB9200BDAA500B6EC22 /* S4_Stack.c */; };
 		490A6DC41EF5B5F00064A1C9 /* Bool.c in Sources */ = {isa = PBXBuildFile; fileRef = 490A6DC21EF5B5F00064A1C9 /* Bool.c */; };
 		490A6DCB1EF5C6660064A1C9 /* MemorySet.c in Sources */ = {isa = PBXBuildFile; fileRef = 490A6DC91EF5C6660064A1C9 /* MemorySet.c */; };
 		490A6DD01EF5CCF10064A1C9 /* Search.c in Sources */ = {isa = PBXBuildFile; fileRef = 490A6DCE1EF5CCF10064A1C9 /* Search.c */; };
@@ -45,6 +46,8 @@
 /* Begin PBXFileReference section */
 		49072BB5200A956D00B6EC22 /* S2_Recursion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = S2_Recursion.h; sourceTree = "<group>"; };
 		49072BB6200A956D00B6EC22 /* S2_Recursion.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = S2_Recursion.c; sourceTree = "<group>"; };
+		49072BB8200BDAA500B6EC22 /* S4_Stack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = S4_Stack.h; sourceTree = "<group>"; };
+		49072BB9200BDAA500B6EC22 /* S4_Stack.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = S4_Stack.c; sourceTree = "<group>"; };
 		490A6DC21EF5B5F00064A1C9 /* Bool.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Bool.c; sourceTree = "<group>"; };
 		490A6DC31EF5B5F00064A1C9 /* Bool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bool.h; sourceTree = "<group>"; };
 		490A6DC91EF5C6660064A1C9 /* MemorySet.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MemorySet.c; sourceTree = "<group>"; };
@@ -371,6 +374,8 @@
 		49CCF2A21FF21689005E7119 /* S4_スタック */ = {
 			isa = PBXGroup;
 			children = (
+				49072BB8200BDAA500B6EC22 /* S4_Stack.h */,
+				49072BB9200BDAA500B6EC22 /* S4_Stack.c */,
 			);
 			path = "S4_スタック";
 			sourceTree = "<group>";
@@ -503,6 +508,7 @@
 				4940AFCE1F02EA3B0044BC3E /* Stack.c in Sources */,
 				490A6DD01EF5CCF10064A1C9 /* Search.c in Sources */,
 				490A6DFF1EF726540064A1C9 /* String.c in Sources */,
+				49072BBA200BDAA500B6EC22 /* S4_Stack.c in Sources */,
 				490A6DD31EF5CE990064A1C9 /* AlgorithmSelector.c in Sources */,
 				4936A2AB1F0BEA100043EC29 /* Sort.c in Sources */,
 				490A6DD71EF5EB820064A1C9 /* List.c in Sources */,
