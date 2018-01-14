@@ -16,8 +16,8 @@
 
 #include <stdio.h>
 
-#include "S3_List.h"
 #include "S2_Recursion.h"
+#include "S3_List.h"
 
 typedef enum AlgorithmPro {
     s1, s2, s3, s4, s5, s6, s7, s8, s9, s10
