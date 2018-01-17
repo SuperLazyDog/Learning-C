@@ -63,9 +63,9 @@ int time_substract(struct timeval *result, struct timeval *begin,struct timeval 
 }
 
 void printTime(struct timeval *diff) { // 打印时间
-	puts("------------------------------------------------------");
+//	puts("------------------------------------------------------");
 	printf("Total time : %d s,%d us\n",(int)(diff->tv_sec),(int)(diff->tv_usec));
-	puts("------------------------------------------------------");
+//	puts("------------------------------------------------------");
 }
 
 void TimerStrat(struct timeval *start) { // 开始计时
@@ -85,7 +85,7 @@ void CBDSortTest(int size, Bool isBubble) {
 	memset(&start,0,sizeof(struct timeval));
 	memset(&stop,0,sizeof(struct timeval));
 	sampleData = CBDGetSampleData(size); //设置测试数据
-	CBDShowSampleData(size, sampleData); //打印数据
+//	CBDShowSampleData(size, sampleData); //打印数据
 	if (isBubble) {
 		TimerStrat(&start);
 		bubbleSort(sampleData, size, true, Default);
@@ -94,32 +94,55 @@ void CBDSortTest(int size, Bool isBubble) {
 		quickSort(sampleData, size);
 	}
 	TimerOver(&start, &stop);
-	CBDShowSampleData(size, sampleData); //打印数据
+//	CBDShowSampleData(size, sampleData); //打印数据
 }
 
 
 void CBDTestSelector(enum CBDItem selector) {
-	int size;
+	int size, i;
 	
 	switch (selector) {
 		case small:
-			puts("--------------------------------------------\n");
-			puts("                small data");
-			puts("--------------------------------------------\n");
+//			puts("--------------------------------------------\n");
+//			puts("                small data");
+//			puts("--------------------------------------------\n");
 			size = CBD_SORT_TEST_SMALL;
-			CBDSortTest(size, false);
+			puts("quick sort");
+			for (i = 0; i < 10; i++) {
+				CBDSortTest(size, false);
+			}
+			puts("bubble sort");
+			for (i = 0; i < 10; i++) {
+				CBDSortTest(size, true);
+			}
 			break;
 		case middle:
-			puts("--------------------------------------------\n");
-			puts("                middle data");
-			puts("--------------------------------------------\n");
+//			puts("--------------------------------------------\n");
+//			puts("                middle data");
+//			puts("--------------------------------------------\n");
 			size = CBD_SORT_TEST_MIDDLE;
+			puts("quick sort");
+			for (i = 0; i < 10; i++) {
+				CBDSortTest(size, false);
+			}
+			puts("bubble sort");
+			for (i = 0; i < 10; i++) {
+				CBDSortTest(size, true);
+			}
 			break;
 		case max:
-			puts("--------------------------------------------\n");
-			puts("                 max data");
-			puts("--------------------------------------------\n");
+//			puts("--------------------------------------------\n");
+//			puts("                 max data");
+//			puts("--------------------------------------------\n");
 			size = CBD_SORT_TEST_MAX;
+			puts("quick sort");
+			for (i = 0; i < 10; i++) {
+				CBDSortTest(size, false);
+			}
+			puts("bubble sort size: 100,000");
+			for (i = 0; i < 10; i++) {
+				CBDSortTest(100000, true);
+			}
 			break;
 	}
 }
