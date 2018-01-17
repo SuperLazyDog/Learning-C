@@ -22,12 +22,7 @@
 //-------------------------------------------------------
 //                       类型定义
 //-------------------------------------------------------
-enum Version_Bubble_Sort {
-    V1,
-    V2,
-    V3,
-    Default
-};
+
 //-------------------------------------------------------
 //                     需要自定义的函数
 //-------------------------------------------------------
@@ -96,7 +91,7 @@ void sortTest() {
 //                       冒泡排序
 //-------------------------------------------------------
 
-Bool bubbleSort(int *data, unsigned int size, Bool beginAtFront, int version) {
+Bool bubbleSort(int *data, unsigned int size, Bool beginAtFront, enum Version_Bubble_Sort version) {
     // !! # TODO: 补充为什么不能同序 36027820-79A9-4F89-B162-6FF58BE8EF19
     int i, j;
     int count = 0;
@@ -328,11 +323,31 @@ Bool shellSort(int *data, unsigned long size) {
 // 1 1  3  8 8  8 9 17 14
 // 1 1  3  8‘8‘’8’9 17 14
 void divideArray(int *data) {//本地函数，分割数列测试
-    puts("测试");
+//    puts("测试");
 }
 
 
-Bool quickSort(int *data, unsigned long size) {
-    divideArray(NULL);
-    return false;
+//Bool quickSort(int *data, unsigned long size) {
+
+//    divideArray(NULL);
+//    return false;
+	// TODO: 完成自己的版本
+void quickSort(int *data, unsigned long size) {
+	// 下面版本为CBD报告测试用 https://www.cnblogs.com/landpack/p/4781579.html
+	int i, j, p, tmp;
+	if (size < 2)  return;
+	
+	p = data[size / 2];
+	
+	for ( i = 0, j = (int)size -1;; i++, j--) {
+		while (data[i] < p)
+			i++;
+		while (p < data[j])
+			j--;
+		if ( i >= j)
+			break;
+		tmp = data[i]; data[i] = data[j]; data[j] = tmp;
+	}
+	quickSort( data, i);
+	quickSort( data + i, size - i);
 }

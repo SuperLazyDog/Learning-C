@@ -28,7 +28,12 @@
 //-------------------------------------------------------
 //                       类型定义
 //-------------------------------------------------------
-
+enum Version_Bubble_Sort {
+	V1,
+	V2,
+	V3,
+	Default
+};
 //-------------------------------------------------------
 //                     需要自定义的函数
 //-------------------------------------------------------
@@ -41,7 +46,7 @@ void sortTest(void);
 //-------------------------------------------------------
 //                       冒泡排序
 //-------------------------------------------------------
-Bool bubbleSort(int *data, unsigned int size, Bool beginAtFront, int version);
+Bool bubbleSort(int *data, unsigned int size, Bool beginAtFront, enum Version_Bubble_Sort version);
 
 //-------------------------------------------------------
 //                     直接选择排序
@@ -65,6 +70,6 @@ Bool shellSort(int *data, unsigned long size);
 //                      快速排序
 //-------------------------------------------------------
 //quick sort
-Bool quickSort(int *data, unsigned long size);
-
+//Bool quickSort(int *data, unsigned long size);
+void quickSort(int *data, unsigned long size);
 #endif /* Sort_h */
