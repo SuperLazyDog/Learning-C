@@ -18,7 +18,7 @@
 //#include "Basic.h"//C语言基本复习
 //#include "AlgorithmSelector.h"//算法
 #include "AlgorithmPro.h"//数据结构与算法 O'REILLY
-#include "CBD.h" // 2017年下 CBD报告
+//#include "CBD.h" // 2017年下 CBD报告
 //---------------------------------------------------------------------------
 //                               辅助类头文件
 //---------------------------------------------------------------------------
@@ -31,12 +31,12 @@
 //---------------------------------------------------------------------------
 void basicReviewRunner(void);
 void algorithmProRunner(void);
-void cbdReport(void);
+//void cbdReport(void);
 
 int main(int argc, const char * argv[]) {
 //    basicReviewRunner(); //第一遍学习
-//    algorithmProRunner(); //深度学习 数据结构与算法
-	cbdReport(); //CBD报告
+    algorithmProRunner(); //深度学习 数据结构与算法
+//	cbdReport(); //CBD报告
     return 0;
 }
 
@@ -91,22 +91,23 @@ void algorithmProRunner() {
 //---------------------------------------------------------------------------
 //                            2017下 CBD报告
 //---------------------------------------------------------------------------
-void cbdReport(void) {
-	puts("---------------------------------------------");
-	puts("                Small-scale Data");
-	puts("                size: 100");
-	puts("---------------------------------------------");
-	CBDTestSelector(small);
-	
-	puts("---------------------------------------------");
-	puts("                Medium-scale Data");
-	puts("                size: 10,000");
-	puts("---------------------------------------------");
-	CBDTestSelector(middle);
-	
-	puts("---------------------------------------------");
-	puts("                Large-scale Data");
-	puts("                size: 1,000,000");
-	puts("---------------------------------------------");
-	CBDTestSelector(max);
-}
+//void cbdReport(void) {
+//	puts("---------------------------------------------");
+//	puts("                Small-scale Data");
+//	puts("                size: 100");
+//	puts("---------------------------------------------");
+//	CBDTestSelector(small);
+//
+//	puts("---------------------------------------------");
+//	puts("                Medium-scale Data");
+//	puts("                size: 10,000");
+//	puts("---------------------------------------------");
+//	CBDTestSelector(middle);
+//
+//	puts("---------------------------------------------");
+//	puts("                Large-scale Data");
+//	puts("                size: 1,000,000");
+//	puts("---------------------------------------------");
+//	CBDTestSelector(max);
+//}
+
