@@ -28,6 +28,7 @@ void AlgorithmProSelector(AlgorithmProItem item) {
 			puts("----------------------------------\n");
 			puts("             S4 堆\n");
 			puts("----------------------------------\n");
+			stackTester();
             break;
         case s5:
             break;
