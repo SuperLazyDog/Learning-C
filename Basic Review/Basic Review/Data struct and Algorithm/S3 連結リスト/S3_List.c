@@ -14,10 +14,10 @@
 //------------------------------------------------
 //                  链表的型声明
 //------------------------------------------------
-typedef struct listNode {
-    int data;
-    struct listNode *next;
-} ListNode;
+//typedef struct listNode {
+//    int data;
+//    struct listNode *next;
+//} ListNode;
 //------------------------------------------------
 //                   函数声明
 //------------------------------------------------
@@ -135,11 +135,11 @@ void deleteLinkedList(struct listNode **head) { // 全删除
 //------------------------------------------------
 //                  链表的型声明
 //------------------------------------------------
-struct dllNode {
-    int data;
-    struct dllNode *next;
-    struct dllNode *prev;
-};
+//struct dllNode {
+//    int data;
+//    struct dllNode *next;
+//    struct dllNode *prev;
+//};
 //------------------------------------------------
 //                   函数声明
 //------------------------------------------------
@@ -241,10 +241,10 @@ void dllDelete(struct dllNode **head, int position) {
 //------------------------------------------------
 //                  链表的型声明
 //------------------------------------------------
-struct cllNode { // circular list
-	int data;
-	struct cllNode *next;
-};
+//struct cllNode { // circular list
+//	int data;
+//	struct cllNode *next;
+//};
 //------------------------------------------------
 //                   函数声明
 //------------------------------------------------
