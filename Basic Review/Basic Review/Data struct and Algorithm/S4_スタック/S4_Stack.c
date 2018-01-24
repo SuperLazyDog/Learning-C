@@ -108,7 +108,7 @@ int isEmptyStackDyn(struct dynArrayStack *s); // 判断是否为空
 int isFullStackDyn(struct dynArrayStack *s);// 判断是否已满
 void doubleStackDyn(struct dynArrayStack *s); // 双倍堆数据容量
 void pushDyn(struct dynArrayStack *s, int data); // push
-int topDyn(struct dynArrayStack *s); // 查看最后一个元素
+int topDyn(struct dynArrayStack *s); // top 查看最后一个元素
 int popDyn(struct dynArrayStack *s); //pop
 void deleteStackDyn(struct dynArrayStack *s); // 删除堆
 //------------------------------------------------
@@ -169,6 +169,74 @@ void deleteStackDyn(struct dynArrayStack *s) { // 删除堆
 		}
 		free(s);
 	}
+}
+
+//---------------------------------------------------------------------
+//                       4.5.3 链表实现 p85
+//---------------------------------------------------------------------
+// SHOW: SAMPLE [书上版本 整个都是, 变实现变看书]
+//------------------------------------------------
+//                    型声明
+//------------------------------------------------
+struct listNodeStack {
+	int data;
+	struct listNodeStack *next;
+};
+//------------------------------------------------
+//                   函数声明
+//------------------------------------------------
+//struct listNodeStack *createStackList(void);// 不用创建
+int isEmptyStackList(struct listNodeStack *s); // 判断是否为空
+//int isFullStackList(struct listNodeStack *s);// 永不满
+void pushList(struct listNodeStack **s, int data); // push
+int topList(struct listNodeStack *s); // top 查看最后一个元素
+int popList(struct listNodeStack **s); //pop
+void deleteStackList(struct listNodeStack **s); // 删除堆
+//------------------------------------------------
+//                   函数实现
+//------------------------------------------------
+int isEmptyStackList(struct listNodeStack *s) { // 判断是否为空
+	return s == NULL;
+}
+void pushList(struct listNodeStack **s, int data) { // push
+	struct listNodeStack *temp;
+	temp = (struct listNodeStack *)malloc(sizeof(struct listNodeStack));
+	if (temp == NULL) {
+		puts("链表版， push， 生成新节点失败");
+		return;
+	}
+	temp->data = data;
+	temp->next = *s;
+	*s = temp;
+}
+int topList(struct listNodeStack *s) { // top 查看最后一个元素
+	if (isEmptyStackList(s)) {
+		return INT_MIN;
+	}
+	return s->data;
+}
+int popList(struct listNodeStack **s) { //pop
+	struct listNodeStack *temp;
+	int data;
+	if (isEmptyStackList(*s)) {
+		return INT_MIN;
+	}
+	temp = *s;
+	*s = temp->next;
+	data = temp->data;
+	free(temp);
+	return data;
+	
+}
+void deleteStackList(struct listNodeStack **s) { // 删除堆
+	struct listNodeStack *current, *temp;
+	current = *s;
+	while (current) {
+		temp = current;
+		current = current->next;
+		free(temp);
+	}
+	*s = NULL;
 }
 //---------------------------------------------------------------------
 //                             测试函数
