@@ -31,6 +31,10 @@ void AlgorithmProSelector(AlgorithmProItem item) {
 			stackTester();
             break;
         case s5:
+			puts("----------------------------------\n");
+			puts("             S5 序列\n");
+			puts("----------------------------------\n");
+			queueTester();
             break;
         case s6:
             break;
