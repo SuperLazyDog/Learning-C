@@ -38,15 +38,25 @@ int deleteQueue(struct ArrayQueue *Q); // 删除整个队列
 //                   函数实现
 //------------------------------------------------
 struct ArrayQueue *Queue(int size) { // 初始化
-	return NULL;
+	struct ArrayQueue *Q = (struct ArrayQueue *)malloc(sizeof(struct ArrayQueue));
+	if (!Q) {
+		return NULL
+	}
+	Q->capacity = size;
+	Q->front = Q->rear = -1;
+	Q->array = (int *)malloc(Q->capacity*size);
+	if (!Q->array) {
+		return NULL;
+	}
+	return Q;
 }
 
 int isEmptyQueue(struct ArrayQueue *Q) { // 是否为空
-	return NULL;
+	return Q->front == -1;
 }
 
 int isFullQueue(struct ArrayQueue *Q) { // 是否已满
-	return NULL;
+	return (Q->rear+1) % Q->capacity == Q->front;
 }
 
 int QueueSize(struct ArrayQueue *Q) { // 获取大小
