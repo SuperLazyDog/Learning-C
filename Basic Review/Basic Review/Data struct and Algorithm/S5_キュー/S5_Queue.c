@@ -108,6 +108,7 @@ void deleteQueue(struct ArrayQueue *Q) { // 删除整个队列
 //------------------------------------------------
 //                   函数声明
 //------------------------------------------------
+// SHOW: SAMPLE [书上版本]
 void resizeQueue(struct ArrayQueue *Q);
 //------------------------------------------------
 //                   函数实现
@@ -127,12 +128,98 @@ void resizeQueue(struct ArrayQueue *Q) { // 满容量时候容量扩为两倍
 		Q->rear += size;
 	}
 }
+
+//---------------------------------------------------------------------
+//                       5.6.4 链表实现 p117
+//---------------------------------------------------------------------
+//------------------------------------------------
+//                  序列的型声明
+//------------------------------------------------
+struct ListNode {
+	int data;
+	struct ListNode *next;
+};
+
+struct ListQueue {
+	struct ListNode *front;
+	struct ListNode *rear;
+};
+
+//------------------------------------------------
+//                   函数声明
+//------------------------------------------------
+// SHOW: SAMPLE [书上版本]
+struct ListQueue *Queue_list(void); // 创建链表队列
+int isEmptyQueue_list(struct ListQueue * Q); // 是否为空
+void enQueue_List(struct ListQueue *Q, int data); //插入 push
+int deQueue_list(struct ListQueue *Q); // 取出第一个 unshift
+void deleteQueue_list(struct ListQueue * Q); // 删除链表队列
+
+//------------------------------------------------
+//                   函数实现
+//------------------------------------------------
+struct ListQueue *Queue_list(void) { // 创建链表队列
+	struct ListQueue *Q;
+	Q = (struct ListQueue *)malloc(sizeof(struct ListQueue));
+	if (!Q) {
+		printf("Memory Error\n");
+		return NULL;
+	}
+	Q->front = Q->rear = NULL;
+	return Q;
+}
+
+int isEmptyQueue_list(struct ListQueue * Q) { // 是否为空
+	return Q->front == NULL;
+}
+
+void enQueue_List(struct ListQueue *Q, int data) { //插入 push
+	struct ListNode *newNode = (struct ListNode *)malloc(sizeof(struct ListNode));
+	if (!newNode) {
+		printf("Memory Error\n");
+		return;
+	}
+	newNode->data = data;
+	newNode->next = NULL;
+	if (!Q->front || !Q->rear) { // TODO-PRO:  explain [书上此处有误]
+		Q->front = Q->rear = newNode;
+	} else {
+		Q->rear->next = newNode;
+		Q->rear = newNode;
+		
+	}
+}
+
+int deQueue_list(struct ListQueue *Q) { // 取出第一个 unshift
+	int data;
+	struct ListNode *temp;
+	if (isEmptyQueue_list(Q)) {
+		printf("ListQueue is Empty\n");
+		return 0;
+	} else {
+		temp = Q->front;
+		data = temp->data;
+		Q->front = Q->front->next;
+		free(temp);
+	}
+	return data;
+}
+
+void deleteQueue_list(struct ListQueue * Q) { // 删除链表队列
+	struct ListNode *currentNode = Q->front, *nextNode;
+	if (Q) { // TODO-PRO:  explain [书上此处有误]
+		while (currentNode) {
+			nextNode = currentNode->next;
+			free(currentNode);
+			currentNode = nextNode;
+		}
+		free(Q);
+	}
+}
+
 //---------------------------------------------------------------------
 //                             测试函数
 //---------------------------------------------------------------------
 void queueTester(void) {
-	printf("hello in queueTester\n");
-	printf("5 %% 2 = %d\n", (5 % 2));
-	printf("-5 %% 2 = %d\n", (-5 % 2));
-	int a = 5;
+	
 }
