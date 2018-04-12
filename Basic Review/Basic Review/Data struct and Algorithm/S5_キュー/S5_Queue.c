@@ -31,16 +31,16 @@ struct ArrayQueue *Queue(int size); // 初始化
 int isEmptyQueue(struct ArrayQueue *Q); // 是否为空
 int isFullQueue(struct ArrayQueue *Q); // 是否已满
 int QueueSize(struct ArrayQueue *Q); // 获取大小
-int enQueue(struct ArrayQueue *Q, int data); // push元素
+void enQueue(struct ArrayQueue *Q, int data); // push元素
 int deQueue(struct ArrayQueue *Q); // unshift元素
-int deleteQueue(struct ArrayQueue *Q); // 删除整个队列
+void deleteQueue(struct ArrayQueue *Q); // 删除整个队列
 //------------------------------------------------
 //                   函数实现
 //------------------------------------------------
 struct ArrayQueue *Queue(int size) { // 初始化
 	struct ArrayQueue *Q = (struct ArrayQueue *)malloc(sizeof(struct ArrayQueue));
 	if (!Q) {
-		return NULL
+		return NULL;
 	}
 	Q->capacity = size;
 	Q->front = Q->rear = -1;
@@ -60,24 +60,52 @@ int isFullQueue(struct ArrayQueue *Q) { // 是否已满
 }
 
 int QueueSize(struct ArrayQueue *Q) { // 获取大小
-	return NULL;
+	// TODO-PRO: problem [p114  书上的括号里为什么要加Q->capacity?]
+	return (Q->rear - Q->front + 1) % Q->capacity;
 }
 
-int enQueue(struct ArrayQueue *Q, int data) { // push元素
-	return NULL;
+void enQueue(struct ArrayQueue *Q, int data) { // push元素
+	if (isFullQueue(Q)) {
+		printf("Queue Overflow");
+	} else {
+		Q->rear = (Q->rear + 1) % Q->capacity; // 0 ..< Q->capacity 之间
+		Q->array[Q->rear] = data;
+		if (Q->front == -1) {
+			Q->front = Q->rear;
+		}
+	}
 }
 
 int deQueue(struct ArrayQueue *Q) { // unshift元素
-	return NULL;
+	int data;
+	if (isEmptyQueue(Q)) {
+		printf("Queue is Empty\n");
+		return 0;
+	} else {
+		data = Q->array[Q->front];
+		if (Q->front == Q->rear) {
+			Q->front = Q->rear = -1;
+		} else {
+			Q->front = (Q->front + 1) % Q->capacity;
+		}
+		return 0;
+	}
 }
 
-int deleteQueue(struct ArrayQueue *Q) { // 删除整个队列
-	return NULL;
+void deleteQueue(struct ArrayQueue *Q) { // 删除整个队列
+	if (Q) {
+		if (Q->array) {
+			free(Q->array);
+		}
+		free(Q);
+	}
 }
 
 //---------------------------------------------------------------------
 //                             测试函数
 //---------------------------------------------------------------------
 void queueTester(void) {
-	printf("hello in queueTester\ns");
+	printf("hello in queueTester\n");
+	printf("5 %% 2 = %d\n", (5 % 2));
+	printf("-5 %% 2 = %d\n", (-5 % 2));
 }
