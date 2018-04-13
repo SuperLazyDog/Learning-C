@@ -28,6 +28,7 @@
 		49791D691EF4485A00355A29 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 49791D681EF4485A00355A29 /* main.c */; };
 		49791D791EF44CDF00355A29 /* test.c in Sources */ = {isa = PBXBuildFile; fileRef = 49791D771EF44CDF00355A29 /* test.c */; };
 		499AB81920781327008694D8 /* S5_Queue.c in Sources */ = {isa = PBXBuildFile; fileRef = 499AB81820781327008694D8 /* S5_Queue.c */; };
+		499AB8232080F1F5008694D8 /* S6_Tree.c in Sources */ = {isa = PBXBuildFile; fileRef = 499AB8222080F1F5008694D8 /* S6_Tree.c */; };
 		49CA0F2C1EF5250F006F0A71 /* Basic.c in Sources */ = {isa = PBXBuildFile; fileRef = 49CA0F2A1EF5250F006F0A71 /* Basic.c */; };
 		49CCF2961FF20670005E7119 /* AlgorithmPro.c in Sources */ = {isa = PBXBuildFile; fileRef = 49CCF2951FF20670005E7119 /* AlgorithmPro.c */; };
 		49CCF29A1FF21474005E7119 /* S3_List.c in Sources */ = {isa = PBXBuildFile; fileRef = 49CCF2991FF21474005E7119 /* S3_List.c */; };
@@ -88,6 +89,8 @@
 		49791D781EF44CDF00355A29 /* test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = test.h; sourceTree = "<group>"; };
 		499AB81720781327008694D8 /* S5_Queue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = S5_Queue.h; sourceTree = "<group>"; };
 		499AB81820781327008694D8 /* S5_Queue.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = S5_Queue.c; sourceTree = "<group>"; };
+		499AB8212080F1F5008694D8 /* S6_Tree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = S6_Tree.h; sourceTree = "<group>"; };
+		499AB8222080F1F5008694D8 /* S6_Tree.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = S6_Tree.c; sourceTree = "<group>"; };
 		49CA0F2A1EF5250F006F0A71 /* Basic.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Basic.c; sourceTree = "<group>"; };
 		49CA0F2B1EF5250F006F0A71 /* Basic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Basic.h; sourceTree = "<group>"; };
 		49CCF2941FF20670005E7119 /* AlgorithmPro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlgorithmPro.h; sourceTree = "<group>"; };
@@ -415,6 +418,8 @@
 		49CCF2A31FF21689005E7119 /* S6_木 */ = {
 			isa = PBXGroup;
 			children = (
+				499AB8212080F1F5008694D8 /* S6_Tree.h */,
+				499AB8222080F1F5008694D8 /* S6_Tree.c */,
 			);
 			path = "S6_木";
 			sourceTree = "<group>";
@@ -547,6 +552,7 @@
 				4936A2AB1F0BEA100043EC29 /* Sort.c in Sources */,
 				490A6DD71EF5EB820064A1C9 /* List.c in Sources */,
 				4936A2A41F09CF9A0043EC29 /* Recurse.c in Sources */,
+				499AB8232080F1F5008694D8 /* S6_Tree.c in Sources */,
 				49CCF29A1FF21474005E7119 /* S3_List.c in Sources */,
 				490A6DDB1EF610430064A1C9 /* Tree.c in Sources */,
 				490A6DCB1EF5C6660064A1C9 /* MemorySet.c in Sources */,

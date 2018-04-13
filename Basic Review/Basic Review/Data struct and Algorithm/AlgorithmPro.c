@@ -37,6 +37,10 @@ void AlgorithmProSelector(AlgorithmProItem item) {
 			queueTester();
             break;
         case s6:
+			puts("----------------------------------\n");
+			puts("             S6 树\n");
+			puts("----------------------------------\n");
+			treeTester();
             break;
         case s7:
             break;
