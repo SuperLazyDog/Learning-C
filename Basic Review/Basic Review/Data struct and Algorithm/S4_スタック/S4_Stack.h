@@ -21,4 +21,23 @@
 //---------------------------------------------------------------------
 void stackTester(void);
 
+
+// 20180510 为了树结构
+//------------------------------------------------
+//                    型声明
+//------------------------------------------------
+struct arrayStack {
+	int top; //开头的索引
+	int capacity; // 容量
+	int *array;
+};
+//------------------------------------------------
+//                   函数声明
+//------------------------------------------------
+struct arrayStack *createStack(void);// 创建堆
+int isEmptyStack(struct arrayStack *s); // 判断是否为空
+int isFullStack(struct arrayStack *s);// 判断是否已满
+void push(struct arrayStack *s, int data); // push
+int pop(struct arrayStack *s); //pop
+void deleteStack(struct arrayStack *s); // 删除堆
 #endif /* S4_Stack_h */
