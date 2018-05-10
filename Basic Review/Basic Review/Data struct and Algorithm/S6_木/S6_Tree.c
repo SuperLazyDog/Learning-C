@@ -7,7 +7,7 @@
 //
 
 #include "S6_Tree.h"
-
+#include <sys/queue.h>
 //---------------------------------------------------------------------
 //                            树   p123~208
 //---------------------------------------------------------------------
@@ -35,7 +35,7 @@ struct BinaryTreeNode {
 //---------------------------------------------------------------------
 // TODO-PRO: 为树设计合适的stack并实现
 //------------------------------------------------
-//                   DLR
+//                  前序遍历 DLR
 //------------------------------------------------
 // 递归版
 void preOrder(struct BinaryTreeNode *root) {
@@ -64,7 +64,7 @@ void preOrderNonRecursive(struct BinaryTreeNode *root) {
 }
 
 //------------------------------------------------
-// 					   LDR
+// 					　中序遍历 LDR
 //------------------------------------------------
 // 递归版
 void inOrder(struct BinaryTreeNode *root) {
@@ -94,7 +94,7 @@ void inOrderNonRecursive(struct BinaryTreeNode *root) {
 }
 
 //------------------------------------------------
-// 					   LRD
+// 					后序遍历 LRD
 //------------------------------------------------
 // 递归版
 void postOrder(struct BinaryTreeNode *root) {
@@ -105,6 +105,7 @@ void postOrder(struct BinaryTreeNode *root) {
 	}
 }
 // 非递归版 stack不兼容, 测试一定报错
+// TODO-PRO: 搞懂这里
 void postOrderNonRecursive(struct BinaryTreeNode *root) {
 	struct arrayStack *stack = createStack();
 	while (1) {
@@ -130,6 +131,42 @@ void postOrderNonRecursive(struct BinaryTreeNode *root) {
 		}
 		deleteStack(stack);
 	}
+}
+
+//------------------------------------------------
+// 					  层次遍历
+//------------------------------------------------
+// 层次遍历使用的queue
+struct S6_Queue {
+	int front, rear;
+	int capacity;
+	int *array;
+};
+struct S6_Queue *S6CreateQueue() {return NULL;}
+int S6IsEmptyQueue(struct S6_Queue *queue) { return rand()%2;}
+void S6EnQueue(struct BinaryTreeNode *data, struct S6_Queue *queue) {}
+struct BinaryTreeNode *S6DeQueue() { return NULL; }
+void S6DeleteQueue(struct S6_Queue *queue) {};
+// 层次遍历
+void levelOrder(struct BinaryTreeNode *root) {
+	struct S6_Queue *queue = S6CreateQueue();
+	struct BinaryTreeNode *temp;
+	if (root == NULL) {
+		return;
+	}
+	S6EnQueue(root, queue);
+	while (!S6IsEmptyQueue(queue)) {
+		temp = S6DeQueue();
+		// 处理当前node
+		if (temp->left) {
+			S6EnQueue(temp->left, queue);
+		}
+		if (temp->right) {
+			S6EnQueue(temp->right, queue);
+		}
+	}
+	S6DeleteQueue(queue);
+	
 }
 //---------------------------------------------------------------------
 //                             测试函数
