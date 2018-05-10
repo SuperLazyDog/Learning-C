@@ -26,6 +26,7 @@ void stackTester(void);
 //------------------------------------------------
 //                    型声明
 //------------------------------------------------
+#define PRO_STACK_SIZE_V1 100
 struct arrayStack {
 	int top; //开头的索引
 	int capacity; // 容量
