@@ -64,7 +64,7 @@ void preOrderNonRecursive(struct BinaryTreeNode *root) {
 }
 
 //------------------------------------------------
-// 					　中序遍历 LDR
+// 				  中序遍历 LDR
 //------------------------------------------------
 // 递归版
 void inOrder(struct BinaryTreeNode *root) {
@@ -156,8 +156,7 @@ void levelOrder(struct BinaryTreeNode *root) {
 	}
 	S6EnQueue(root, queue);
 	while (!S6IsEmptyQueue(queue)) {
-		temp = S6DeQueue();
-		// 处理当前node
+		temp = S6DeQueue(); // 处理当前node
 		if (temp->left) {
 			S6EnQueue(temp->left, queue);
 		}
@@ -166,7 +165,117 @@ void levelOrder(struct BinaryTreeNode *root) {
 		}
 	}
 	S6DeleteQueue(queue);
-	
+}
+
+//---------------------------------------------------------------------
+//                       6.7 N叉树 p152
+//---------------------------------------------------------------------
+// N叉树数据结构
+struct TreeNode {
+	int data;
+	struct TreeNode *firstChild; // 左侧子节点
+	struct TreeNode *nextSibling; // 同层次右边一个节点
+};
+
+//---------------------------------------------------------------------
+//                       6.8 线索二叉树
+//---------------------------------------------------------------------
+struct ThreadedBinaryTreeNode {
+	struct ThreadedBinaryTreeNode *left;
+	int LTag; // 0: 线索指针, 1: 子节点指针
+	int data;
+	int RTag;
+	struct ThreadedBinaryTreeNode *right;
+};
+//------------------------------------------------
+// 					中序遍历
+//------------------------------------------------
+// 搜索中序遍历的下一个节点
+struct ThreadedBinaryTreeNode *inOrderSuccessor(struct ThreadedBinaryTreeNode *p) {
+	struct ThreadedBinaryTreeNode *position;
+	if (p->RTag == 0) { // 右子节点不存在, 返回上层节点
+		return p->right;
+	} else { // 右侧子节点存在
+		position = p->right;
+		while (position->LTag == 1) {
+			position = position->left;
+		}
+		return position;
+	}
+}
+// dummy节点: RTag恒为1, right指向自身
+// 中序遍历
+// 方法1
+void inorderTraversal(struct ThreadedBinaryTreeNode *root) { // root是dummy节点
+	struct ThreadedBinaryTreeNode *current = inOrderSuccessor(root);
+	while (current != root) {
+		current = inOrderSuccessor(current);
+		printf("data: %d\n", current->data);
+	}
+}
+
+// 方法2
+void inorderTraversalV2(struct ThreadedBinaryTreeNode *root) {
+	struct ThreadedBinaryTreeNode *current = root;
+	while (1) {
+		if (current == root) {
+			return;
+		}
+		current = inOrderSuccessor(current);
+		printf("data: %d\n", current->data);
+	}
+}
+//------------------------------------------------
+// 					前序遍历
+//------------------------------------------------
+// 搜索前序遍历的下一个节点
+struct ThreadedBinaryTreeNode *preorderSuccessor(struct ThreadedBinaryTreeNode * p) {
+	if (p->LTag == 1) { // 左侧存在返回左子节点
+		return p->left;
+	} else { // 不存在返回右边最近的
+		return p->right;
+	}
+}
+// 前序遍历
+// 方法1
+void preorderTravesal(struct ThreadedBinaryTreeNode *root) { // root是dummy节点
+	struct ThreadedBinaryTreeNode *current = preorderSuccessor(root);
+	while (current != root) {
+		current = preorderSuccessor(current);
+		printf("data: %d\n", current->data);
+	}
+}
+// 方法2
+void preorderTravesalV2(struct ThreadedBinaryTreeNode *root) { // root是dummy节点
+	struct ThreadedBinaryTreeNode *current = root;
+	while (1) {
+		current = preorderSuccessor(current);
+		if (current == root) {
+			return;
+		}
+		printf("data: %d\n", current->data);
+	}
+}
+
+//------------------------------------------------
+// 			    插入节点(线索二叉树)
+//------------------------------------------------
+void insertRightInInorderThreadedBinaryTree(struct ThreadedBinaryTreeNode *location, struct ThreadedBinaryTreeNode *newNode) {
+	// TODO-PRO: 感觉书上这个有错
+	struct ThreadedBinaryTreeNode *temp;
+	newNode->RTag = location->RTag;
+	newNode->right = location->right;
+	newNode->left = location;
+	newNode->LTag = 0;
+	location->right = newNode;
+	location->RTag = 1;
+	if (newNode->RTag == 1) {
+		temp = newNode->right;
+		while (temp->left) {
+			temp = temp->left;
+		}
+		temp->left = newNode;
+	}
 }
 //---------------------------------------------------------------------
 //                             测试函数
