@@ -178,7 +178,7 @@ struct TreeNode {
 };
 
 //---------------------------------------------------------------------
-//                       6.8 线索二叉树
+//                       6.8 线索二叉树 p160
 //---------------------------------------------------------------------
 struct ThreadedBinaryTreeNode {
 	struct ThreadedBinaryTreeNode *left;
@@ -277,6 +277,52 @@ void insertRightInInorderThreadedBinaryTree(struct ThreadedBinaryTreeNode *locat
 		temp->left = newNode;
 	}
 }
+
+//---------------------------------------------------------------------
+//                       6.9 表达式木 p168
+//---------------------------------------------------------------------
+// 为了表现算法的虚构函数
+//struct S9Stack {
+//	int top; //开头的索引
+//	int capacity; // 容量
+//	struct BinaryTreeNode **data;
+//};
+//struct S9Stack *S9CreateStack(void);// 创建堆
+//int S9IsEmptyStack(struct S9Stack *s); // 判断是否为空
+//int S9IsFullStack(struct S9Stack *s);// 判断是否已满
+//void S9Push(struct S9Stack *s, struct BinaryTreeNode *data); // push
+//struct BinaryTreeNode *S9Pop(struct S9Stack *s); //pop
+//void S9DeleteStack(struct S9Stack *s); // 删除堆
+//// 判断是否是运算符
+//int isOperater(char chr);
+//// 表示式木
+//struct BinaryTreeNode *buildExpressionTree(char postfixExpression[], int size) {
+//	struct S9Stack *stack = S9CreateStack();
+//	for (int i = 0; i < size; i++) {
+//		if (!isOperater(postfixExpression[i])) {
+//			struct BinaryTreeNode *newNode = (struct BinaryTreeNode *)malloc(sizeof(struct BinaryTreeNode));
+//			if (!newNode) {
+//				printf("memory error\n");
+//				return NULL;
+//			}
+//			newNode->data = (int)postfixExpression[i]; // 为了不改变这个模板其他地方用到的BinaryTreeNode, 实际不用转换
+//			newNode->left = newNode->right = NULL;
+//			S9Push(stack, newNode);
+//		} else {
+//			struct BinaryTreeNode *t2 = S9Pop(stack), *t1 = S9Pop(stack);
+//			struct BinaryTreeNode *newNode = (struct BinaryTreeNode *)malloc(sizeof(struct BinaryTreeNode));
+//			if (!newNode) {
+//				printf("memory error\n");
+//				return NULL;
+//			}
+//			newNode->left = t1;
+//			newNode->right = t2;
+//			newNode->data = (int)postfixExpression[i];
+//			S9Push(stack, newNode);
+//		}
+//	}
+//	return stack;
+//}
 //---------------------------------------------------------------------
 //                             测试函数
 //---------------------------------------------------------------------
