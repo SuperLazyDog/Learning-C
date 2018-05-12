@@ -323,6 +323,239 @@ void insertRightInInorderThreadedBinaryTree(struct ThreadedBinaryTreeNode *locat
 //	}
 //	return stack;
 //}
+
+//---------------------------------------------------------------------
+//                       6.11 二叉搜索树 p172
+//---------------------------------------------------------------------
+//------------------------------------------------
+// 			    二叉搜索树节点声明
+//------------------------------------------------
+// 和普通二叉树没有区别
+struct BinarySearchTreeNode {
+	int data;
+	struct BinarySearchTreeNode *left;
+	struct BinarySearchTreeNode *right;
+};
+//------------------------------------------------
+// 			        搜索元素
+//------------------------------------------------
+// 方法1
+struct BinarySearchTreeNode *find(struct BinarySearchTreeNode *root, int data) {
+	if (root == NULL) {
+		return NULL;
+	}
+	if (data < root->data) {
+		return find(root->left, data);
+	} else if (data > root->data) {
+		return find(root->right, data);
+	} else {
+		return root;
+	}
+}
+
+// 方法2
+struct BinarySearchTreeNode *findV2(struct BinarySearchTreeNode *root, int data) {
+	while (root) {
+		if (data == root->data) {
+			return root;
+		} else if (data > root->data) {
+			root = root->right;
+		} else {
+			root = root->left;
+		}
+	}
+	return NULL;
+}
+
+// 个人方法
+struct BinarySearchTreeNode *findV3(struct BinarySearchTreeNode *root, int data) {
+	struct BinarySearchTreeNode *current = root;
+	if (root == NULL) {
+		return NULL;
+	}
+	while (1) {
+		if (data == current->data) {
+			return current;
+		} else if (data > current->data) {
+			current = current->right;
+		} else {
+			current = current->left;
+		}
+		if (current == NULL) {
+			return NULL;
+		}
+	}
+}
+
+//------------------------------------------------
+// 			        搜索最小元素
+//------------------------------------------------
+// 递归版
+struct BinarySearchTreeNode *findMin(struct BinarySearchTreeNode *root) {
+	if (root == NULL) {
+		return NULL;
+	}
+	if (root->left) {
+		return findMin(root->left);
+	} else {
+		return root;
+	}
+}
+// 非递归版
+struct BinarySearchTreeNode *findMinV2(struct BinarySearchTreeNode *root) {
+	if (root == NULL) {
+		return NULL;
+	}
+	while (root->left) {
+		root = root->left;
+	}
+	return root;
+}
+
+struct BinarySearchTreeNode *findMinV3(struct BinarySearchTreeNode *root) {
+	if (root == NULL) {
+		return NULL;
+	}
+	while (1) {
+		if (root->left) {
+			root = root->left;
+		} else {
+			break;
+		}
+	}
+	return root;
+}
+
+//------------------------------------------------
+// 			        搜索最大元素
+//------------------------------------------------
+// 递归版
+struct BinarySearchTreeNode *findMax(struct BinarySearchTreeNode *root) {
+	if (root == NULL) {
+		return NULL;
+	}
+	if (root->right == NULL) {
+		return root;
+	} else {
+		return findMax(root->right);
+	}
+}
+// 非递归版
+struct BinarySearchTreeNode *findMaxV2(struct BinarySearchTreeNode *root) {
+	if (root == NULL) {
+		return NULL;
+	}
+	while (root->right) {
+		root = root->right;
+	}
+	return root;
+}
+
+struct BinarySearchTreeNode *findMaxV3(struct BinarySearchTreeNode *root) {
+	if (root == NULL) {
+		return NULL;
+	}
+	while (1) {
+		if (root->right) {
+			root = root->right;
+		} else {
+			return root;
+		}
+	}
+}
+
+//------------------------------------------------
+// 			        插入元素
+//------------------------------------------------
+// 递归版
+struct BinarySearchTreeNode *insert(struct BinarySearchTreeNode *root, int data) {
+	if (root == NULL) { // 树不存在则新建树
+		root = (struct BinarySearchTreeNode *)malloc(sizeof(struct BinarySearchTreeNode));
+		if (root == NULL) { // 生成树失败
+			return NULL;
+		}
+		root->data = data;
+		root->left = root->right = NULL;
+		return root;
+	} else {
+		if (data < root->data) {
+			root->left = insert(root->left, data);
+		} else if (data > root->data) {
+			root->right = insert(root->right, data);
+		}
+	}
+	return root;
+}
+
+// 非递归版
+struct BinarySearchTreeNode *insertV2(struct BinarySearchTreeNode *root, int data) {
+	if (root == NULL) {
+		root = (struct BinarySearchTreeNode *)malloc(sizeof(struct BinarySearchTreeNode));
+		if (root == NULL) {
+			return NULL;
+		}
+		root->data = data;
+		root->left = root->right = NULL;
+		return root;
+	} else {
+		struct BinarySearchTreeNode *current = root;
+		while (1) {
+			if (data > current->data) {
+				if (current->right) {
+					current = current->right;
+				} else {
+					current->right = (struct BinarySearchTreeNode *)malloc(sizeof(struct BinarySearchTreeNode));
+					current->right->data = data;
+					current->right->left = current->right->right = NULL;
+					return root;
+				}
+			} else if (data < current->data) {
+				if (current->left) {
+					current = current->left;
+				} else {
+					current->left = (struct BinarySearchTreeNode *)malloc(sizeof(struct BinarySearchTreeNode));
+					current->left->data = data;
+					current->left->left = current->left->right = NULL;
+					return root;
+				}
+			}
+		}
+	}
+}
+//------------------------------------------------
+// 			       删除元素
+//------------------------------------------------
+// 递归版
+struct BinarySearchTreeNode *delete(struct BinarySearchTreeNode *root, int data) {
+	struct BinarySearchTreeNode *temp;
+	if (root == NULL) {
+		return NULL;
+	}
+	if (data < root->data) {
+		root->left = delete(root->left, data);
+	} else if (data > root->data) {
+		root->right = delete(root->right, data);
+	} else { // 找到了需要删除的元素
+		if (root->left && root->right) { // 子节点有两个
+			//可以把用左侧最大或右侧最小替代当前元素
+			temp = findMax(root);
+			root->data = temp -> data;
+			root->left = delete(root->left, root->data);
+		} else if (!root->left && !root->right) { // 子节点0个
+			temp = root;
+			free(temp);
+		} else { // 子节点1个
+			if (root->left == NULL) {
+				root = root->right;
+			} else if (root->right == NULL) {
+				root = root->left;
+			}
+			temp = root;
+			free(temp);
+		}
+	}
+	return root;
+}
 //---------------------------------------------------------------------
 //                             测试函数
 //---------------------------------------------------------------------
