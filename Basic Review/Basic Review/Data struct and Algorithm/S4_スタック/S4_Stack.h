@@ -17,7 +17,7 @@
 #include <stdlib.h>
 #include <limits.h>
 //---------------------------------------------------------------------
-//               	数据结构与算法 第四章 堆  p81~109
+//               	数据结构与算法 第四章 栈  p81~109
 //---------------------------------------------------------------------
 void stackTester(void);
 
@@ -35,10 +35,10 @@ struct arrayStack {
 //------------------------------------------------
 //                   函数声明
 //------------------------------------------------
-struct arrayStack *createStack(void);// 创建堆
+struct arrayStack *createStack(void);// 创建栈
 int isEmptyStack(struct arrayStack *s); // 判断是否为空
 int isFullStack(struct arrayStack *s);// 判断是否已满
 void push(struct arrayStack *s, int data); // push
 int pop(struct arrayStack *s); //pop
-void deleteStack(struct arrayStack *s); // 删除堆
+void deleteStack(struct arrayStack *s); // 删除栈
 #endif /* S4_Stack_h */
