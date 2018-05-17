@@ -43,6 +43,10 @@ void AlgorithmProSelector(AlgorithmProItem item) {
 			treeTester();
             break;
         case s7:
+			puts("----------------------------------\n");
+			puts("             S7 优先队列与堆\n");
+			puts("----------------------------------\n");
+			heapTester();
             break;
         case s8:
             break;

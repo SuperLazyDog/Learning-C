@@ -87,7 +87,8 @@ void algorithmProRunner() {
 //	AlgorithmProSelector(s3); // 第三章 链表
 //	AlgorithmProSelector(s4); // 第四章 堆
 //	AlgorithmProSelector(s5); // 第五章 序列
-	AlgorithmProSelector(s6); // 第六章 树
+//	AlgorithmProSelector(s6); // 第六章 树
+	AlgorithmProSelector(s7); // 第七章 优先队列与堆
 }
 
 //---------------------------------------------------------------------------
