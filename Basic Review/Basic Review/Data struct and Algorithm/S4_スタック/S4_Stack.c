@@ -9,7 +9,7 @@
 #include "S4_Stack.h"
 
 //---------------------------------------------------------------------
-//                            堆 p81
+//                            栈 p81
 //---------------------------------------------------------------------
 //---------------------------------------------------------------------
 //                       4.5.1 单纯数组实现 p83
@@ -18,35 +18,36 @@
 //------------------------------------------------
 //                    型声明
 //------------------------------------------------
-#define PRO_STACK_SIZE_V1 100
-struct arrayStack {
-	int top; //开头的索引
-	int capacity; // 容量
-	int *array;
-};
+//#define PRO_STACK_SIZE_V1 100
+// 20180510 为了树结构的遍历，移到头文件
+//struct arrayStack {
+//	int top; //开头的索引
+//	int capacity; // 容量
+//	int *array;
+//};
 //------------------------------------------------
 //                   函数声明
 //------------------------------------------------
-struct arrayStack *createStack(void);// 创建堆
+struct arrayStack *createStack(void);// 创建栈
 int isEmptyStack(struct arrayStack *s); // 判断是否为空
 int isFullStack(struct arrayStack *s);// 判断是否已满
 void push(struct arrayStack *s, int data); // push
 int pop(struct arrayStack *s); //pop
-void deleteStack(struct arrayStack *s); // 删除堆
+void deleteStack(struct arrayStack *s); // 删除栈
 //------------------------------------------------
 //                   函数实现
 //------------------------------------------------
-struct arrayStack *createStack() { // 创建堆
+struct arrayStack *createStack() { // 创建栈
 	struct arrayStack *s = (struct arrayStack *)malloc(sizeof(struct arrayStack));
 	if (s == NULL) {
-		puts("单纯数组版,堆初始化失败");
+		puts("单纯数组版,栈初始化失败");
 		return NULL;
 	}
 	s->capacity = PRO_STACK_SIZE_V1;
 	s->top = -1;
 	s->array = malloc(s->capacity * sizeof(int));
 	if (s->array == NULL) {
-		puts("单纯数组版, 堆数据初始化失败");
+		puts("单纯数组版, 栈数据初始化失败");
 		return NULL;
 	}
 	return s;
@@ -62,7 +63,7 @@ int isFullStack(struct arrayStack *s) { // 判断是否已满
 
 void push(struct arrayStack *s, int data) { // push
 	if (isFullStack(s)) {
-		puts("堆已满");
+		puts("栈已满");
 		return;
 	} else {
 		s->array[++s->top] = data; //插入到最后一个的后面
@@ -71,14 +72,14 @@ void push(struct arrayStack *s, int data) { // push
 
 int pop(struct arrayStack *s) { //pop
 	if (isEmptyStack(s)) {
-		puts("堆为空");
+		puts("栈为空");
 		return 0;
 	}else {
 		return s->array[s->top--]; // 返回最后一个并把top-1
 	}
 }
 
-void deleteStack(struct arrayStack *s) { // 删除堆
+void deleteStack(struct arrayStack *s) { // 删除栈
 	if (s) {
 		if (s->array) {
 			free(s->array);
@@ -103,18 +104,18 @@ struct dynArrayStack {
 //------------------------------------------------
 //                   函数声明
 //------------------------------------------------
-struct dynArrayStack *createStackDyn(void);// 创建堆
+struct dynArrayStack *createStackDyn(void);// 创建栈
 int isEmptyStackDyn(struct dynArrayStack *s); // 判断是否为空
 int isFullStackDyn(struct dynArrayStack *s);// 判断是否已满
-void doubleStackDyn(struct dynArrayStack *s); // 双倍堆数据容量
+void doubleStackDyn(struct dynArrayStack *s); // 双倍栈数据容量
 void pushDyn(struct dynArrayStack *s, int data); // push
 int topDyn(struct dynArrayStack *s); // top 查看最后一个元素
 int popDyn(struct dynArrayStack *s); //pop
-void deleteStackDyn(struct dynArrayStack *s); // 删除堆
+void deleteStackDyn(struct dynArrayStack *s); // 删除栈
 //------------------------------------------------
 //                   函数实现
 //------------------------------------------------
-struct dynArrayStack *createStackDyn(void) { // 创建堆
+struct dynArrayStack *createStackDyn(void) { // 创建栈
 	struct dynArrayStack *s = (struct dynArrayStack *)malloc(sizeof(struct dynArrayStack));
 	if (s == NULL) {
 		puts("动态数组版, 初始化失败");
@@ -124,7 +125,7 @@ struct dynArrayStack *createStackDyn(void) { // 创建堆
 	s->top = -1;
 	s->array = (int *)malloc(s->capacity * sizeof(int));
 	if (s->array == NULL) {
-		puts("动态数组版，堆数据初始化失败");
+		puts("动态数组版，栈数据初始化失败");
 		return NULL;
 	}
 	return s;
@@ -135,11 +136,11 @@ int isEmptyStackDyn(struct dynArrayStack *s) { // 判断是否为空
 int isFullStackDyn(struct dynArrayStack *s) { // 判断是否已满
 	return (s->top == s->capacity-1);
 }
-void doubleStackDyn(struct dynArrayStack *s) { // 双倍堆数据容量
+void doubleStackDyn(struct dynArrayStack *s) { // 双倍栈数据容量
 	s->capacity = s->capacity*2;
 	s->array = realloc(s->array, s->capacity);
 	if (s->array == NULL) {
-		puts("动态数组版，加长堆容量失败");
+		puts("动态数组版，加长栈容量失败");
 		return;
 	}
 }
@@ -162,7 +163,7 @@ int popDyn(struct dynArrayStack *s) { // pop
 	}
 	return s->array[s->top--];
 }
-void deleteStackDyn(struct dynArrayStack *s) { // 删除堆
+void deleteStackDyn(struct dynArrayStack *s) { // 删除栈
 	if (s) {
 		if (s->array) {
 			free(s->array);
@@ -191,7 +192,7 @@ int isEmptyStackList(struct listNodeStack *s); // 判断是否为空
 void pushList(struct listNodeStack **s, int data); // push
 int topList(struct listNodeStack *s); // top 查看最后一个元素
 int popList(struct listNodeStack **s); //pop
-void deleteStackList(struct listNodeStack **s); // 删除堆
+void deleteStackList(struct listNodeStack **s); // 删除栈
 //------------------------------------------------
 //                   函数实现
 //------------------------------------------------
@@ -228,7 +229,7 @@ int popList(struct listNodeStack **s) { //pop
 	return data;
 	
 }
-void deleteStackList(struct listNodeStack **s) { // 删除堆
+void deleteStackList(struct listNodeStack **s) { // 删除栈
 	struct listNodeStack *current, *temp;
 	current = *s;
 	while (current) {
