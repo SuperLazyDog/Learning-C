@@ -66,7 +66,7 @@ int buildNumBasedOnQueue(int *queue, int length) {
 		result += queue[i]*n;
 		n *= 10;
 	}
-	printf("%d\n", result);
+//	printf("%d\n", result);
 	return result;
 }
 
