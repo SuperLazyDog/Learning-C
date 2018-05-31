@@ -25,6 +25,7 @@
 		4940AFCE1F02EA3B0044BC3E /* Stack.c in Sources */ = {isa = PBXBuildFile; fileRef = 4940AFCC1F02EA3B0044BC3E /* Stack.c */; };
 		4940AFD21F040A220044BC3E /* LoadData.c in Sources */ = {isa = PBXBuildFile; fileRef = 4940AFD01F040A220044BC3E /* LoadData.c */; };
 		4940AFD51F043A310044BC3E /* Queue.c in Sources */ = {isa = PBXBuildFile; fileRef = 4940AFD31F043A310044BC3E /* Queue.c */; };
+		494E397D20C0714100AC545F /* S8_set.c in Sources */ = {isa = PBXBuildFile; fileRef = 494E397C20C0714100AC545F /* S8_set.c */; };
 		494F765D20AE08630055B9AA /* S7_heap.c in Sources */ = {isa = PBXBuildFile; fileRef = 494F765C20AE08630055B9AA /* S7_heap.c */; };
 		49791D691EF4485A00355A29 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 49791D681EF4485A00355A29 /* main.c */; };
 		49791D791EF44CDF00355A29 /* test.c in Sources */ = {isa = PBXBuildFile; fileRef = 49791D771EF44CDF00355A29 /* test.c */; };
@@ -84,6 +85,8 @@
 		4940AFD11F040A220044BC3E /* LoadData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadData.h; sourceTree = "<group>"; };
 		4940AFD31F043A310044BC3E /* Queue.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Queue.c; sourceTree = "<group>"; };
 		4940AFD41F043A310044BC3E /* Queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Queue.h; sourceTree = "<group>"; };
+		494E397B20C0714100AC545F /* S8_set.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = S8_set.h; sourceTree = "<group>"; };
+		494E397C20C0714100AC545F /* S8_set.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = S8_set.c; sourceTree = "<group>"; };
 		494F765B20AE08630055B9AA /* S7_heap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = S7_heap.h; sourceTree = "<group>"; };
 		494F765C20AE08630055B9AA /* S7_heap.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = S7_heap.c; sourceTree = "<group>"; };
 		49791D651EF4485A00355A29 /* Basic Review */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Basic Review"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -458,6 +461,8 @@
 		49CCF2A81FF2168A005E7119 /* S8_お互いに素な集合ADT */ = {
 			isa = PBXGroup;
 			children = (
+				494E397B20C0714100AC545F /* S8_set.h */,
+				494E397C20C0714100AC545F /* S8_set.c */,
 			);
 			path = "S8_お互いに素な集合ADT";
 			sourceTree = "<group>";
@@ -563,6 +568,7 @@
 				490A6DDB1EF610430064A1C9 /* Tree.c in Sources */,
 				490A6DCB1EF5C6660064A1C9 /* MemorySet.c in Sources */,
 				490A6DF81EF6E0B90064A1C9 /* Hash.c in Sources */,
+				494E397D20C0714100AC545F /* S8_set.c in Sources */,
 				490A6DFC1EF7089B0064A1C9 /* SampleDataStruct.c in Sources */,
 				49072C02200F932500B6EC22 /* CBD.c in Sources */,
 				49791D691EF4485A00355A29 /* main.c in Sources */,

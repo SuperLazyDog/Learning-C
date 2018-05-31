@@ -88,7 +88,8 @@ void algorithmProRunner() {
 //	AlgorithmProSelector(s4); // 第四章 堆
 //	AlgorithmProSelector(s5); // 第五章 序列
 //	AlgorithmProSelector(s6); // 第六章 树
-	AlgorithmProSelector(s7); // 第七章 优先队列与堆
+//	AlgorithmProSelector(s7); // 第七章 优先队列与堆
+	AlgorithmProSelector(s8); // 第八章 互素集合
 }
 
 //---------------------------------------------------------------------------

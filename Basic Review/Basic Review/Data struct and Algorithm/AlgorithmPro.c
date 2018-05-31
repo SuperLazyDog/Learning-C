@@ -49,6 +49,10 @@ void AlgorithmProSelector(AlgorithmProItem item) {
 			heapTester();
             break;
         case s8:
+			puts("----------------------------------\n");
+			puts("             S8 互素集合\n");
+			puts("----------------------------------\n");
+			setTester();
             break;
         default:
             break;

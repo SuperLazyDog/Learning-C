@@ -22,6 +22,7 @@
 #include "S5_Queue.h"
 #include "S6_Tree.h"
 #include "S7_heap.h"
+#include "S8_set.h"
 
 typedef enum AlgorithmPro {
     s1, s2, s3, s4, s5, s6, s7, s8, s9, s10
