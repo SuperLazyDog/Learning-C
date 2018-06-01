@@ -54,6 +54,12 @@ void AlgorithmProSelector(AlgorithmProItem item) {
 			puts("----------------------------------\n");
 			setTester();
             break;
+		case s9:
+			puts("----------------------------------\n");
+			puts("             S9 图论算法\n");
+			puts("----------------------------------\n");
+			graphTester();
+			break;
         default:
             break;
     }
