@@ -127,6 +127,71 @@ struct ListGraph *adjListOfGraph() { // 无向图
 	}
 	return G;
 }
+
+//---------------------------------------------------------------------
+//                        9.5   图的遍历
+//---------------------------------------------------------------------
+//------------------------------------------------
+//                深度优先搜索  DFS
+//------------------------------------------------
+int visited[128]; // 实际只需要点的数量的长度
+// 状态: 1: 已访问     0: 未访问
+// 邻接矩阵的DFS
+void depthFirstSearch(struct Graph *g, int u) {
+	int v;
+	visited[u] = 1;
+	printf("%d visited\n", u); // 访问中的处理
+	for (v = 0; v <g->v; v++) {
+		// 对点u连接的未访问的节点进行访问
+		if (visited[v] == 0 && g->adj[u][v] != 0) { // 节点并未访问且u和v连接
+			depthFirstSearch(g, v); // 从v出发
+		}
+	}
+}
+
+void depthFirstSearchTraversal(struct Graph *g) {
+	int i;
+	for (i = 0; i < g->v; i++) { // 初始化访问表
+		visited[i] = 0;
+	}
+	// 有不通的子连接图时需要
+	for (i = 0; i < g->v; i++) {
+		if (visited[i] == 0) {
+			depthFirstSearch(g, i); // 一次呼出直接遍历完i可到的所有点
+		}
+	}
+}
+
+// 邻接链表的DFS
+void depthFirstSearch_List(struct ListGraph *g, int u) {
+	struct S9ListNode *temp = g->adj[u].next;
+	visited[u] = 1;
+	printf("%d visited\n", u); // 访问中的处理
+	while (temp != &g->adj[u]) {
+		if (visited[temp->vertexNumber] == 0) {
+			depthFirstSearch_List(g, temp->vertexNumber);
+		}
+		temp = temp->next;
+	}
+	
+}
+
+void depthFirstSearchTraversal_List(struct ListGraph *g) {
+	int i;
+	for (i = 0; i < g->v; i++) { // 初始化访问表
+		visited[i] = 0;
+	}
+	// 有不通的子连接图时需要
+	for (i = 0; i < g->v; i++) {
+		if (visited[i] == 0) {
+			depthFirstSearch_List(g, i); // 一次呼出直接遍历完i可到的所有点
+		}
+	}
+}
+//------------------------------------------------
+//                宽度优先搜索  BFS
+//------------------------------------------------
+
 //---------------------------------------------------------------------
 //                             测试函数
 //---------------------------------------------------------------------
@@ -137,9 +202,12 @@ void graphTester() {
 	// 邻接矩阵的创建测试
 //	struct Graph *g = adjMatrixOfGraph();
 //	showMatrixGraph(g);
+//	depthFirstSearchTraversal(g);
+	
 	// 邻接链表的创建测试
 	struct ListGraph *listGraph = adjListOfGraph();
 	showListGraph(listGraph);
+	depthFirstSearchTraversal_List(listGraph);
 }
 
 void showMatrixGraph(struct Graph *g) { // 展示邻接矩阵图
