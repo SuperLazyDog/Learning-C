@@ -191,7 +191,126 @@ void depthFirstSearchTraversal_List(struct ListGraph *g) {
 //------------------------------------------------
 //                宽度优先搜索  BFS
 //------------------------------------------------
+struct S9QueueNode {
+	int data;
+	struct S9QueueNode *next;
+};
+struct S9Queue {
+	struct S9QueueNode *front;
+};
 
+struct S9Queue *S9CreateQueue() {
+	struct S9Queue *q = (struct S9Queue *)malloc(sizeof(struct S9Queue));
+	if (q == NULL) {
+		return NULL;
+	}
+	q->front = NULL;
+	return q;
+}
+
+int S9DeQueue(struct S9Queue *queue) {
+	if (queue==NULL) {
+		return -1;
+	}
+	if (queue->front == NULL) {
+		return -1;
+	}
+	struct S9QueueNode *temp = queue->front;
+	if (queue->front == NULL) {
+		return -1;
+	}
+	int data = temp->data;
+	queue->front = queue->front->next;
+	free(temp);
+	return data;
+}
+void S9EnQueue(struct S9Queue *queue, int data) {
+	if (queue == NULL) {
+		queue = (struct S9Queue *)malloc(sizeof(struct S9Queue));
+	}
+	struct S9QueueNode *newNode = (struct S9QueueNode *)malloc(sizeof(struct S9QueueNode));
+	struct S9QueueNode *temp = queue->front;
+	newNode->next = NULL;
+	newNode->data = data;
+	if (temp == NULL) {
+		queue->front = newNode;
+	} else {
+		while (temp->next != NULL) {
+			temp = temp->next;
+		}
+		temp->next = newNode;
+	}
+}
+
+void S9FreeQueue(struct S9Queue *q) {
+	if (q == NULL) {
+		return;
+	}
+	if (q->front != NULL) {
+		struct S9QueueNode *temp = q->front, *temp2;
+		while (temp != NULL) {
+			temp2 = temp;
+			temp = temp->next;
+			free(temp2);
+		}
+	}
+	free(q);
+}
+
+int S9IsEmptyQueue(struct S9Queue *queue) { // true: 1, false: 0
+	if (queue == NULL) {
+		return 1;
+	}
+	int result = queue->front == NULL ? 1 : 0;
+	return result;
+}
+void S9ShowQueue(struct S9Queue *q) {
+	if (q == NULL) {
+		printf("queue is null\n");
+		return;
+	}
+	if (q->front == NULL) {
+		printf("queue has no data\n");
+		return;
+	}
+	struct S9QueueNode *temp = q->front;
+	int count = 0;
+	while (temp) {
+		printf("[%d]: %d ", count, temp->data);
+		temp = temp->next;
+		count++;
+	}
+	puts("");
+}
+
+int visited_bfs[128];
+void breadthFirstSearch(struct Graph *g, int u) { // 矩阵
+	int count = 0, i;
+	struct S9Queue *queue = S9CreateQueue();
+	S9EnQueue(queue, u);
+	while (!S9IsEmptyQueue(queue)) {
+		int u = S9DeQueue(queue);
+		printf("顶点[%d]: %d\n", count, u);
+		count++;
+		visited_bfs[u] = 1;
+		for (i=0; i<g->v; i++) {
+			if (g->adj[u][i] == 1 && visited_bfs[i] == 0) {
+				S9EnQueue(queue, i);
+			}
+		}
+	}
+	S9FreeQueue(queue);
+}
+void breadthFirstSearchTravsal(struct Graph *g) {
+	for (int i=0; i<128; i++) {
+		visited_bfs[i] = 0;
+	}
+	for (int i = 0; i<g->v; i++) {
+		if (visited_bfs[i] == 0) {
+			breadthFirstSearch(g, i);
+		}
+	}
+}
 //---------------------------------------------------------------------
 //                             测试函数
 //---------------------------------------------------------------------
@@ -199,15 +318,37 @@ void showMatrixGraph(struct Graph *g); // 展示邻接矩阵图
 void showListGraph(struct ListGraph *g); // 展示邻居链表图
 
 void graphTester() {
+	//----------------------------------------------------
 	// 邻接矩阵的创建测试
-//	struct Graph *g = adjMatrixOfGraph();
-//	showMatrixGraph(g);
-//	depthFirstSearchTraversal(g);
+	//----------------------------------------------------
+	struct Graph *g = adjMatrixOfGraph();
+	showMatrixGraph(g);
+//	puts("//   深度优先探索");
+//	depthFirstSearchTraversal(g); // 深度优先探索
+	puts("//   宽度优先探索");
+	breadthFirstSearchTravsal(g); // 宽度优先探索
 	
+	//----------------------------------------------------
 	// 邻接链表的创建测试
-	struct ListGraph *listGraph = adjListOfGraph();
-	showListGraph(listGraph);
-	depthFirstSearchTraversal_List(listGraph);
+	//----------------------------------------------------
+//	struct ListGraph *listGraph = adjListOfGraph();
+//	showListGraph(listGraph);
+//	depthFirstSearchTraversal_List(listGraph);
+	
+	//----------------------------------------------------
+	//链表测试
+	//----------------------------------------------------
+//	struct S9Queue *queue = S9CreateQueue();
+//	srand((unsigned int)time(NULL));
+//	for (int i = 0; i<50; i++) {
+//		S9EnQueue(queue, i);
+//	}
+//	S9ShowQueue(queue);
+//	for (int i = 0; i<50; i++) {
+//		printf("dequeue: %d\n", S9DeQueue(queue));
+//	}
+//	S9ShowQueue(queue);
+//	S9FreeQueue(queue);
 }
 
 void showMatrixGraph(struct Graph *g) { // 展示邻接矩阵图
