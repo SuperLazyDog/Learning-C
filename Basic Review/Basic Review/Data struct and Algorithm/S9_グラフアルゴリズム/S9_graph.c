@@ -311,32 +311,125 @@ void breadthFirstSearchTravsal(struct Graph *g) {
 		}
 	}
 }
+
+//---------------------------------------------------------------------
+//                      9.6   拓扑排序 p258~259
+//---------------------------------------------------------------------
+// TODO-PRO: add [补充拓扑排序]
+
+//---------------------------------------------------------------------
+//                      9.7   最短路线 p259~266
+//---------------------------------------------------------------------
+//------------------------------------------------
+//             	 不带加权的图
+//------------------------------------------------
+int distant[128];
+int path[128];
+int S9DeleteMin(struct S9Queue *queue, struct Graph *g , int base) {
+	if (queue == NULL || queue->front == NULL) {
+		return 0;
+	}
+	struct S9QueueNode *temp = queue->front;
+	int min = g->adj[base][temp->data], tempNum, minIndex = temp->data;
+	temp = temp->next;
+	while (temp!=NULL) {
+		tempNum = g->adj[base][temp->data];
+		if (min < 0 && tempNum >= 0) {
+			min = tempNum;
+			minIndex = temp->data;
+		}
+		if (min >= tempNum && (tempNum > 0)) {
+			min = tempNum;
+			minIndex = temp->data;
+		}
+	}
+	return minIndex;
+}
+
+
+void unweightedShortestPath(struct Graph *g, int s) { // 邻接矩阵版
+	struct S9Queue *queue = S9CreateQueue();
+	int v, w;
+	S9EnQueue(queue, s);
+	for (int i = 0; i<g->v; i++) {
+		distant[i] = -1;
+		path[i] = -1; // 起点为-1
+	}
+	distant[s] = 0;
+	while(!S9IsEmptyQueue(queue)) {
+		v = S9DeQueue(queue);
+		for (w = 0; w<g->v; w++) {
+			if (g->adj[v][w] != 0 && distant[w] == -1) {
+				S9EnQueue(queue, w);
+				distant[w] = distant[v] + 1;
+				path[w] = v;
+			}
+		}
+	}
+	S9FreeQueue(queue);
+}
+
+//------------------------------------------------
+//            不带负加权的图 迪杰斯特拉算法
+//------------------------------------------------
+void dijkstra(struct Graph *g, int s) {
+	struct S9Queue *queue = S9CreateQueue(); // 优先队列
+	int v, w;
+	S9EnQueue(queue, s);
+	for (int i = 0 ; i<g->v; i++) {
+		distant[i] = -1; // -1 表示还没处理
+	}
+	distant[s] = 0; // 自己到自己的距离为0
+	while (!S9IsEmptyQueue(queue)) {
+		v = S9DeQueue(queue); // TODO-PRO: fix here [这里要改成以距离为排序的DeleteMin]
+		for (w = 0; w<g->v; w++) {
+			if (g->adj[v][w] != 0) { // v -> w 直接相同
+				int newDistant = distant[v] + g->adj[v][w]; // 新距离
+				printf("distant[v]: %d\n", distant[v]);
+				if (distant[w] == -1) {
+					distant[w] = newDistant;
+					S9EnQueue(queue, w);
+					path[w] = v;
+				} else if (newDistant < distant[w]) {
+					distant[w] = newDistant;
+					path[w] = v;
+					// 更新w
+					S9EnQueue(queue, w);
+				}
+			}
+		}
+	}
+}
 //---------------------------------------------------------------------
 //                             测试函数
 //---------------------------------------------------------------------
 void showMatrixGraph(struct Graph *g); // 展示邻接矩阵图
 void showListGraph(struct ListGraph *g); // 展示邻居链表图
+void showS9Array(int ary[], int length, char *name); // 展示数组
 
 void graphTester() {
 	//----------------------------------------------------
-	// 邻接矩阵的创建测试
+	// 					邻接矩阵的测试
 	//----------------------------------------------------
 	struct Graph *g = adjMatrixOfGraph();
 	showMatrixGraph(g);
 //	puts("//   深度优先探索");
 //	depthFirstSearchTraversal(g); // 深度优先探索
 	puts("//   宽度优先探索");
-	breadthFirstSearchTravsal(g); // 宽度优先探索
-	
+//	breadthFirstSearchTravsal(g); // 宽度优先探索
+//	unweightedShortestPath(g, 0);
+	dijkstra(g, 0);
+	showS9Array(distant, 5, "distant");
+	showS9Array(path, 5, "path");
 	//----------------------------------------------------
-	// 邻接链表的创建测试
+	// 					邻接链表的测试
 	//----------------------------------------------------
 //	struct ListGraph *listGraph = adjListOfGraph();
 //	showListGraph(listGraph);
 //	depthFirstSearchTraversal_List(listGraph);
 	
 	//----------------------------------------------------
-	//链表测试
+	// 					   链表测试
 	//----------------------------------------------------
 //	struct S9Queue *queue = S9CreateQueue();
 //	srand((unsigned int)time(NULL));
@@ -391,4 +484,17 @@ void showListGraph(struct ListGraph *g) { // 展示邻居链表图
 		}
 		puts("");
 	}
+}
+
+void showS9Array(int ary[], int length, char *name) { // 展示数组
+	int columns = 6, j=0;
+	for (int i = 0; i<length; i++) {
+		printf("%s[%d]: %d\t", name, i, ary[i]);
+		j++;
+		if (j==columns) {
+			puts("");
+			j=0;
+		}
+	}
+	puts("");
 }
