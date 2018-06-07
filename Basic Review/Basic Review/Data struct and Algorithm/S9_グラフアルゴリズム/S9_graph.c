@@ -325,25 +325,51 @@ void breadthFirstSearchTravsal(struct Graph *g) {
 //------------------------------------------------
 int distant[128];
 int path[128];
-int S9DeleteMin(struct S9Queue *queue, struct Graph *g , int base) {
+int S9DeleteMin(struct S9Queue *queue) {
+	// 获取已经设定了值的里面最小的
 	if (queue == NULL || queue->front == NULL) {
 		return 0;
 	}
 	struct S9QueueNode *temp = queue->front;
-	int min = g->adj[base][temp->data], tempNum, minIndex = temp->data;
-	temp = temp->next;
-	while (temp!=NULL) {
-		tempNum = g->adj[base][temp->data];
-		if (min < 0 && tempNum >= 0) {
-			min = tempNum;
-			minIndex = temp->data;
+	int current, currentIndex, minIndex=-1, min=-1, i=0, index=0;
+	int hasBeenInited = 0;
+	while (temp != NULL) {
+		currentIndex = temp->data;
+		current = distant[currentIndex];
+		if (current < 0) {
+			break;
 		}
-		if (min >= tempNum && (tempNum > 0)) {
-			min = tempNum;
-			minIndex = temp->data;
+		if (hasBeenInited == 0) {
+			index = i;
+			min = current;
+			minIndex = currentIndex;
+			hasBeenInited = 1;
+		} else {
+			if (min>current) {
+				index = i;
+				min = current;
+				minIndex = currentIndex;
+			}
 		}
+		temp = temp->next;
+		i++;
 	}
-	return minIndex;
+	printf("result: %d\n", hasBeenInited ? minIndex : -1);
+	if (hasBeenInited) {
+		temp = queue->front;
+		if (index == 0) {
+			temp = queue->front;
+			free(temp);
+			queue->front = NULL;
+		} else {
+			temp = &queue->front[index-1];
+			temp->next = &queue->front[index+1];
+			free(&queue->front[index]);
+		}
+		
+		
+	}
+	return hasBeenInited ? minIndex : -1;
 }
 
 
@@ -381,7 +407,8 @@ void dijkstra(struct Graph *g, int s) {
 	}
 	distant[s] = 0; // 自己到自己的距离为0
 	while (!S9IsEmptyQueue(queue)) {
-		v = S9DeQueue(queue); // TODO-PRO: fix here [这里要改成以距离为排序的DeleteMin]
+//		v = S9DeQueue(queue); // TODO-PRO: fix here [这里要改成以距离为排序的DeleteMin]
+		v = S9DeleteMin(queue);
 		for (w = 0; w<g->v; w++) {
 			if (g->adj[v][w] != 0) { // v -> w 直接相同
 				int newDistant = distant[v] + g->adj[v][w]; // 新距离
@@ -400,6 +427,37 @@ void dijkstra(struct Graph *g, int s) {
 		}
 	}
 }
+
+//------------------------------------------------
+//                贝尔曼-福特算法(可带负权)
+//------------------------------------------------
+void bellmanFord(struct Graph *g, int s) {
+	struct S9Queue *queue = S9CreateQueue();
+	int v, w;
+	S9EnQueue(queue, s);
+	for (int i = 0; i<128; i++) {
+		distant[i] = INT_MAX; // 初始值为无限大(其实有限)
+	}
+	distant[s] = 0;
+	while (!S9IsEmptyQueue(queue)) {
+		v = S9DeQueue(queue);
+		for (w = 0; w < g->v; w++) {
+			int weight = g->adj[v][w];
+			if (weight != 0) { // v -> w 有通路
+				if (distant[v] + weight < distant[w]) {
+					distant[w] = distant[v] + weight; // 更新最小距离
+					path[w] = v;
+					S9EnQueue(queue, w);
+				}
+			}
+		}
+	}
+}
+
+//---------------------------------------------------------------------
+//                    9.8   最小全域木 p266~271
+//---------------------------------------------------------------------
+// TODO-PRO: add [最小全域木]
 //---------------------------------------------------------------------
 //                             测试函数
 //---------------------------------------------------------------------
@@ -415,12 +473,13 @@ void graphTester() {
 	showMatrixGraph(g);
 //	puts("//   深度优先探索");
 //	depthFirstSearchTraversal(g); // 深度优先探索
-	puts("//   宽度优先探索");
+//	puts("//   宽度优先探索");
 //	breadthFirstSearchTravsal(g); // 宽度优先探索
-//	unweightedShortestPath(g, 0);
-	dijkstra(g, 0);
-	showS9Array(distant, 5, "distant");
-	showS9Array(path, 5, "path");
+//	unweightedShortestPath(g, 0); // 无加权最短路径算法
+//	dijkstra(g, 0); // 迪杰斯特拉算法
+//	bellmanFord(g, 0); // 贝尔曼福特算法
+//	showS9Array(distant, 5, "distant");
+//	showS9Array(path, 5, "path");
 	//----------------------------------------------------
 	// 					邻接链表的测试
 	//----------------------------------------------------
