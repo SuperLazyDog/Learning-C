@@ -10,7 +10,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-int main(void) {
+int main_20180605(void) {
 	char fname[128];
 	FILE *fp;
 	int chr, count[52], i;
@@ -38,5 +38,5 @@ int main(void) {
 			printf("%c  %d\n", i+39, count[i]);
 		}
 	}
-	
+	return 0;
 }
