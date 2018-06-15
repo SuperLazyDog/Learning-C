@@ -11,6 +11,9 @@
 		4908393E20C61B0E00338C5F /* sample.txt in Sources */ = {isa = PBXBuildFile; fileRef = 4908393D20C61B0E00338C5F /* sample.txt */; };
 		4908394120CF53D700338C5F /* a.c in Sources */ = {isa = PBXBuildFile; fileRef = 4908394020CF53D700338C5F /* a.c */; };
 		4908394320CF549F00338C5F /* b.c in Sources */ = {isa = PBXBuildFile; fileRef = 4908394220CF549F00338C5F /* b.c */; };
+		493EF35220D3CC8F00FA06D4 /* SKReport1Main.c in Sources */ = {isa = PBXBuildFile; fileRef = 493EF35120D3CC8F00FA06D4 /* SKReport1Main.c */; };
+		493EF35520D3CD5B00FA06D4 /* Matricx.c in Sources */ = {isa = PBXBuildFile; fileRef = 493EF35420D3CD5B00FA06D4 /* Matricx.c */; };
+		493EF35720D3D23800FA06D4 /* sample.c in Sources */ = {isa = PBXBuildFile; fileRef = 493EF35620D3D23800FA06D4 /* sample.c */; };
 		494F766B20BCE0680055B9AA /* sub_main.c in Sources */ = {isa = PBXBuildFile; fileRef = 494F766A20BCE0680055B9AA /* sub_main.c */; };
 		49FBC7C120BCFC6900710B33 /* 20180529main.c in Sources */ = {isa = PBXBuildFile; fileRef = 49FBC7C020BCFC6900710B33 /* 20180529main.c */; };
 /* End PBXBuildFile section */
@@ -32,6 +35,10 @@
 		4908393D20C61B0E00338C5F /* sample.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = sample.txt; sourceTree = "<group>"; };
 		4908394020CF53D700338C5F /* a.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = a.c; sourceTree = "<group>"; };
 		4908394220CF549F00338C5F /* b.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = b.c; sourceTree = "<group>"; };
+		493EF35120D3CC8F00FA06D4 /* SKReport1Main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = SKReport1Main.c; sourceTree = "<group>"; };
+		493EF35320D3CD5B00FA06D4 /* Matricx.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Matricx.h; sourceTree = "<group>"; };
+		493EF35420D3CD5B00FA06D4 /* Matricx.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = Matricx.c; sourceTree = "<group>"; };
+		493EF35620D3D23800FA06D4 /* sample.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = sample.c; sourceTree = "<group>"; };
 		494F766720BCE0680055B9AA /* School */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = School; sourceTree = BUILT_PRODUCTS_DIR; };
 		494F766A20BCE0680055B9AA /* sub_main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = sub_main.c; sourceTree = "<group>"; };
 		49FBC7C020BCFC6900710B33 /* 20180529main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = 20180529main.c; sourceTree = "<group>"; };
@@ -75,6 +82,36 @@
 			path = 20180612;
 			sourceTree = "<group>";
 		};
+		493EF34E20D3CC0B00FA06D4 /* プログラミング基礎pk */ = {
+			isa = PBXGroup;
+			children = (
+				4908393F20CF53BA00338C5F /* 20180612 */,
+				4908393920C6172400338C5F /* 20180605 */,
+				4908393820C616FE00338C5F /* 20180529 */,
+			);
+			name = "プログラミング基礎pk";
+			path = "プログラミング基礎";
+			sourceTree = "<group>";
+		};
+		493EF34F20D3CC2200FA06D4 /* 数値解析sk */ = {
+			isa = PBXGroup;
+			children = (
+				493EF35020D3CC3000FA06D4 /* report 1 */,
+			);
+			path = "数値解析sk";
+			sourceTree = "<group>";
+		};
+		493EF35020D3CC3000FA06D4 /* report 1 */ = {
+			isa = PBXGroup;
+			children = (
+				493EF35120D3CC8F00FA06D4 /* SKReport1Main.c */,
+				493EF35320D3CD5B00FA06D4 /* Matricx.h */,
+				493EF35420D3CD5B00FA06D4 /* Matricx.c */,
+				493EF35620D3D23800FA06D4 /* sample.c */,
+			);
+			path = "report 1";
+			sourceTree = "<group>";
+		};
 		494F765E20BCE0680055B9AA = {
 			isa = PBXGroup;
 			children = (
@@ -94,9 +131,8 @@
 		494F766920BCE0680055B9AA /* School */ = {
 			isa = PBXGroup;
 			children = (
-				4908393F20CF53BA00338C5F /* 20180612 */,
-				4908393920C6172400338C5F /* 20180605 */,
-				4908393820C616FE00338C5F /* 20180529 */,
+				493EF34F20D3CC2200FA06D4 /* 数値解析sk */,
+				493EF34E20D3CC0B00FA06D4 /* プログラミング基礎pk */,
 			);
 			path = School;
 			sourceTree = "<group>";
@@ -157,11 +193,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				493EF35720D3D23800FA06D4 /* sample.c in Sources */,
 				4908394320CF549F00338C5F /* b.c in Sources */,
 				49FBC7C120BCFC6900710B33 /* 20180529main.c in Sources */,
+				493EF35520D3CD5B00FA06D4 /* Matricx.c in Sources */,
 				4908393C20C6176500338C5F /* 20180605_01.c in Sources */,
 				4908394120CF53D700338C5F /* a.c in Sources */,
 				494F766B20BCE0680055B9AA /* sub_main.c in Sources */,
+				493EF35220D3CC8F00FA06D4 /* SKReport1Main.c in Sources */,
 				4908393E20C61B0E00338C5F /* sample.txt in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

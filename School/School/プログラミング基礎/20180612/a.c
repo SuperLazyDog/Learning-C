@@ -17,7 +17,7 @@ int gcd(int a, int b) {
 	}
 }
 
-int main(void)
+int main_pk20180615(void)
 {
 	printf("%d\n", gcd(48, 24));
 	printf("%d\n", gcd(36, 54));
