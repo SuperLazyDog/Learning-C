@@ -86,8 +86,8 @@ void m_m_mul3(double **a, double **b, double **c, int n, int m, int s, int l)
 		for (j=0; j<s/l; j++) {
 			for (k=0; k<m/l; k++) {
 				for (i1=0; i1<l; i1++) {
-					for (k1=0; k1<l; k1++) {
-						for (j1=0; j1<l; j1++) {
+					for (j1=0; j1<l; j1++) {
+						for (k1=0; k1<l; k1++) {
 							c[i*l+i1][j*l+j1] += a[i*l+i1][k*l+k1] * b[k*l+k1][j*l+j1];
 						}
 					}

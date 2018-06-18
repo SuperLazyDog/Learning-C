@@ -58,7 +58,6 @@
 		4908393820C616FE00338C5F /* 20180529 */ = {
 			isa = PBXGroup;
 			children = (
-				49FBC7C020BCFC6900710B33 /* 20180529main.c */,
 				494F766A20BCE0680055B9AA /* sub_main.c */,
 			);
 			path = 20180529;
@@ -85,6 +84,7 @@
 		493EF34E20D3CC0B00FA06D4 /* プログラミング基礎pk */ = {
 			isa = PBXGroup;
 			children = (
+				493EF35820D710F600FA06D4 /* report */,
 				4908393F20CF53BA00338C5F /* 20180612 */,
 				4908393920C6172400338C5F /* 20180605 */,
 				4908393820C616FE00338C5F /* 20180529 */,
@@ -108,6 +108,22 @@
 				493EF35320D3CD5B00FA06D4 /* Matricx.h */,
 				493EF35420D3CD5B00FA06D4 /* Matricx.c */,
 				493EF35620D3D23800FA06D4 /* sample.c */,
+			);
+			path = "report 1";
+			sourceTree = "<group>";
+		};
+		493EF35820D710F600FA06D4 /* report */ = {
+			isa = PBXGroup;
+			children = (
+				493EF35920D7112B00FA06D4 /* report 1 */,
+			);
+			path = report;
+			sourceTree = "<group>";
+		};
+		493EF35920D7112B00FA06D4 /* report 1 */ = {
+			isa = PBXGroup;
+			children = (
+				49FBC7C020BCFC6900710B33 /* 20180529main.c */,
 			);
 			path = "report 1";
 			sourceTree = "<group>";

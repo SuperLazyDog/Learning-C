@@ -17,9 +17,9 @@
 
 void test(int n);
 //int main_SK20180612() {
-int main(void) {
+int main_2018_06_15_b(void) {
 	puts("formatter: n time1 time 2 time3");
-	int n[] = {10, 50, 100, 200, 400, 600, 1200, 2400};
+	int n[] = {30, 80, 150, 300, 600, 1500, 2500};
 	for (int i = 0; i<sizeof(n)/sizeof(int); i++) {
 		test(n[i]);
 	}
