@@ -18,7 +18,7 @@ int *buildNumQueueBasedOnNum(int num, int length); // 数字からqueueを取得
 void compareQueue(int *queueA, int *queueB, int length); // queueの比較
 
 
-int main() {
+int main_20180618() {
 	int *targetQueue = getRandomNumQueue(DIGITS_LENGTH), *inputQueue;
 	int targetNum = buildNumBasedOnQueue(targetQueue, DIGITS_LENGTH);
 	int inputNum, times = 0;

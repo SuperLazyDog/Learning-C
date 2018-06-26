@@ -14,7 +14,10 @@
 		493EF35220D3CC8F00FA06D4 /* SKReport1Main.c in Sources */ = {isa = PBXBuildFile; fileRef = 493EF35120D3CC8F00FA06D4 /* SKReport1Main.c */; };
 		493EF35520D3CD5B00FA06D4 /* Matricx.c in Sources */ = {isa = PBXBuildFile; fileRef = 493EF35420D3CD5B00FA06D4 /* Matricx.c */; };
 		493EF35720D3D23800FA06D4 /* sample.c in Sources */ = {isa = PBXBuildFile; fileRef = 493EF35620D3D23800FA06D4 /* sample.c */; };
+		493EF35E20D8903900FA06D4 /* a.c in Sources */ = {isa = PBXBuildFile; fileRef = 493EF35D20D8903900FA06D4 /* a.c */; };
+		493EF36020D891F700FA06D4 /* date.txt in Sources */ = {isa = PBXBuildFile; fileRef = 493EF35F20D891F700FA06D4 /* date.txt */; };
 		494F766B20BCE0680055B9AA /* sub_main.c in Sources */ = {isa = PBXBuildFile; fileRef = 494F766A20BCE0680055B9AA /* sub_main.c */; };
+		49AE215620E1CE1500423946 /* a.c in Sources */ = {isa = PBXBuildFile; fileRef = 49AE215520E1CE1500423946 /* a.c */; };
 		49FBC7C120BCFC6900710B33 /* 20180529main.c in Sources */ = {isa = PBXBuildFile; fileRef = 49FBC7C020BCFC6900710B33 /* 20180529main.c */; };
 /* End PBXBuildFile section */
 
@@ -39,8 +42,11 @@
 		493EF35320D3CD5B00FA06D4 /* Matricx.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Matricx.h; sourceTree = "<group>"; };
 		493EF35420D3CD5B00FA06D4 /* Matricx.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = Matricx.c; sourceTree = "<group>"; };
 		493EF35620D3D23800FA06D4 /* sample.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = sample.c; sourceTree = "<group>"; };
+		493EF35D20D8903900FA06D4 /* a.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = a.c; sourceTree = "<group>"; };
+		493EF35F20D891F700FA06D4 /* date.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = date.txt; sourceTree = "<group>"; };
 		494F766720BCE0680055B9AA /* School */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = School; sourceTree = BUILT_PRODUCTS_DIR; };
 		494F766A20BCE0680055B9AA /* sub_main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = sub_main.c; sourceTree = "<group>"; };
+		49AE215520E1CE1500423946 /* a.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = a.c; sourceTree = "<group>"; };
 		49FBC7C020BCFC6900710B33 /* 20180529main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = 20180529main.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,6 +91,8 @@
 			isa = PBXGroup;
 			children = (
 				493EF35820D710F600FA06D4 /* report */,
+				49AE215420E1CDFD00423946 /* 20180626 */,
+				493EF35C20D8901D00FA06D4 /* 20180619 */,
 				4908393F20CF53BA00338C5F /* 20180612 */,
 				4908393920C6172400338C5F /* 20180605 */,
 				4908393820C616FE00338C5F /* 20180529 */,
@@ -128,6 +136,15 @@
 			path = "report 1";
 			sourceTree = "<group>";
 		};
+		493EF35C20D8901D00FA06D4 /* 20180619 */ = {
+			isa = PBXGroup;
+			children = (
+				493EF35D20D8903900FA06D4 /* a.c */,
+				493EF35F20D891F700FA06D4 /* date.txt */,
+			);
+			path = 20180619;
+			sourceTree = "<group>";
+		};
 		494F765E20BCE0680055B9AA = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +168,14 @@
 				493EF34E20D3CC0B00FA06D4 /* プログラミング基礎pk */,
 			);
 			path = School;
+			sourceTree = "<group>";
+		};
+		49AE215420E1CDFD00423946 /* 20180626 */ = {
+			isa = PBXGroup;
+			children = (
+				49AE215520E1CE1500423946 /* a.c */,
+			);
+			path = 20180626;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -216,6 +241,9 @@
 				4908393C20C6176500338C5F /* 20180605_01.c in Sources */,
 				4908394120CF53D700338C5F /* a.c in Sources */,
 				494F766B20BCE0680055B9AA /* sub_main.c in Sources */,
+				493EF36020D891F700FA06D4 /* date.txt in Sources */,
+				493EF35E20D8903900FA06D4 /* a.c in Sources */,
+				49AE215620E1CE1500423946 /* a.c in Sources */,
 				493EF35220D3CC8F00FA06D4 /* SKReport1Main.c in Sources */,
 				4908393E20C61B0E00338C5F /* sample.txt in Sources */,
 			);
