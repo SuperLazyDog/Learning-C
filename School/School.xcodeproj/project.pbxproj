@@ -11,6 +11,8 @@
 		4908393E20C61B0E00338C5F /* sample.txt in Sources */ = {isa = PBXBuildFile; fileRef = 4908393D20C61B0E00338C5F /* sample.txt */; };
 		4908394120CF53D700338C5F /* a.c in Sources */ = {isa = PBXBuildFile; fileRef = 4908394020CF53D700338C5F /* a.c */; };
 		4908394320CF549F00338C5F /* b.c in Sources */ = {isa = PBXBuildFile; fileRef = 4908394220CF549F00338C5F /* b.c */; };
+		49350D4E2162FA30003F264F /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 49350D4D2162FA30003F264F /* main.c */; };
+		49350D522162FA7D003F264F /* 20181002.c in Sources */ = {isa = PBXBuildFile; fileRef = 49350D512162FA7D003F264F /* 20181002.c */; };
 		493EF35220D3CC8F00FA06D4 /* SKReport1Main.c in Sources */ = {isa = PBXBuildFile; fileRef = 493EF35120D3CC8F00FA06D4 /* SKReport1Main.c */; };
 		493EF35520D3CD5B00FA06D4 /* Matricx.c in Sources */ = {isa = PBXBuildFile; fileRef = 493EF35420D3CD5B00FA06D4 /* Matricx.c */; };
 		493EF35720D3D23800FA06D4 /* sample.c in Sources */ = {isa = PBXBuildFile; fileRef = 493EF35620D3D23800FA06D4 /* sample.c */; };
@@ -38,6 +40,9 @@
 		4908393D20C61B0E00338C5F /* sample.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = sample.txt; sourceTree = "<group>"; };
 		4908394020CF53D700338C5F /* a.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = a.c; sourceTree = "<group>"; };
 		4908394220CF549F00338C5F /* b.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = b.c; sourceTree = "<group>"; };
+		49350D4D2162FA30003F264F /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		49350D502162FA7D003F264F /* 20181002.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = 20181002.h; sourceTree = "<group>"; };
+		49350D512162FA7D003F264F /* 20181002.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = 20181002.c; sourceTree = "<group>"; };
 		493EF35120D3CC8F00FA06D4 /* SKReport1Main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = SKReport1Main.c; sourceTree = "<group>"; };
 		493EF35320D3CD5B00FA06D4 /* Matricx.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Matricx.h; sourceTree = "<group>"; };
 		493EF35420D3CD5B00FA06D4 /* Matricx.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = Matricx.c; sourceTree = "<group>"; };
@@ -87,10 +92,20 @@
 			path = 20180612;
 			sourceTree = "<group>";
 		};
+		49350D4F2162FA59003F264F /* 20181002 */ = {
+			isa = PBXGroup;
+			children = (
+				49350D502162FA7D003F264F /* 20181002.h */,
+				49350D512162FA7D003F264F /* 20181002.c */,
+			);
+			path = 20181002;
+			sourceTree = "<group>";
+		};
 		493EF34E20D3CC0B00FA06D4 /* プログラミング基礎pk */ = {
 			isa = PBXGroup;
 			children = (
 				493EF35820D710F600FA06D4 /* report */,
+				49350D4F2162FA59003F264F /* 20181002 */,
 				49AE215420E1CDFD00423946 /* 20180626 */,
 				493EF35C20D8901D00FA06D4 /* 20180619 */,
 				4908393F20CF53BA00338C5F /* 20180612 */,
@@ -105,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				493EF35020D3CC3000FA06D4 /* report 1 */,
+				49AE215920F8524000423946 /* report 2 */,
 			);
 			path = "数値解析sk";
 			sourceTree = "<group>";
@@ -164,6 +180,7 @@
 		494F766920BCE0680055B9AA /* School */ = {
 			isa = PBXGroup;
 			children = (
+				49350D4D2162FA30003F264F /* main.c */,
 				493EF34F20D3CC2200FA06D4 /* 数値解析sk */,
 				493EF34E20D3CC0B00FA06D4 /* プログラミング基礎pk */,
 			);
@@ -176,6 +193,13 @@
 				49AE215520E1CE1500423946 /* a.c */,
 			);
 			path = 20180626;
+			sourceTree = "<group>";
+		};
+		49AE215920F8524000423946 /* report 2 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "report 2";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,6 +258,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49350D4E2162FA30003F264F /* main.c in Sources */,
+				49350D522162FA7D003F264F /* 20181002.c in Sources */,
 				493EF35720D3D23800FA06D4 /* sample.c in Sources */,
 				4908394320CF549F00338C5F /* b.c in Sources */,
 				49FBC7C120BCFC6900710B33 /* 20180529main.c in Sources */,

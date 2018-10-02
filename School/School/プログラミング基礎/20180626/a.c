@@ -7,15 +7,14 @@
 //
 
 #include <stdio.h>
-
-int main(void)
+#include <math.h>
+int main_20180626(void)
 {
 	int a[10000];
 	int n, i, j, carry, tmp;
 	
 	a[0] = 1;
 	n = 1;
-	
 	for (i=2; i<=1000; i++) {
 		carry = 0;
 		tmp = 0;
